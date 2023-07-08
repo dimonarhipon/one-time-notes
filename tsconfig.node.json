@@ -1,10 +1,14 @@
 {
   "compilerOptions": {
+    "target": "es2021",
     "composite": true,
     "skipLibCheck": true,
     "module": "ESNext",
-    "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true
-  },
-  "include": ["vite.config.ts"]
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": false
+	},
+  "include": ["vite.config.ts"],
+	"exclude": [
+    "node_modules"
+  ]
 }
