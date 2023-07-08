@@ -3,4 +3,3 @@ yarn.lock
 package-lock.json
 public
 dist
-.eslintrc.cjs

@@ -7,6 +7,6 @@
   "trailingComma": "all",
   "singleAttributePerLine": false,
   "arrowParens": "always",
-  "singleQuote": false,
-  "jsxSingleQuote": false
+  "singleQuote": true,
+  "jsxSingleQuote": true
 }
