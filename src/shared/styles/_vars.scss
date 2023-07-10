@@ -1,28 +1,28 @@
-$white: "#FFFFFF";
-$white-90t: "#FFFFFFE5";
+$white: #ffffff;
+$white-90t: #ffffffe5;
 
-$main: "#151515";
-$pink: "#FF9090";
-$dark-pink: "#905454";
-$green: "#D4FF90";
-$blue: "#90CAFF";
+$main: #151515;
+$pink: #ff9090;
+$dark-pink: #905454;
+$green: #d4ff90;
+$blue: #90caff;
 
 $breakpoints: (
     small: (
-        max-width: 320px,
+        max-width: 320px
     ),
     mobile: (
-        max-width: 480px,
+        max-width: 560px
     ),
     tablet: (
-        max-width: 768px,
+        max-width: 768px
     ),
     desktop: (
-        max-width: 1024px,
+        max-width: 1024px
     ),
     large: (
-        max-width: 1200px,
-    ),
+        max-width: 1200px
+    )
 );
 
 @mixin respond-to($breakpoint) {
