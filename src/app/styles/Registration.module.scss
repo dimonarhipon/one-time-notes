@@ -1,0 +1,47 @@
+@use '../../shared/styles/vars' as *;
+
+body {
+    background-color: $main;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.registrationForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 471px;
+    height: 373px;
+    border-radius: 20px;
+
+    background-color: #fff;
+    padding: 45px 60px;
+}
+
+.fromInput {
+    padding: 15px;
+    margin: 10px 0px;
+
+    width: 350px;
+    height: 60px;
+    border-radius: 10px;
+}
+
+.formButton {
+    margin: 10px 0px;
+    padding: 15px;
+
+    width: 350px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    background-color: $green;
+    font-family: inherit;
+}
