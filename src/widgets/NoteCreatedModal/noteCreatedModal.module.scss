@@ -1,0 +1,38 @@
+@import "@/shared/styles/vars";
+
+.modal {
+    position: relative;
+    width: 868px;
+    height: 148px;
+    margin: 0 auto;
+    padding: 20px 85px 49px 85px;
+    border-radius: 26px;
+    background: $white;
+}
+
+.title {
+    color: $main;
+    font-family: Overpass;
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+.icon {
+    position: absolute;
+    top: 20px;
+    right: 290px;
+    cursor: pointer;
+}
+
+.link {
+    margin-top: 30px;
+    color: rgba($color: $main, $alpha: .8);
+    font-family: Overpass;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}

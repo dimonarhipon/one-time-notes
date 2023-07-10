@@ -1,0 +1,15 @@
+
+.button {
+    display: block;
+    width: 350px;
+    height: 60px;
+    margin: 25px auto 0px auto;
+    font-family: Overpass;
+    font-size: 20px;
+    line-height: 25px;
+    border: none;
+    border-radius: 20px;
+    background: var(--green, #D4FF90);
+    color: #000;
+    cursor: pointer;    
+}

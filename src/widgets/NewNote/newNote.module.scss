@@ -1,0 +1,47 @@
+@import "@/shared/styles/vars.scss";
+
+.modal {
+    position: relative;
+    width: 724px;
+    height: 255px;
+    margin: 290px auto 290px auto;
+    padding: 20px 20px 40px 20px;
+    background-color: $white;
+    border-radius: 26px;
+    font-family: Overpass;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.title {
+    color: $main;
+    text-align: center;
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 400;
+}
+
+.iconClose {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.textarea {
+    display: block;
+    width: 604px;
+    height: 56px;
+    margin: 20px auto 0px auto;
+    padding: 0px 15px;
+    color: rgba($color: $main, $alpha: .6);
+    border-radius: 20px;
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+    line-height: 24px;
+    &:focus {
+        outline: 1px solid rgba($color: $main, $alpha: .2);
+        color: $main;
+    }
+}
