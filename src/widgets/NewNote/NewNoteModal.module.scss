@@ -2,15 +2,12 @@
 
 .modal {
     position: relative;
-    width: 724px;
-    height: 255px;
-    margin: 290px auto 290px auto;
-    padding: 20px 20px 40px 20px;
+    max-width: 724px;
+    min-height: 255px;
+    margin: auto;
+    padding: 20px;
     background-color: $white;
     border-radius: 26px;
-    font-family: Overpass;
-    font-style: normal;
-    font-weight: 400;
 }
 
 .title {
@@ -18,28 +15,37 @@
     text-align: center;
     font-size: 24px;
     line-height: 30px;
-    font-weight: 400;
+    font-family: Overpass;
 }
 
-.iconClose {
+.btnClose {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    border: none;
     cursor: pointer;
 }
 
-.textarea {
+.form {
     display: block;
-    width: 604px;
-    height: 56px;
+    width: 100%;
+    height: 50%;
     margin: 20px auto 0px auto;
-    padding: 0px 15px;
+}
+
+.textarea {
+    width: 100%;
+    height: 100%;
+    padding: 10px 15px 0 15px;
     color: rgba($color: $main, $alpha: .6);
     border-radius: 20px;
     border: none;
     background-color: transparent;
     font-size: 20px;
     line-height: 24px;
+    resize: none;
+    font-family: Overpass;
     &:focus {
         outline: 1px solid rgba($color: $main, $alpha: .2);
         color: $main;

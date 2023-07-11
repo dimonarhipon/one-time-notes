@@ -1,4 +1,4 @@
-import styles from './button.module.scss';
+import styles from './Button.module.scss';
 
 const Button = () => {
     return (
@@ -8,7 +8,7 @@ const Button = () => {
         >
             Создать
         </button>
-    )
-}
+    );
+};
 
 export default Button;
