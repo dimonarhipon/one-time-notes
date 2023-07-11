@@ -1,14 +1,11 @@
 @use '../../shared/styles/vars' as *;
 
-body {
-    background-color: $main;
-}
-
 .container {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background-color: $main;
 }
 
 .registrationForm {
@@ -18,7 +15,6 @@ body {
     justify-content: center;
 
     width: 471px;
-    height: 373px;
     border-radius: 20px;
 
     background-color: #fff;
@@ -31,7 +27,12 @@ body {
 
     width: 350px;
     height: 60px;
-    border-radius: 10px;
+    border-radius: 20px;
+
+    font-family: Overpass;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0em;
 }
 
 .formButton {
@@ -40,8 +41,19 @@ body {
 
     width: 350px;
     height: 60px;
-    border-radius: 10px;
+    border-radius: 20px;
     border: none;
     background-color: $green;
-    font-family: inherit;
+
+    font-family: Overpass;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0em;
+    
+    cursor: pointer;
+}
+
+.validErorrSpan {
+    color: red;
+    text-align: center;
 }

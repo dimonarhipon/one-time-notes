@@ -3,4 +3,5 @@ export type inputFormTypes = {
     name: string,
     type: string,
     setInputParam: (username: string) => void,
+    isValidForm: (formValue:string , validPattern:RegExp, formName: string) => void,
 };
