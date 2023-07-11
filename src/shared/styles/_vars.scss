@@ -1,41 +1,48 @@
-$white: #FFFFFF;
-$white-90t: #FFFFFFE5;
+$white: #ffffff;
+$white-90t: #ffffffe5;
 
 $main: #151515;
-$pink: #FF9090;
+$pink: #ff9090;
 $dark-pink: #905454;
-$green: #D4FF90;
-$blue: #90CAFF;
+$green: #d4ff90;
+$blue: #90caff;
+
+$small: 'small';
+$mobile: 'mobile';
+$tablet: 'tablet';
+$desktop: 'desktop';
+$large: 'large';
+
 
 $breakpoints: (
-    small: (
-        max-width: 320px,
-    ),
-    mobile: (
-        max-width: 480px,
-    ),
-    tablet: (
-        max-width: 768px,
-    ),
-    desktop: (
-        max-width: 1024px,
-    ),
-    large: (
-        max-width: 1200px,
-    ),
+	small: (
+		max-width: 320px,
+	),
+	mobile: (
+		max-width: 560px,
+	),
+	tablet: (
+		max-width: 768px,
+	),
+	desktop: (
+		max-width: 1024px,
+	),
+	large: (
+		max-width: 1200px,
+	),
 );
 
 @mixin respond-to($breakpoint) {
-    $raw-query: map-get($breakpoints, $breakpoint);
+	$raw-query: map-get($breakpoints, $breakpoint);
 
-    @if $raw-query {
-        $query: if(type-of($raw-query) == "string", unquote($raw-query), inspect($raw-query));
+	@if $raw-query {
+		$query: if(type-of($raw-query) == 'string', unquote($raw-query), inspect($raw-query));
 
-        @media #{$query} {
-            @content;
-        }
-    } @else {
-        @error 'Не указано значение для `#{$breakpoint}`. '
+		@media #{$query} {
+			@content;
+		}
+	} @else {
+		@error 'Не указано значение для `#{$breakpoint}`. '
          + 'Пожалуйста, убедитесь, что точка останова объявлена в карте `$breakpoints`.';
-    }
+	}
 }
