@@ -1,13 +1,13 @@
 import styles from './addButton.module.scss';
 import addIcon from './img/addNote.svg';
 
-interface AddButtonProps {
+type AddButtonProps = {
 	callback: () => void;
-}
+};
 
-const AddButton = (props: AddButtonProps) => {
+const AddButton = ({ callback }: AddButtonProps) => {
 	return (
-		<div className={styles.add} onClick={props.callback}>
+		<div className={styles.add} onClick={callback}>
 			<img src={addIcon} alt='Добавить заметку' />
 		</div>
 	);

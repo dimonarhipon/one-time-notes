@@ -1,17 +1,17 @@
 import styles from './noteButton.module.scss';
-import { NoteButtonProps } from '@/widgets/NoteButton/INoteButton';
+import { NoteButtonProps } from './NoteButtonType';
 
-export function NoteButton(props: NoteButtonProps) {
+const NoteButton = ({ note, active, callback }: NoteButtonProps) => {
 	return (
 		<div
-			className={props.active ? [styles.note, styles.active].join(' ') : styles.note}
-			id={props.note.noteId}
-			onClick={props.callback}
+			className={active ? [styles.note, styles.active].join(' ') : styles.note}
+			id={note.noteId}
+			onClick={callback}
 		>
-			<h3 className={styles.title}>{props.note.noteTitle}</h3>
-			<p className={styles.date}>{props.note.noteDate}</p>
+			<h3 className={styles.title}>{note.noteTitle}</h3>
+			<p className={styles.date}>{note.noteDate}</p>
 		</div>
 	);
-}
+};
 
 export default NoteButton;

@@ -3,7 +3,7 @@ import searchIcon from './img/search.svg';
 
 const Search = () => {
 	return (
-		<form className={styles.search}>
+		<div className={styles.search}>
 			<input type='text' className={styles.searchInput} placeholder='Найти заметку...' />
 			<button
 				className={styles.searchButton}
@@ -15,7 +15,7 @@ const Search = () => {
 			>
 				<img className={styles.searchIcon} src={searchIcon} alt='Поиск' />
 			</button>
-		</form>
+		</div>
 	);
 };
 

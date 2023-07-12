@@ -3,15 +3,10 @@ import NoteButton from '@/widgets/NoteButton/NoteButton';
 import Search from '@/widgets/Search/Search';
 import styles from './sideBar.module.scss';
 import AddButton from '../AddButton/AddButton';
-
-type note = {
-	noteId: string;
-	noteTitle: string;
-	noteDate: string;
-};
+import NoteType from '@/shared/lib/NoteType';
 
 const SideBar = () => {
-	const notesData: note[] = [
+	const notesData: NoteType[] = [
 		{
 			noteId: '1',
 			noteTitle: 'Title1',
@@ -34,7 +29,7 @@ const SideBar = () => {
 		},
 	];
 
-	const [userNotes, setUserNotes] = useState<note[]>([]);
+	const [userNotes, setUserNotes] = useState<NoteType[]>([]);
 	const [activeNote, setActiveNote] = useState<number>(-1);
 
 	useEffect(() => {
@@ -43,10 +38,10 @@ const SideBar = () => {
 
 	return (
 		<aside className={styles.sidebar}>
-			<header className={styles.header}>
+			<div className={styles.header}>
 				<Search />
 				<h2 className={styles.title}>Мои заметки</h2>
-			</header>
+			</div>
 			<div className={styles.notes}>
 				{userNotes.map((note, index) => (
 					<NoteButton
