@@ -19,7 +19,7 @@ const FormInput = (props: inputFormTypes) => {
                 onChange={(event) => props.setInputParam(event.target.value)}
                 onBlur={(event: React.ChangeEvent<HTMLInputElement>) => props.isValidForm(event.target.value, validPattern[props.name], props.name)}
             />
-            {props.name === 'password' && <div onClick={props.passwordHide} className={styles.passwordHide}><img src='./eye.svg' alt='eyePassword' /></div>}
+            {props.name === 'password' && <div onClick={props.passwordHide} className={styles.passwordHide}><img src='/eye.svg' alt='eyePassword' /></div>}
         </div>
     );
 };
