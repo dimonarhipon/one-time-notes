@@ -1,0 +1,38 @@
+@import '../../shared/styles/vars';
+
+.note{
+	margin: 20px 0 0 10px;
+	border-radius: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: center;
+	background-color: $pink;
+	width: 230px;
+	padding: 10px 20px;
+	height: 85px;
+	cursor: pointer;
+	&:first-child{
+		margin-top: 0;
+	}
+	&.active{
+		border-radius: 20px 0px 0px 20px;
+		width: 240px;
+		.date{
+			margin-right: 10px;
+		}
+	}
+}
+.title{
+	width: 100%;
+	text-align: left;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.2;
+}
+.date{
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.2;
+	opacity: 0.6;
+}
