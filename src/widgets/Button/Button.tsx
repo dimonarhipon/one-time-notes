@@ -4,7 +4,6 @@ const Button = () => {
     return (
         <button
             className={styles.button}
-            onClick={() => console.log('created')}
         >
             Создать
         </button>
