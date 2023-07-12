@@ -1,4 +1,4 @@
-@use '../../shared/styles/vars' as *;
+@use '@/shared/styles/vars' as *;
 
 .container {
     display: flex;
@@ -8,20 +8,21 @@
     background-color: $main;
 }
 
-.registrationForm {
+.form {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    width: 471px;
+    max-width: 470px;
+    width: 100%;
     border-radius: 20px;
 
-    background-color: #fff;
+    background-color: $white;
     padding: 45px 60px;
 }
 
-.fromInput {
+.input {
     padding: 15px;
     margin: 10px 0px;
 
@@ -32,14 +33,14 @@
     font-family: Overpass;
     font-size: 20px;
     font-weight: 400;
-    letter-spacing: 0em;
 }
 
-.formButton {
+.button {
     margin: 10px 0px;
     padding: 15px;
 
-    width: 350px;
+    max-width: 350px;
+    width: 100%;
     height: 60px;
     border-radius: 20px;
     border: none;
@@ -53,7 +54,30 @@
     cursor: pointer;
 }
 
-.validErorrSpan {
-    color: red;
+.validErorr {
+    color: $pink;
     text-align: center;
+}
+
+.passwordInput {
+    padding: 15px;
+    margin: 10px 0px;
+
+    width: 350px;
+    height: 60px;
+    border-radius: 20px;
+
+    font-family: Overpass;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.inputWrapper {
+    position: relative;
+}
+
+.passwordHide {
+    position: absolute;
+    right: 20px;
+    top: 29px;
 }
