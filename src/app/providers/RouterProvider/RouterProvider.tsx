@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider as ReactRouterProvider } from 'react-router-dom';
 import HomePage from '@/pages/HomePage';
-import AuthorizationPage from '@/Widgets/AuthorizationWidget';
+import AuthorizationPage from '@/Widgets/Authorization';
 
 const router = createBrowserRouter([
 	{

@@ -1,4 +1,4 @@
-import styles from './AuthorizationWidget.module.scss';
+import styles from './Authorization.module.scss';
 import { inputFormTypes } from './type';
 
 const validPattern = {
@@ -19,7 +19,7 @@ const FormInput = (props: inputFormTypes) => {
                 onChange={(event) => props.setInputParam(event.target.value)}
                 onBlur={(event: React.ChangeEvent<HTMLInputElement>) => props.isValidForm(event.target.value, validPattern[props.name], props.name)}
             />
-            {props.name === 'password' && <div onClick={props.passwordHide} className={styles.passwordHide}><img src='/eye.svg' alt='eyePassword' /></div>}
+            {props.name === 'password' && <div onClick={props.passwordHide} className={styles.passwordHide}><img src={props.eyeImg} alt='eyePassword' /></div>}
         </div>
     );
 };

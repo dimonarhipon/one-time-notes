@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styles from './AuthorizationWidget.module.scss';
+import styles from './Authorization.module.scss';
 import FormInput from './FormInput';
 
 export const AuthorizationPage = () => {
@@ -10,6 +10,22 @@ export const AuthorizationPage = () => {
         username: true,
         password: true,
     });
+    const forms = {
+        username:{ 
+            name: 'login',
+            placeholder: 'Логин',
+            type: 'text',
+        },
+        password: {
+            name: 'password',
+            placeholder: 'Пароль',
+            type: 'password',
+        }
+    };
+    const eyeImg= {
+        eye: '/eye.svg',
+        eyeSlash: '/eyeslash.svg',
+    };
 
     const erorrMessage = {
         username: 'Логин должен содержать только латинские символы и быть не короче 3 символов',
@@ -19,39 +35,39 @@ export const AuthorizationPage = () => {
     const isValidForm = (formValue: string, validPattern: RegExp, formName: string) => {
 
         validPattern.test(formValue) ? setValidForm({ ...validForm, [formName]: true }) : setValidForm({ ...validForm, [formName]: false });
-        console.log(validForm);
     };
 
     const passwordHide = () => {
-        if (type === 'password') {
-            setType('text');
-        } else {
-            setType('password');
-        }
+        type === 'password' ? setType('text') : setType('password');
+    };
+
+    const buttonIsDisabled = () => {
+        return (!validForm.username || !validForm.password || !username || !password) ? true : false;
     };
 
     return (
         <div className={styles.container}>
             <form className={styles.form}>
                 <FormInput
-                    name='username'
-                    type='text'
-                    placeholder='Логин'
+                    name={forms.username.name}
+                    type={forms.username.type}
+                    placeholder={forms.username.placeholder}
                     setInputParam={setUsername}
                     isValidForm={isValidForm}
                 />
                 {!validForm.username && <p className={styles.validErorr}>{erorrMessage.username}</p>}
                 <FormInput
-                    name='password'
+                    name={forms.password.name}
                     type={type}
-                    placeholder='Пароль'
+                    placeholder={forms.password.placeholder}
                     setInputParam={setPassword}
                     isValidForm={isValidForm}
                     passwordHide={passwordHide}
+                    eyeImg={type === 'password' ? eyeImg.eye : eyeImg.eyeSlash}
                 />
                 {!validForm.password && <p className={styles.validErorr}>{erorrMessage.password}</p>}
-                <button className={styles.button} type='submit' disabled={!validForm.username || !validForm.password || !username || !password}>Регистрация</button>
-                <button className={styles.button} type='submit'>Войти</button>
+                <button className={styles.button} type='submit' disabled={buttonIsDisabled()}>Регистрация</button>
+                <button className={styles.button} type='submit' disabled={buttonIsDisabled()}>Войти</button>
             </form>
         </div>
     );
