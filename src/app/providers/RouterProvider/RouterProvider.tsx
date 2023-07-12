@@ -1,10 +1,15 @@
 import { createBrowserRouter, RouterProvider as ReactRouterProvider } from 'react-router-dom';
 import HomePage from '@/pages/HomePage';
+import AuthorizationPage from '@/Widgets/Authorization';
 
 const router = createBrowserRouter([
 	{
 		path: '/',
 		Component: HomePage,
+	},
+	{
+		path: '/registration',
+		Component: AuthorizationPage,
 	},
 ]);
 
