@@ -1,7 +1,9 @@
-export type NoteButtonProps = {
-	noteId: string,
-	noteTitle: string,
-	noteDate: string,
+export interface NoteButtonProps {
+	note: {
+		noteId: string,
+		noteTitle: string,
+		noteDate: string,
+	},
 	active: boolean,
 	callback: () => void;
-};
+}

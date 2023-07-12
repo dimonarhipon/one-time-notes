@@ -1,9 +1,9 @@
-import styles from './search.module.css';
+import styles from './search.module.scss';
 import searchIcon from './img/search.svg';
 
-export default function Search() {
+const Search = () => {
 	return (
-		<form className={styles.search} method='post' action='#'>
+		<form className={styles.search}>
 			<input type='text' className={styles.searchInput} placeholder='Найти заметку...' />
 			<button
 				className={styles.searchButton}
@@ -17,4 +17,6 @@ export default function Search() {
 			</button>
 		</form>
 	);
-}
+};
+
+export default Search;

@@ -1,4 +1,4 @@
-import styles from './notesPage.module.css';
+import styles from './notesPage.module.scss';
 import SideBar from '@/widgets/SideBar/SideBar';
 import Note from '@/widgets/Note/Note';
 

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import NoteButton from '@/widgets/NoteButton/NoteButton';
 import Search from '@/widgets/Search/Search';
-import styles from './sideBar.module.css';
-// import getNote from '../NoteButton/getNote';
+import styles from './sideBar.module.scss';
+import AddButton from '../AddButton/AddButton';
 
 type note = {
 	noteId: string;
@@ -10,7 +10,7 @@ type note = {
 	noteDate: string;
 };
 
-export default function SideBar() {
+const SideBar = () => {
 	const notesData: note[] = [
 		{
 			noteId: '1',
@@ -51,14 +51,15 @@ export default function SideBar() {
 				{userNotes.map((note, index) => (
 					<NoteButton
 						key={note.noteId}
-						noteId={note.noteId}
-						noteTitle={note.noteTitle}
-						noteDate={note.noteDate}
+						note={note}
 						active={index === activeNote}
 						callback={() => setActiveNote(index)}
 					/>
 				))}
 			</div>
+			<AddButton callback={() => console.log('New note has been created')} />
 		</aside>
 	);
-}
+};
+
+export default SideBar;
