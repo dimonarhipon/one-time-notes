@@ -1,6 +1,6 @@
-@import "../../shared/styles/vars";
+@import "@/shared/styles/vars";
 
-.sidebar{
+.sidebar {
   max-width: 250px;
   width: 100%;
 	display: flex;
@@ -9,21 +9,26 @@
 	align-items: center;
 	height: 100vh;
 }
-active {
+
+.active {
 	border-radius: 20px 0px 0px 20px;
 	width: 240px;
 }
-.header{
+
+.header {
 	padding: 0 10px;
 }
-.title{
+
+.title {
   color: #fff;
 	text-align: center;
 	font-size: 24px;
 	font-weight: 400;
 	margin: 20px auto 0;
 }
-.notes{
+
+.notes {
 	margin-top: 30px;
 	width: 100%;
+	overflow-y: scroll;
 }

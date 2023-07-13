@@ -1,7 +1,9 @@
 import NoteType from '@/shared/lib/NoteType';
+import { MouseEventHandler } from 'react';
 
 export type NoteButtonProps = {
 	note: NoteType,
 	active: boolean,
-	callback: () => void;
+	openNoteFunction: () => void;
+	removeNoteFunction: (event: any) => void;
 };

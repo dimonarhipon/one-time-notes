@@ -1,6 +1,6 @@
-@import '../../shared/styles/vars';
+@import '@/shared/styles/vars';
 
-.search{
+.search {
 	border: 1px solid $white;
 	border-radius: 12px;
 	width: 100%;
@@ -8,13 +8,15 @@
 	justify-content: space-between;
 	padding: 10px 16px;
 }
-.searchInput{
+
+.searchInput {
 	outline: none;
 	background-color: transparent;
 	border: none;
 	font-size: 14px;
 	font-weight: 400;
 	color: $white;
+
 	&::-webkit-input-placeholder{
 		opacity: 1;
 	}
@@ -31,11 +33,13 @@
 		opacity: 1;
 	}
 }
-.searchButton{
+
+.searchButton {
 	background-color: transparent;
 	cursor: pointer;
 	border: none;
 }
-.searchIcon{
+
+.searchIcon {
 	width: 100%;
 }
