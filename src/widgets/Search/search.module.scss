@@ -1,0 +1,45 @@
+@import '@/shared/styles/vars';
+
+.search {
+	border: 1px solid $white;
+	border-radius: 12px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 16px;
+}
+
+.searchInput {
+	outline: none;
+	background-color: transparent;
+	border: none;
+	font-size: 14px;
+	font-weight: 400;
+	color: $white;
+
+	&::-webkit-input-placeholder{
+		opacity: 1;
+	}
+	&::-moz-placeholder{
+		opacity: 1;
+	}
+	&:-ms-input-placeholder{
+		opacity: 1;
+	}
+	&::-ms-input-placeholder{
+		opacity: 1;
+	}
+	&::placeholder{
+		opacity: 1;
+	}
+}
+
+.searchButton {
+	background-color: transparent;
+	cursor: pointer;
+	border: none;
+}
+
+.searchIcon {
+	width: 100%;
+}
