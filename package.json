@@ -5,9 +5,9 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
-		"test": "editorconfig-checker",
 		"build": "tsc && vite build",
-		"lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --ext js,jsx,ts,tsx --fix --color --ignore-pattern \"*.d.ts\" --report-unused-disable-directives && prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,json}\" --config ./.prettierrc --ignore-path ./.prettierignore",
+		"lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --ext js,jsx,ts,tsx --color --ignore-pattern \"*.d.ts\" --report-unused-disable-directives && prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,json}\" --config ./.prettierrc --ignore-path ./.prettierignore",
+		"lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --ext js,jsx,ts,tsx --color --ignore-pattern \"*.d.ts\" --report-unused-disable-directives --fix && prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,json}\" --config ./.prettierrc --ignore-path ./.prettierignore",
 		"preview": "vite preview"
 	},
 	"dependencies": {
@@ -33,23 +33,5 @@
 		"sass": "1.63.6",
 		"typescript": "5.0.2",
 		"vite": "4.3.9"
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged"
-		}
-	},
-	"lint-staged": {
-		"*.@(j|t)s?(x)": [
-			"npm run lint"
-		],
-		"*.css": [
-			"prettier --check",
-			"git add"
-		],
-		"*.scss": [
-			"prettier --check",
-			"git add"
-		]
 	}
 }
