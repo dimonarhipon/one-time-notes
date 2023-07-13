@@ -4,26 +4,29 @@ import iconItalic from './icons/icon-text-italic.svg';
 import iconUnderline from './icons/icon-text-underline.svg';
 import iconStrikethrough from './icons/icon-text-strikethrough.svg';
 
+const BOLD = 'Bold';
+const ITALIC = 'Italic';
+const UNDERLINE = 'Underline';
+const STRIKETHROUGH = 'Strikethrough';
+
 export default function UpdateMenu() {
 	return (
-		<>
-			<div className={style.updateMenuLayout}>
-				<div className={style.updateMenuButtonsGroup}>
-					<button className={style.updateMenuIcon}>
-						<img src={iconBold} alt='Bold' />
+			<div className={style.layout}>
+				<div className={style.buttonsGroup}>
+					<button className={style.icon}>
+						<img src={iconBold} alt={BOLD} />
 					</button>
-					<button className={style.updateMenuIcon}>
-						<img src={iconItalic} alt='Italic' />
+					<button className={style.icon}>
+						<img src={iconItalic} alt={ITALIC} />
 					</button>
-					<button className={style.updateMenuIcon}>
-						<img src={iconUnderline} alt='Underline' />
+					<button className={style.icon}>
+						<img src={iconUnderline} alt={UNDERLINE} />
 					</button>
-					<button className={style.updateMenuIcon}>
-						<img src={iconStrikethrough} alt='Strikethrough' />
+					<button className={style.icon}>
+						<img src={iconStrikethrough} alt={STRIKETHROUGH} />
 					</button>
 				</div>
-					<button className={style.updateMenuButtonSave}>Скопировать ссылку</button>
+					<button className={style.buttonSave}>Скопировать ссылку</button>
 			</div>
-		</>
 	);
 }

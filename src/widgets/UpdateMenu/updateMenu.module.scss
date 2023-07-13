@@ -1,7 +1,7 @@
 @import "@/shared/styles/vars";
 
 
-.updateMenuLayout {
+.layout {
 	display: flex;
 	justify-content: space-between;
 	padding-left: 60px;
@@ -9,12 +9,12 @@
 	margin-top: 50px;
 }
 
-.updateMenuButtonsGroup {
+.buttonsGroup {
 	display: flex;
 	gap: 20px;
 }
 
-.updateMenuIcon {
+.icon {
 	width: 24px;
 	height: 24px;
 	background-color: transparent;
@@ -22,7 +22,7 @@
 	cursor: pointer;
 }
 
-.updateMenuButtonSave {
+.buttonSave {
 	background-color: transparent;
 	border: none;
 	color: $main;

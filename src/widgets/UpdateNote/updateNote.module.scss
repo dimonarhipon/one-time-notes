@@ -1,14 +1,11 @@
 @import "@/shared/styles/vars";
 
-* {
-	margin: 0;
-}
-
 .updateSection {
+	position: relative;
 	background-color: $green;
 	width: auto;
 	height: 100vh;
-	margin-left: 250px;
+	margin-top: 0px;
 }
 
 .title {
@@ -43,7 +40,7 @@
 
 .textArea {
 	width: 100%;
-	height: 500px;
+	min-height: 500px;
 	background-color: transparent;
 	color: $main;
 	border: 1px solid $main;
@@ -53,10 +50,6 @@
 	font-family: Overpass;
 	font-size: 20px;
 	color: $main;
-
-		&:focus {
-			outline: none;
-		}
 
 		&:focus::placeholder {
 			color: transparent;
