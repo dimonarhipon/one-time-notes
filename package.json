@@ -7,7 +7,7 @@
 		"dev": "vite",
 		"test": "editorconfig-checker",
 		"build": "tsc && vite build",
-		"lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --ext js,jsx,ts,tsx --ignore-pattern \"*.d.ts\" --report-unused-disable-directives && prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,json}\" --config ./.prettierrc --ignore-path ./.prettierignore",
+		"lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --ext js,jsx,ts,tsx --fix --color --ignore-pattern \"*.d.ts\" --report-unused-disable-directives && prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,json}\" --config ./.prettierrc --ignore-path ./.prettierignore",
 		"preview": "vite preview"
 	},
 	"dependencies": {
@@ -41,7 +41,7 @@
 	},
 	"lint-staged": {
 		"*.@(j|t)s?(x)": [
-			"npm run lint:fix"
+			"npm run lint"
 		],
 		"*.css": [
 			"prettier --check",
