@@ -5,5 +5,5 @@ export type NoteButtonProps = {
 	note: NoteType,
 	active: boolean,
 	openNoteFunction: () => void;
-	removeNoteFunction: (event: any) => void;
+	removeNoteFunction: (event: unknown) => void;
 };

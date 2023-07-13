@@ -1,7 +1,8 @@
 type NoteType = {
 	noteId: string;
 	noteTitle: string;
+	noteText: string;
 	noteDate: string;
-	status: string;
+	noteStatus: boolean;
 };
 export default NoteType;
