@@ -1,4 +1,4 @@
-export type inputFormTypes = {
+export type TInputForm = {
     placeholder: string,
     name: string,
     type: string,

@@ -41,7 +41,7 @@ export const AuthorizationPage = () => {
         type === 'password' ? setType('text') : setType('password');
     };
 
-    const buttonIsDisabled = () => {
+    const isDisabledButton = () => {
         return (!validForm.username || !validForm.password || !username || !password) ? true : false;
     };
 
@@ -66,8 +66,8 @@ export const AuthorizationPage = () => {
                     eyeImg={type === 'password' ? eyeImg.eye : eyeImg.eyeSlash}
                 />
                 {!validForm.password && <p className={styles.validErorr}>{erorrMessage.password}</p>}
-                <button className={styles.button} type='submit' disabled={buttonIsDisabled()}>Регистрация</button>
-                <button className={styles.button} type='submit' disabled={buttonIsDisabled()}>Войти</button>
+                <button className={styles.button} type='submit' disabled={isDisabledButton()}>Регистрация</button>
+                <button className={styles.button} type='submit' disabled={isDisabledButton()}>Войти</button>
             </form>
         </div>
     );

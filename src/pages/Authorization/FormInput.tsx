@@ -1,5 +1,5 @@
 import styles from './Authorization.module.scss';
-import { inputFormTypes } from './type';
+import { TInputForm } from './type';
 
 const validPattern = {
     username: /^[A-Za-z0-9]{3,16}$/,
@@ -7,7 +7,7 @@ const validPattern = {
 };
 
 
-const FormInput = (props: inputFormTypes) => {
+const FormInput = (props: TInputForm) => {
 
     return (
         <div className={styles.inputWrapper}>
