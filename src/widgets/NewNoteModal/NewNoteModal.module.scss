@@ -1,53 +1,53 @@
-@import "@/shared/styles/vars.scss";
+@import '@/shared/styles/vars.scss';
 
 .modal {
-    position: relative;
-    max-width: 724px;
-    min-height: 255px;
-    margin: auto;
-    padding: 20px;
-    background-color: $white;
-    border-radius: 26px;
+	position: relative;
+	max-width: 724px;
+	min-height: 255px;
+	margin: auto;
+	padding: 20px;
+	background-color: $white;
+	border-radius: 26px;
 }
 
 .title {
-    color: $main;
-    text-align: center;
-    font-size: 24px;
-    line-height: 30px;
-    font-family: Overpass;
+	color: $main;
+	text-align: center;
+	font-size: 24px;
+	line-height: 30px;
+	font-family: Overpass;
 }
 
 .buttonClose {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
 }
 
 .form {
-    display: block;
-    width: 100%;
-    height: 50%;
-    margin: 20px auto 0px auto;
+	display: block;
+	width: 100%;
+	height: 50%;
+	margin: 20px auto 0px auto;
 }
 
 .textarea {
-    width: 100%;
-    height: 100%;
-    padding: 10px 15px 0 15px;
-    color: rgba($color: $main, $alpha: .6);
-    border-radius: 20px;
-    border: none;
-    background-color: transparent;
-    font-size: 20px;
-    line-height: 24px;
-    resize: none;
-    font-family: Overpass;
-    &:focus {
-        outline: 1px solid rgba($color: $main, $alpha: .2);
-        color: $main;
-    }
+	width: 100%;
+	height: 100%;
+	padding: 10px 15px 0 15px;
+	color: rgba($color: $main, $alpha: 0.6);
+	border-radius: 20px;
+	border: none;
+	background-color: transparent;
+	font-size: 20px;
+	line-height: 24px;
+	resize: none;
+	font-family: Overpass;
+	&:focus {
+		outline: 1px solid rgba($color: $main, $alpha: 0.2);
+		color: $main;
+	}
 }

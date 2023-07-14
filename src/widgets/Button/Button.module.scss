@@ -1,15 +1,15 @@
-@import "@/shared/styles/vars.scss";
+@import '@/shared/styles/vars.scss';
 
 .button {
-    display: block;
-    padding: 20px 144px;
-    margin: 40px auto 0px auto;
-    font-family: Overpass;
-    font-size: 20px;
-    line-height: 25px;
-    border: none;
-    border-radius: 20px;
-    background: $green;
-    color: $main;
-    cursor: pointer;    
+	display: block;
+	padding: 20px 144px;
+	margin: 40px auto 0px auto;
+	font-family: Overpass;
+	font-size: 20px;
+	line-height: 25px;
+	border: none;
+	border-radius: 20px;
+	background: $green;
+	color: $main;
+	cursor: pointer;
 }

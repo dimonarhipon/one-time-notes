@@ -1,35 +1,35 @@
-@import "@/shared/styles/vars";
+@import '@/shared/styles/vars';
 
 .modal {
-    position: relative;
-    max-width: 868px;
-    min-height: 148px;
-    margin: 0 auto;
-    padding: 20px 85px;
-    border-radius: 26px;
-    background: $white;
+	position: relative;
+	max-width: 868px;
+	min-height: 148px;
+	margin: 0 auto;
+	padding: 20px 85px;
+	border-radius: 26px;
+	background: $white;
 }
 
 .title {
-    color: $main;
-    text-align: center;
-    font-size: 24px;
-    line-height: 30px;
+	color: $main;
+	text-align: center;
+	font-size: 24px;
+	line-height: 30px;
 }
 
 .buttonCopy {
-    position: absolute;
-    top: 10%;
-    right: 3%;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
+	position: absolute;
+	top: 10%;
+	right: 3%;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
 }
 
 .link {
-    margin-top: 30px;
-    color: rgba($color: $main, $alpha: .8);
-    font-family: Overpass;
-    font-size: 16px;
-    line-height: 20px;
+	margin-top: 30px;
+	color: rgba($color: $main, $alpha: 0.8);
+	font-family: Overpass;
+	font-size: 16px;
+	line-height: 20px;
 }
