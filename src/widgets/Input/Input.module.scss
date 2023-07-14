@@ -1,0 +1,48 @@
+@use '@/shared/styles/vars' as *;
+
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    max-width: 350px;
+    width: 100%;
+}
+
+.input {
+    padding: 15px;
+    margin: 10px 0px;
+
+    width: 100%;
+    border-radius: 20px;
+
+    font-family: Overpass;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.span{
+    font-size: 12px;
+    padding: 3px;
+    color: $pink;
+    display: none;
+}
+
+.label{
+    font-size: 18px;
+    color: $blue;
+}
+
+input:invalid[focused="true"]{
+    border: 1px solid $pink;
+}
+
+input:invalid[focused="true"] ~ span{
+    display: block;
+}
+
+.passwordHide {
+    position: absolute;
+    right: 20px;
+    top: 29px;
+    cursor: pointer;
+}
