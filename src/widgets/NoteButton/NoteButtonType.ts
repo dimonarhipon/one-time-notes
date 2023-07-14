@@ -1,5 +1,5 @@
 import NoteType from '@/shared/lib/NoteType';
-import { MouseEventHandler } from 'react';
+// import { MouseEventHandler } from 'react';
 
 export type NoteButtonProps = {
 	note: NoteType;
