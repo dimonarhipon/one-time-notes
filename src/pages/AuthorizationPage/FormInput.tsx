@@ -25,7 +25,7 @@ const FormInput = (props: inputFormTypes) => {
 			/>
 			{props.name === 'password' && (
 				<div onClick={props.passwordHide} className={styles.passwordHide}>
-					<img src={props.eyeImg} alt='eyePassword' />
+					{props.eyeImg}
 				</div>
 			)}
 		</div>

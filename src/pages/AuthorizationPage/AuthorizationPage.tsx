@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { IconEye, IconEyeSlash } from '../../shared/assets/icons';
 import styles from './AuthorizationPage.module.scss';
 import FormInput from './FormInput';
 
@@ -21,10 +22,6 @@ export const AuthorizationPage = () => {
 			placeholder: 'Пароль',
 			type: 'password',
 		},
-	};
-	const eyeImg = {
-		eye: '/eye.svg',
-		eyeSlash: '/eyeslash.svg',
 	};
 
 	const erorrMessage = {
@@ -64,7 +61,7 @@ export const AuthorizationPage = () => {
 					setInputParam={setPassword}
 					isValidForm={isValidForm}
 					passwordHide={passwordHide}
-					eyeImg={type === 'password' ? eyeImg.eye : eyeImg.eyeSlash}
+					eyeImg={type === 'password' ? <IconEye /> : <IconEyeSlash />}
 				/>
 				{!validForm.password && <p className={styles.validErorr}>{erorrMessage.password}</p>}
 				<button className={styles.button} type='submit' disabled={buttonIsDisabled()}>

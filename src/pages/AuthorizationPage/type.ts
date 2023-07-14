@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export type inputFormTypes = {
 	placeholder: string;
 	name: string;
@@ -5,5 +7,5 @@ export type inputFormTypes = {
 	setInputParam: (username: string) => void;
 	isValidForm: (formValue: string, validPattern: RegExp, formName: string) => void;
 	passwordHide?: () => void;
-	eyeImg?: string;
+	eyeImg?: ReactNode;
 };
