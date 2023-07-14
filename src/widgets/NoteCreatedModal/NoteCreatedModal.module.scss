@@ -5,7 +5,7 @@
     max-width: 868px;
     min-height: 148px;
     margin: 0 auto;
-    padding: 20px 85px;
+    padding: 20px;
     border-radius: 26px;
     background: $white;
 }
@@ -15,15 +15,6 @@
     text-align: center;
     font-size: 24px;
     line-height: 30px;
-}
-
-.buttonCopy {
-    position: absolute;
-    top: 10%;
-    right: 3%;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
 }
 
 .link {

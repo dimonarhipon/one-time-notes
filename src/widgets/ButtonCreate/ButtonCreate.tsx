@@ -1,6 +1,6 @@
-import styles from './Button.module.scss';
+import styles from './ButtonCreate.module.scss';
 
-const Button = () => {
+const ButtonCreate = () => {
     return (
         <button
             className={styles.button}
@@ -10,4 +10,4 @@ const Button = () => {
     );
 };
 
-export default Button;
+export default ButtonCreate;
