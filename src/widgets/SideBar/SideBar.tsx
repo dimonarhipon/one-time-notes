@@ -5,8 +5,10 @@ import Search from '@/widgets/Search/Search';
 import AddButton from '../AddButton/AddButton';
 import NoteType from '@/shared/lib/NoteType';
 import { SearchForNotes } from '@/shared/lib/SearchForNotes';
+import { getNotes } from '@/shared/api/getNotes';
 
 const SideBar = () => {
+	const mockApiNotesUrl = 'https://64aff776c60b8f941af4f841.mockapi.io/server/notes';
 	const notesData: NoteType[] = [
 		{
 			noteId: '1',
@@ -71,12 +73,23 @@ const SideBar = () => {
 	const [activeNote, setActiveNote] = useState<number>(-1);
 
 	useEffect(() => {
-		setUserNotes(notesData);
+		const fetching = async () => {
+			const notes = await getNotes(mockApiNotesUrl);
+			console.log(notes);
+
+			await setUserNotes(notes);
+			await setSearchNotes(notes);
+		};
+		fetching();
 	}, []);
 
-	useEffect(() => {
-		setSearchNotes(notesData);
-	}, []);
+	// useEffect(() => {
+	// 	setUserNotes(notesData);
+	// }, []);
+
+	// useEffect(() => {
+	// 	setSearchNotes(notesData);
+	// }, []);
 
 	return (
 		<aside className={styles.sidebar}>
@@ -106,7 +119,7 @@ const SideBar = () => {
 			</div>
 			<AddButton
 				callback={() => {
-					return;
+					// добавление
 				}}
 			/>
 		</aside>

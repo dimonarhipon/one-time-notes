@@ -5,6 +5,9 @@ const NoteButton = ({ note, active, openNoteFunction, removeNoteFunction }: Note
 	const isActive = active ? [styles.note, styles.active].join(' ') : styles.note;
 	const isRead = note.noteStatus === true ? [styles.read] : '';
 
+	// нормальная дата
+	const date = new Date(note.noteDate).toLocaleDateString();
+
 	return (
 		<div className={`${isActive} ${isRead}`} onClick={openNoteFunction} id={note.noteId}>
 			<div className={styles.header}>
@@ -17,7 +20,7 @@ const NoteButton = ({ note, active, openNoteFunction, removeNoteFunction }: Note
 					</svg>
 				</button>
 			</div>
-			<p className={styles.date}>{note.noteDate}</p>
+			<p className={styles.date}>{date}</p>
 		</div>
 	);
 };
