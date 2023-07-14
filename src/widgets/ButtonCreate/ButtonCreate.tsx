@@ -1,11 +1,11 @@
 import styles from './ButtonCreate.module.scss';
 
-const ButtonCreate = () => {
+const ButtonCreate = ({props}) => {
     return (
         <button
             className={styles.button}
         >
-            Создать
+            {props}
         </button>
     );
 };

@@ -4,6 +4,9 @@ import ButtonCreate from '@/widgets/ButtonCreate/ButtonCreate';
 
 import styles from './NewNoteForm.module.scss';
 
+const newTitlePlaceholder = 'Новая заметка';
+const newTextareaPlaceholder = 'Напиши свой секрет здесь...';
+
 const NewNoteForm = () => {    
     const [noteTitle, setNoteTitle] = useState('');
     const [noteBody, setNoteBody] = useState('');
@@ -12,18 +15,18 @@ const NewNoteForm = () => {
         <form className={styles.form}>
             <input
                 value={noteTitle}
-                onChange={(e) => setNoteTitle(e.target.value)}
+                onChange={(event) => setNoteTitle(event.target.value)}
                 className={styles.title}
-                placeholder='Новая заметка'
+                placeholder={newTitlePlaceholder}
             />
             <textarea
                 value={noteBody}
-                onChange={(e) => setNoteBody(e.target.value)}
+                onChange={(event) => setNoteBody(event.target.value)}
                 className={styles.textarea}
-                placeholder='Напиши свой секрет здесь... '
+                placeholder={newTextareaPlaceholder}
             />
 
-            <ButtonCreate/>
+            <ButtonCreate props={'Создать'}/>
         </form> 
     );
 };

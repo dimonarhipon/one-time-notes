@@ -1,4 +1,4 @@
-import ButtonCopy from '../ButtonCopy/BUttonCopy';
+import ButtonCopy from '@/widgets/ButtonCopy/ButtonCopy';
 
 import styles from './NoteCreatedModal.module.scss';
 
