@@ -26,7 +26,7 @@ const NewNoteForm = () => {
 				placeholder={newTextareaPlaceholder}
 			/>
 
-			<ButtonCreate props={'Создать'} />
+			<ButtonCreate text='Создать' />
 		</form>
 	);
 };

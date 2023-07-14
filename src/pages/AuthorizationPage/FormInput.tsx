@@ -1,7 +1,11 @@
 import styles from './AuthorizationPage.module.scss';
 import { inputFormTypes } from './type';
 
-const validPattern = {
+type ValidPattern = {
+	[key: string]: RegExp;
+};
+
+const validPattern: ValidPattern = {
 	username: /^[A-Za-z0-9]{3,16}$/,
 	password: /^[A-Za-z0-9]{5,200}$/,
 };
@@ -16,7 +20,7 @@ const FormInput = (props: inputFormTypes) => {
 				placeholder={props.placeholder}
 				onChange={(event) => props.setInputParam(event.target.value)}
 				onBlur={(event: React.ChangeEvent<HTMLInputElement>) =>
-					props.isValidForm(event.target.value, validPattern[props.name], props.name)
+					props.isValidForm(event.target.value, validPattern[props.name] || /^$/, props.name)
 				}
 			/>
 			{props.name === 'password' && (

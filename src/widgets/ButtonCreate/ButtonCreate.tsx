@@ -1,7 +1,11 @@
 import styles from './ButtonCreate.module.scss';
 
-const ButtonCreate = ({ props }) => {
-	return <button className={styles.button}>{props}</button>;
+type TButtonCreate = {
+	text: string;
+};
+
+const ButtonCreate = ({ text }: TButtonCreate) => {
+	return <button className={styles.button}>{text}</button>;
 };
 
 export default ButtonCreate;
