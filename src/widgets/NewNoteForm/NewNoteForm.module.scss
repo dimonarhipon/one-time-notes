@@ -1,47 +1,47 @@
-@import "@/shared/styles/vars.scss";
+@import '@/shared/styles/vars.scss';
 
 .form {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 100%;
-    margin: 20px auto 0px auto;
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 100%;
+	margin: 20px auto 0px auto;
 }
 
 .title {
-    position: absolute;
-    max-width: 200px;
-    top: -12%;
-    left: 50%;
-    transform: translateX(-50%);
-    color: $main;
-    background-color: transparent;
-    border: none;
-    border-radius: 20px;
-    text-align: center;
-    font-size: 24px;
-    line-height: 30px;
-    font-family: Overpass;
-    &:focus {
-        outline: 1px solid rgba($color: $main, $alpha: .2);
-    }
+	position: absolute;
+	max-width: 200px;
+	top: -12%;
+	left: 50%;
+	transform: translateX(-50%);
+	color: $main;
+	background-color: transparent;
+	border: none;
+	border-radius: 20px;
+	text-align: center;
+	font-size: 24px;
+	line-height: 30px;
+	font-family: Overpass;
+	&:focus {
+		outline: 1px solid rgba($color: $main, $alpha: 0.2);
+	}
 }
 
 .textarea {
-    width: 100%;
-    min-height: 78px;
-    margin-top: 24px;
-    padding: 10px 15px 0 15px;
-    color: $main;
-    border-radius: 20px;
-    border: none;
-    background-color: transparent;
-    font-size: 20px;
-    line-height: 24px;
-    resize: none;
-    font-family: Overpass;
-    &:focus {
-        outline: 1px solid rgba($color: $main, $alpha: .2);
-        color: $main;
-    }
+	width: 100%;
+	min-height: 78px;
+	margin-top: 24px;
+	padding: 10px 15px 0 15px;
+	color: $main;
+	border-radius: 20px;
+	border: none;
+	background-color: transparent;
+	font-size: 20px;
+	line-height: 24px;
+	resize: none;
+	font-family: Overpass;
+	&:focus {
+		outline: 1px solid rgba($color: $main, $alpha: 0.2);
+		color: $main;
+	}
 }

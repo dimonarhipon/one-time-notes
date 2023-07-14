@@ -17,19 +17,19 @@
 	font-weight: 400;
 	color: $white;
 
-	&::-webkit-input-placeholder{
+	&::-webkit-input-placeholder {
 		opacity: 1;
 	}
-	&::-moz-placeholder{
+	&::-moz-placeholder {
 		opacity: 1;
 	}
-	&:-ms-input-placeholder{
+	&:-ms-input-placeholder {
 		opacity: 1;
 	}
-	&::-ms-input-placeholder{
+	&::-ms-input-placeholder {
 		opacity: 1;
 	}
-	&::placeholder{
+	&::placeholder {
 		opacity: 1;
 	}
 }
