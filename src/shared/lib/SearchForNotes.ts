@@ -4,15 +4,15 @@ import NoteType from './NoteType';
 type SearchOptions = {
 	event: ChangeEvent<HTMLInputElement>,
 	userNotes:NoteType[],
-	notesData:NoteType[],
+	searchNotes:NoteType[],
 	setSearchNotes:(array:NoteType[]) => void,
 };
 
-export const SearchForNotes = ({event, userNotes, notesData, setSearchNotes}: SearchOptions) => {
+export const SearchForNotes = ({event, userNotes, searchNotes, setSearchNotes}: SearchOptions) => {
 	const searchValue = event.target.value;
 
 	if (!searchValue) {
-		setSearchNotes(notesData);
+		setSearchNotes(searchNotes);
 		return;
 	}
 	const resultArray: NoteType[] = [];
