@@ -2,8 +2,9 @@
 
 .button {
     display: block;
-    padding: 20px 144px;
-    margin: 40px auto 0px auto;
+    min-width: 260px;
+    padding: 20px;
+    margin: 20px auto 0px auto;
     font-family: Overpass;
     font-size: 20px;
     line-height: 25px;
