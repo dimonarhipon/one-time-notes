@@ -22,6 +22,7 @@ export const SearchForNotes = ({event, userNotes, searchNotes, setSearchNotes}: 
 			resultArray.push(note);
 		} else if (note.noteDate.includes(searchValue)) {
 			resultArray.push(note);
+			// TASK нужен ли вообще поиск по тексту заметки?
 		} else if (note.noteText.includes(searchValue)) {
 			resultArray.push(note);
 		}

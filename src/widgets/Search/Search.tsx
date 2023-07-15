@@ -2,11 +2,11 @@ import styles from './search.module.scss';
 import { ChangeEvent } from 'react';
 
 type SearchProps = {
-	callback: (event: ChangeEvent<HTMLInputElement>) => void;
+	searchFunction: (event: ChangeEvent<HTMLInputElement>) => void;
 	sortByDate: () => void;
 };
 
-const Search = ({ callback, sortByDate }: SearchProps) => {
+const Search = ({ searchFunction, sortByDate }: SearchProps) => {
 	const inputPlaceholder = 'Найти заметку...';
 
 	return (
@@ -16,7 +16,7 @@ const Search = ({ callback, sortByDate }: SearchProps) => {
 					type='text'
 					className={styles.searchInput}
 					placeholder={inputPlaceholder}
-					onChange={(event) => callback(event)}
+					onChange={(event) => searchFunction(event)}
 				/>
 				<button
 					className={styles.searchButton}

@@ -1,5 +1,12 @@
+import NoteType from '@/shared/lib/NoteType';
 import styles from './notebutton.module.scss';
-import { NoteButtonProps } from './NoteButtonType';
+
+type NoteButtonProps = {
+	note: NoteType;
+	active: boolean;
+	openNoteFunction: () => void;
+	removeNoteFunction: (event: any) => void;
+};
 
 const NoteButton = ({ note, active, openNoteFunction, removeNoteFunction }: NoteButtonProps) => {
 	const isActive = active ? [styles.note, styles.active].join(' ') : styles.note;

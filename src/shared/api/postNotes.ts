@@ -1,5 +1,6 @@
 import NoteType from '../lib/NoteType';
 
+// TASK доделать функцию отправки заметки
 export const postNotes = async (url:string, noteObject: NoteType) => {
 	const response = await fetch(url, {
 		method: 'POST',

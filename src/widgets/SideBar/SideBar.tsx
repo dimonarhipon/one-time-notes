@@ -4,32 +4,20 @@ import NoteButton from '@/widgets/NoteButton/NoteButton';
 import Search from '@/widgets/Search/Search';
 import AddButton from '../AddButton/AddButton';
 import NoteType from '@/shared/lib/NoteType';
+import Preloader from '../Preloader/Preloader';
 import { SearchForNotes } from '@/shared/lib/SearchForNotes';
 import { fetchNotes } from '@/shared/api/fetchNotes';
-import Preloader from '../Preloader/Preloader';
-import { sortByDate } from '@/shared/lib/sortByDate';
+import { SortBy, sortByDate } from '@/shared/lib/sortByDate';
+import { removeNote } from '@/shared/lib/removeNote';
 
 const SideBar = () => {
 	const mockApiNotesUrl = 'https://64aff776c60b8f941af4f841.mockapi.io/server/notes';
 
-	const [loading, setLoading] = useState<boolean>(true);
 	const [userNotes, setUserNotes] = useState<NoteType[]>([]);
 	const [searchNotes, setSearchNotes] = useState<NoteType[]>([]);
+	const [loading, setLoading] = useState<boolean>(true);
 	const [activeNote, setActiveNote] = useState<number>(-1);
-
-	const removeNote = (event: any) => {
-		const thisNoteId: string = event.currentTarget.parentElement.parentElement.id;
-		setLoading(true);
-
-		fetchNotes(`${mockApiNotesUrl}/${thisNoteId}`, 'DELETE').then(() => {
-			const resultNotes = userNotes.filter((note) => note.noteId !== thisNoteId);
-
-			setLoading(false);
-			setUserNotes(resultNotes);
-			setSearchNotes(resultNotes);
-		});
-		// TASK обработка ошибки, вызов модального окна
-	};
+	const [sortBy, setSortBy] = useState<SortBy>(SortBy.default);
 
 	useEffect(() => {
 		fetchNotes(mockApiNotesUrl).then((notes) => {
@@ -43,13 +31,11 @@ const SideBar = () => {
 		<aside className={styles.sidebar}>
 			<div className={styles.header}>
 				<Search
-					callback={(event) => {
+					searchFunction={(event) => {
 						SearchForNotes({ event, userNotes, searchNotes, setSearchNotes });
 					}}
 					sortByDate={() => {
-						const sortNotes = sortByDate(userNotes);
-						setUserNotes(sortNotes);
-						setSearchNotes(sortNotes);
+						sortByDate({ userNotes, sortBy, setSearchNotes, setSortBy });
 					}}
 				/>
 				<h2 className={styles.title}>Мои заметки</h2>
@@ -57,6 +43,9 @@ const SideBar = () => {
 			</div>
 			<div className={styles.notes}>
 				{!loading && userNotes.length === 0 && <p className={styles.empty}>Заметок пока нет</p>}
+				{!loading && userNotes.length > 0 && searchNotes.length === 0 && (
+					<p className={styles.empty}>Поиск не дал результатов</p>
+				)}
 				{userNotes.length > 0 &&
 					searchNotes.map((note, index) => (
 						<NoteButton
@@ -64,12 +53,18 @@ const SideBar = () => {
 							note={note}
 							active={index === activeNote}
 							openNoteFunction={() => setActiveNote(index)}
-							removeNoteFunction={removeNote}
+							removeNoteFunction={(event) =>
+								removeNote({
+									event,
+									mockApiNotesUrl,
+									userNotes,
+									setUserNotes,
+									setSearchNotes,
+									setLoading,
+								})
+							}
 						/>
 					))}
-				{searchNotes.length === 0 && !loading && (
-					<p className={styles.empty}>Поиск не дал результатов</p>
-				)}
 			</div>
 			<AddButton
 				callback={() => {
