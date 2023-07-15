@@ -5,11 +5,11 @@ import { IInput } from '../../shared/Types/AuthTypes';
 const Register = () => {
 
     const [InputValues, setInputValues] = useState({
-        username: '',
-        password: '',
-        confirmPassword: '',
+        username: localStorage.getItem('username') || '',
+        password: localStorage.getItem('password') || '',
+        confirmPassword: localStorage.getItem('confirmPassword') || '',
     });
-
+    
     const InputProps: Array<IInput> = [
         {
             id: 1,

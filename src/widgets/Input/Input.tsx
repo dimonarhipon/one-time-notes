@@ -4,6 +4,8 @@ import { IInput } from '../../shared/Types/AuthTypes';
 
 const Input: React.FC<IInput> = ({ label, errorMessage, onChange, type, ...inputProps }) => {
 
+
+
     const imgPath= {
         eye: '/eye.svg',
         eyeSlash: '/eyeslash.svg',
@@ -18,6 +20,7 @@ const Input: React.FC<IInput> = ({ label, errorMessage, onChange, type, ...input
     const hidePassword = () => {
         typeInput === 'password' ? setTypeInput('text') : setTypeInput('password');
     };
+
 
     return (
         <div className={styles.inputWrapper}>

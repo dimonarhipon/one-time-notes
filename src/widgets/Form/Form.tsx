@@ -7,6 +7,7 @@ const Form: React.FC<IForm> = ({ InputProps, InputValues, setInputValues, button
 
     const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInputValues({ ...InputValues, [event.target.name]: event.target.value });
+        localStorage.setItem(event.target.name, event.target.value);
     };
 
     return (
