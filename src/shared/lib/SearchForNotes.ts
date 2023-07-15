@@ -2,13 +2,13 @@ import { ChangeEvent } from 'react';
 import NoteType from './NoteType';
 
 type SearchOptions = {
-	event: ChangeEvent<HTMLInputElement>,
-	userNotes:NoteType[],
-	notesData:NoteType[],
-	setSearchNotes:(array:NoteType[]) => void,
+	event: ChangeEvent<HTMLInputElement>;
+	userNotes: NoteType[];
+	notesData: NoteType[];
+	setSearchNotes: (array: NoteType[]) => void;
 };
 
-export const SearchForNotes = ({event, userNotes, notesData, setSearchNotes}: SearchOptions) => {
+export const SearchForNotes = ({ event, userNotes, notesData, setSearchNotes }: SearchOptions) => {
 	const searchValue = event.target.value;
 
 	if (!searchValue) {
@@ -17,7 +17,7 @@ export const SearchForNotes = ({event, userNotes, notesData, setSearchNotes}: Se
 	}
 	const resultArray: NoteType[] = [];
 
-	userNotes.map((note:NoteType) => {
+	userNotes.map((note: NoteType) => {
 		if (note.noteTitle.toLowerCase().includes(searchValue.toLowerCase())) {
 			resultArray.push(note);
 		} else if (note.noteDate.includes(searchValue)) {

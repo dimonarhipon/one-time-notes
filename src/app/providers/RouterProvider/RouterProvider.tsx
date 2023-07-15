@@ -3,7 +3,6 @@ import HomePage from '@/pages/HomePage';
 import Login from '@/pages/LoginPage';
 import Register from '@/pages/RegisterPage';
 
-
 const router = createBrowserRouter([
 	{
 		path: '/',
