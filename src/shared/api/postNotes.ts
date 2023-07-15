@@ -8,7 +8,6 @@ export const postNotes = async (url:string, noteObject: NoteType) => {
     },
 		body: JSON.stringify(noteObject),
 	});
-	console.log(response);
 
 	return response.json();
 };

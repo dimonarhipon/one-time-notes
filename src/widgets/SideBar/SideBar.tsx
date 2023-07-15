@@ -7,6 +7,7 @@ import NoteType from '@/shared/lib/NoteType';
 import { SearchForNotes } from '@/shared/lib/SearchForNotes';
 import { fetchNotes } from '@/shared/api/fetchNotes';
 import Preloader from '../Preloader/Preloader';
+import { sortByDate } from '@/shared/lib/sortByDate';
 
 const SideBar = () => {
 	const mockApiNotesUrl = 'https://64aff776c60b8f941af4f841.mockapi.io/server/notes';
@@ -45,6 +46,11 @@ const SideBar = () => {
 					callback={(event) => {
 						SearchForNotes({ event, userNotes, searchNotes, setSearchNotes });
 					}}
+					sortByDate={() => {
+						const sortNotes = sortByDate(userNotes);
+						setUserNotes(sortNotes);
+						setSearchNotes(sortNotes);
+					}}
 				/>
 				<h2 className={styles.title}>Мои заметки</h2>
 				{loading && <Preloader />}
@@ -61,6 +67,9 @@ const SideBar = () => {
 							removeNoteFunction={removeNote}
 						/>
 					))}
+				{searchNotes.length === 0 && !loading && (
+					<p className={styles.empty}>Поиск не дал результатов</p>
+				)}
 			</div>
 			<AddButton
 				callback={() => {

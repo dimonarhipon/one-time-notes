@@ -4,7 +4,9 @@ export const fetchNotes = async (url:string, fetchMethod?:string) => {
 			fetch(url, {
 				method: fetchMethod,
 			})
-			.catch((error) => console.error(error));
+			.catch((error) => {
+				throw new Error(error);
+			});
 		}
 		const response = await fetch(url);
 		const data = await response.json();
