@@ -20,23 +20,23 @@
     font-weight: 400;
 }
 
-.span{
+.error {
     font-size: 12px;
     padding: 3px;
     color: $pink;
     display: none;
 }
 
-.label{
+.label {
     font-size: 18px;
     color: $blue;
 }
 
-input:invalid[focused="true"]{
+.input:invalid[focused="true"] {
     border: 1px solid $pink;
 }
 
-input:invalid[focused="true"] ~ span{
+.input:invalid[focused="true"] ~ .error {
     display: block;
 }
 

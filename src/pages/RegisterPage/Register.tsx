@@ -10,6 +10,12 @@ const Register = () => {
         confirmPassword: localStorage.getItem('confirmPassword') || '',
     });
     
+    const FormProps = {
+        buttonText: 'Зарегистрироваться',
+        linkTo: '/login',
+        pText: 'Войти',
+    };
+
     const InputProps: Array<IInput> = [
         {
             id: 1,
@@ -49,9 +55,9 @@ const Register = () => {
                 InputProps={InputProps}
                 InputValues={InputValues}
                 setInputValues={setInputValues}
-                buttonText='Зарегистрироваться'
-                linkTo='/login'
-                pText='Войти'
+                buttonText={FormProps.buttonText}
+                linkTo={FormProps.linkTo}
+                pText={FormProps.pText}
             />
         </div>
     );

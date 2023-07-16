@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Form: React.FC<IForm> = ({ InputProps, InputValues, setInputValues, buttonText, linkTo, pText }) => {
 
-    const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const onUserChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInputValues({ ...InputValues, [event.target.name]: event.target.value });
         localStorage.setItem(event.target.name, event.target.value);
     };
@@ -18,7 +18,7 @@ const Form: React.FC<IForm> = ({ InputProps, InputValues, setInputValues, button
                         key={input.id}
                         {...input}
                         value={InputValues[input.name]}
-                        onChange={onChange}
+                        onChange={onUserChange}
                     />
                 ))}
                 <button className={styles.button}>{buttonText}</button>

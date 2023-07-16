@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styles from './Input.module.scss';
 import { IInput } from '../../shared/Types/AuthTypes';
+import { IconEye, IconEyeSlash } from '@/shared/assets/icons';
 
 const Input: React.FC<IInput> = ({ label, errorMessage, onChange, type, ...inputProps }) => {
 
@@ -10,34 +11,42 @@ const Input: React.FC<IInput> = ({ label, errorMessage, onChange, type, ...input
         eye: '/eye.svg',
         eyeSlash: '/eyeslash.svg',
     };
+    
     const [typeInput, setTypeInput] = useState(type);
     const [focused, setFocused] = useState(false);
 
-    const onFocus = (event: React.FocusEvent<HTMLInputElement>) => {
+    const onInputFocus = (event: React.FocusEvent<HTMLInputElement>) => {
         setFocused(true);
     };
 
-    const hidePassword = () => {
+    const onHidePassword = () => {
         typeInput === 'password' ? setTypeInput('text') : setTypeInput('password');
     };
 
 
     return (
         <div className={styles.inputWrapper}>
-            <label className={styles.label}>{label}</label>
-            <input
-                className={styles.input}
-                {...inputProps}
-                onChange={onChange}
-                onBlur={onFocus}
-                type={typeInput}
-                onFocus={() =>
-                    inputProps.name === 'confirmPassword' && setFocused(true)
-                }
-                focused={focused.toString()}
-            />
-            <span className={styles.span}>{errorMessage}</span>
-            {type === 'password' && <div onClick={hidePassword} className={styles.passwordHide}><img src={typeInput === 'password' ? imgPath.eye : imgPath.eyeSlash} alt='eyePassword' /></div>}
+            <label className={styles.label}>{label}
+                <input
+                    className={styles.input}
+                    {...inputProps}
+                    onChange={onChange}
+                    onBlur={onInputFocus}
+                    type={typeInput}
+                    onFocus={() =>inputProps.name === 'confirmPassword' && setFocused(true)
+                    }
+                    focused={focused.toString()}
+                />
+                <p className={styles.error}>{errorMessage}</p>
+            </label>
+            
+            {type === 'password' && 
+                <div 
+                    onClick={onHidePassword} 
+                    className={styles.passwordHide}>
+                    {typeInput === 'password' ? <IconEye /> : <IconEyeSlash/>} 
+                </div>
+            }
         </div>
     );
 };
