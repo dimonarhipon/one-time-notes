@@ -5,11 +5,12 @@ import Search from '@/widgets/Search/Search';
 import AddButton from '../AddButton/AddButton';
 import NoteType from '@/shared/lib/NoteType';
 import Preloader from '../Preloader/Preloader';
-import { SearchForNotes } from '@/shared/lib/SearchForNotes';
 import { fetchNotes } from '@/shared/api/fetchNotes';
 import { removeNote } from '@/shared/lib/removeNote';
 import { SortByDate, sortNotesByDate } from '@/shared/lib/sortByDate';
 import { SortByCompleted, sortNotesByCompleted } from '@/shared/lib/sortByCompleted';
+import { addNote } from '@/shared/lib/addNote';
+import { searchForNotes } from '@/shared/lib/SearchForNotes';
 
 const SideBar = () => {
 	const mockApiNotesUrl = 'https://64aff776c60b8f941af4f841.mockapi.io/server/notes';
@@ -34,7 +35,7 @@ const SideBar = () => {
 			<div className={styles.header}>
 				<Search
 					searchFunction={(event) => {
-						SearchForNotes({ event, userNotes, searchNotes, setSearchNotes });
+						searchForNotes({ event, userNotes, searchNotes, setSearchNotes });
 					}}
 					sortByDate={() => {
 						sortNotesByDate({ userNotes, sortByDate, setSearchNotes, setSortByDate });
@@ -47,6 +48,8 @@ const SideBar = () => {
 							setSortByCompleted,
 						});
 					}}
+					stateDate={sortByDate}
+					stateCompleted={sortByCompleted}
 				/>
 				<h2 className={styles.title}>Мои заметки</h2>
 				{loading && <Preloader />}
@@ -77,8 +80,8 @@ const SideBar = () => {
 					))}
 			</div>
 			<AddButton
-				callback={() => {
-					// добавление
+				addNote={() => {
+					addNote({ userNotes, setUserNotes, setSearchNotes, setLoading, mockApiNotesUrl });
 				}}
 			/>
 		</aside>

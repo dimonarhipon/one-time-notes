@@ -1,14 +1,34 @@
+import { SortByDate } from '@/shared/lib/sortByDate';
 import styles from './search.module.scss';
 import { ChangeEvent } from 'react';
+import { SortByCompleted } from '@/shared/lib/sortByCompleted';
 
 type SearchProps = {
 	searchFunction: (event: ChangeEvent<HTMLInputElement>) => void;
 	sortByDate: () => void;
 	sortByCompleted: () => void;
+	stateDate: SortByDate;
+	stateCompleted: SortByCompleted;
 };
 
-const Search = ({ searchFunction, sortByDate, sortByCompleted }: SearchProps) => {
+const Search = ({
+	searchFunction,
+	sortByDate,
+	sortByCompleted,
+	stateDate,
+	stateCompleted,
+}: SearchProps) => {
 	const inputPlaceholder = 'Найти заметку...';
+
+	const isSortByDate =
+		stateDate === SortByDate.early || stateDate === SortByDate.late
+			? [styles.sortButton, styles.active].join(' ')
+			: styles.sortButton;
+
+	const isSortByCompleted =
+		stateCompleted === SortByCompleted.read || stateCompleted === SortByCompleted.unread
+			? [styles.sortButton, styles.active].join(' ')
+			: styles.sortButton;
 
 	return (
 		<div className={styles.search}>
@@ -50,10 +70,10 @@ const Search = ({ searchFunction, sortByDate, sortByCompleted }: SearchProps) =>
 				</button>
 			</div>
 			<div className={styles.sorts}>
-				<button className={styles.sortButton} onClick={sortByDate}>
+				<button className={isSortByDate} onClick={sortByDate}>
 					По дате
 				</button>
-				<button className={styles.sortButton} onClick={sortByCompleted}>
+				<button className={isSortByCompleted} onClick={sortByCompleted}>
 					По цвету
 				</button>
 			</div>

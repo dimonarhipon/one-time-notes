@@ -2,14 +2,14 @@ import styles from './AddButton.module.scss';
 import addIcon from './img/addNote.svg';
 
 type AddButtonProps = {
-	callback: () => void;
+	addNote: () => void;
 };
 
-const AddButton = ({ callback }: AddButtonProps) => {
+const AddButton = ({ addNote }: AddButtonProps) => {
 	const altAddImg = 'Добавить заметку';
 
 	return (
-		<div className={styles.add} onClick={callback}>
+		<div className={styles.add} onClick={addNote}>
 			<img src={addIcon} alt={altAddImg} />
 		</div>
 	);

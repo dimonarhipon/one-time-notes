@@ -8,7 +8,7 @@ type SearchOptions = {
 	setSearchNotes:(array:NoteType[]) => void,
 };
 
-export const SearchForNotes = ({event, userNotes, searchNotes, setSearchNotes}: SearchOptions) => {
+export const searchForNotes = ({event, userNotes, searchNotes, setSearchNotes}: SearchOptions) => {
 	const searchValue = event.target.value;
 
 	if (searchValue.length === 0) {
