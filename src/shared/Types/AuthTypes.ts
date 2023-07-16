@@ -22,6 +22,7 @@ export interface IInput {
 
 
 export interface IForm {
+    onSubmit?: (event: React.SyntheticEvent) => Promise<void>,
     InputProps: Array<IInput>,
     InputValues: TInputValues,
     setInputValues: (InputValues: TInputValues) => void,

@@ -1,8 +1,18 @@
 import Form from '../../widgets/Form/Form';
 import { useState } from 'react';
-import { IInput } from '../../shared/Types/AuthTypes';
+import { IInput, TInputValues } from '../../shared/Types/AuthTypes';
 
 const Register = () => {
+
+    const REGISTER_URL = 'https://63fdd8c4cd13ced3d7c02d2a.mockapi.io/t/User';
+    const USER_REGEX = /^[A-Za-z0-9]{3,16}$/;
+    const PASSWORD_REGEX = /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/;
+    const errorMessages = {
+        valuesError: 'Введенные данные не верны',
+        serverError: 'No Server Response',
+        usernameTakenError: 'Username Taken',
+        registrationError: 'Registration Failed',
+    };
 
     const [InputValues, setInputValues] = useState({
         username: localStorage.getItem('username') || '',
@@ -49,9 +59,45 @@ const Register = () => {
         },
     ];
 
+    const onFormSubmit = async (event: React.SyntheticEvent) => {
+        event.preventDefault();
+        
+        const firstCheck = USER_REGEX.test(InputValues.username);
+        const secondCheck = PASSWORD_REGEX.test(InputValues.password);
+        
+        if (!firstCheck || !secondCheck) {
+            alert(errorMessages.valuesError);
+            return;
+        }
+        try {
+            const createUser = async (userData: TInputValues) => {
+                await fetch(REGISTER_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json;charset=utf-8'
+                    },
+                    body: JSON.stringify(userData)
+                });
+            };
+
+            createUser(InputValues);
+            
+            setInputValues({
+                username: '',
+                password: '',
+                confirmPassword: ''
+            });
+        } catch (err) {
+            if (err) {
+                alert('No Server Response');
+            } 
+        }
+    };
+
     return (
         <div>
             <Form
+                onSubmit={onFormSubmit}
                 InputProps={InputProps}
                 InputValues={InputValues}
                 setInputValues={setInputValues}

@@ -4,13 +4,6 @@ import { IInput } from '../../shared/Types/AuthTypes';
 import { IconEye, IconEyeSlash } from '@/shared/assets/icons';
 
 const Input: React.FC<IInput> = ({ label, errorMessage, onChange, type, ...inputProps }) => {
-
-
-
-    const imgPath= {
-        eye: '/eye.svg',
-        eyeSlash: '/eyeslash.svg',
-    };
     
     const [typeInput, setTypeInput] = useState(type);
     const [focused, setFocused] = useState(false);
