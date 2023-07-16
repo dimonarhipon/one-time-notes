@@ -14,7 +14,7 @@ type SortOptions = {
 };
 
 export const sortNotesByDate = ({userNotes, sortByDate, setSearchNotes, setSortByDate}: SortOptions): void => {
-	if(sortByDate === SortByDate.late){
+	if(sortByDate === SortByDate.early){
 		setSearchNotes(userNotes);
 		setSortByDate(SortByDate.default);
 	}
@@ -27,12 +27,12 @@ export const sortNotesByDate = ({userNotes, sortByDate, setSearchNotes, setSortB
 
 	// 2. Сортировка по ранней дате
 	if(sortByDate === SortByDate.default){
-		dateArray.sort((a, b) => (+a.noteDate > +b.noteDate ? 1 : -1));
-		setSortByDate(SortByDate.early);
-	}
-	if(sortByDate === SortByDate.early){
 		dateArray.sort((a, b) => (+a.noteDate < +b.noteDate ? 1 : -1));
 		setSortByDate(SortByDate.late);
+	}
+	if(sortByDate === SortByDate.late){
+		dateArray.sort((a, b) => (+a.noteDate > +b.noteDate ? 1 : -1));
+		setSortByDate(SortByDate.early);
 	}
 
 	// 3. Преобразование обратно в ISO

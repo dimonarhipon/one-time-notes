@@ -1,6 +1,6 @@
-import { SortByDate } from '@/shared/lib/sortByDate';
-import styles from './search.module.scss';
+import styles from './Search.module.scss';
 import { ChangeEvent } from 'react';
+import { SortByDate } from '@/shared/lib/sortByDate';
 import { SortByCompleted } from '@/shared/lib/sortByCompleted';
 
 type SearchProps = {

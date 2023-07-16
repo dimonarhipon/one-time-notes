@@ -15,6 +15,8 @@ export const addNote = async ({userNotes, setUserNotes, setSearchNotes, setLoadi
 	const postNote = new Note();
 
 	const response = await fetchNotes(mockApiNotesUrl, 'POST', postNote);
+	console.log(response);
+
 	const copyUserNotes = [...userNotes];
 	await copyUserNotes.unshift(response);
 

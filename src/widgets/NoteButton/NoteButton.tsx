@@ -1,5 +1,5 @@
 import NoteType from '@/shared/lib/NoteType';
-import styles from './notebutton.module.scss';
+import styles from './NoteButton.module.scss';
 
 type NoteButtonProps = {
 	note: NoteType;
