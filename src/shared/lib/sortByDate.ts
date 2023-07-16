@@ -1,24 +1,22 @@
 import NoteType from './NoteType';
 
-export enum SortBy {
+export enum SortByDate {
 	early = 'early',
 	late = 'late',
-	read = 'read',
-	unread = 'unread',
 	default = 'default',
 }
 
 type SortOptions = {
 	userNotes:NoteType[],
-	sortBy:SortBy,
+	sortByDate:SortByDate,
 	setSearchNotes:(array:NoteType[]) => void,
-	setSortBy:(SortBy:SortBy) => void,
+	setSortByDate:(sortByDate:SortByDate) => void,
 };
 
-export const sortByDate = ({userNotes, sortBy, setSearchNotes, setSortBy}: SortOptions): void => {
-	if(sortBy === SortBy.late){
+export const sortNotesByDate = ({userNotes, sortByDate, setSearchNotes, setSortByDate}: SortOptions): void => {
+	if(sortByDate === SortByDate.late){
 		setSearchNotes(userNotes);
-		setSortBy(SortBy.default);
+		setSortByDate(SortByDate.default);
 	}
 
 	const dateArray = [...userNotes];
@@ -28,13 +26,13 @@ export const sortByDate = ({userNotes, sortBy, setSearchNotes, setSortBy}: SortO
 	});
 
 	// 2. Сортировка по ранней дате
-	if(sortBy === SortBy.default){
+	if(sortByDate === SortByDate.default){
 		dateArray.sort((a, b) => (+a.noteDate > +b.noteDate ? 1 : -1));
-		setSortBy(SortBy.early);
+		setSortByDate(SortByDate.early);
 	}
-	if(sortBy === SortBy.early){
+	if(sortByDate === SortByDate.early){
 		dateArray.sort((a, b) => (+a.noteDate < +b.noteDate ? 1 : -1));
-		setSortBy(SortBy.late);
+		setSortByDate(SortByDate.late);
 	}
 
 	// 3. Преобразование обратно в ISO

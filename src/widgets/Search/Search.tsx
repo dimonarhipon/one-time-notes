@@ -4,9 +4,10 @@ import { ChangeEvent } from 'react';
 type SearchProps = {
 	searchFunction: (event: ChangeEvent<HTMLInputElement>) => void;
 	sortByDate: () => void;
+	sortByCompleted: () => void;
 };
 
-const Search = ({ searchFunction, sortByDate }: SearchProps) => {
+const Search = ({ searchFunction, sortByDate, sortByCompleted }: SearchProps) => {
 	const inputPlaceholder = 'Найти заметку...';
 
 	return (
@@ -52,7 +53,9 @@ const Search = ({ searchFunction, sortByDate }: SearchProps) => {
 				<button className={styles.sortButton} onClick={sortByDate}>
 					По дате
 				</button>
-				<button className={styles.sortButton}>По цвету</button>
+				<button className={styles.sortButton} onClick={sortByCompleted}>
+					По цвету
+				</button>
 			</div>
 		</div>
 	);

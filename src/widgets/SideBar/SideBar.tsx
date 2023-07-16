@@ -7,8 +7,9 @@ import NoteType from '@/shared/lib/NoteType';
 import Preloader from '../Preloader/Preloader';
 import { SearchForNotes } from '@/shared/lib/SearchForNotes';
 import { fetchNotes } from '@/shared/api/fetchNotes';
-import { SortBy, sortByDate } from '@/shared/lib/sortByDate';
 import { removeNote } from '@/shared/lib/removeNote';
+import { SortByDate, sortNotesByDate } from '@/shared/lib/sortByDate';
+import { SortByCompleted, sortNotesByCompleted } from '@/shared/lib/sortByCompleted';
 
 const SideBar = () => {
 	const mockApiNotesUrl = 'https://64aff776c60b8f941af4f841.mockapi.io/server/notes';
@@ -17,7 +18,8 @@ const SideBar = () => {
 	const [searchNotes, setSearchNotes] = useState<NoteType[]>([]);
 	const [loading, setLoading] = useState<boolean>(true);
 	const [activeNote, setActiveNote] = useState<number>(-1);
-	const [sortBy, setSortBy] = useState<SortBy>(SortBy.default);
+	const [sortByDate, setSortByDate] = useState<SortByDate>(SortByDate.default);
+	const [sortByCompleted, setSortByCompleted] = useState<SortByCompleted>(SortByCompleted.default);
 
 	useEffect(() => {
 		fetchNotes(mockApiNotesUrl).then((notes) => {
@@ -35,7 +37,15 @@ const SideBar = () => {
 						SearchForNotes({ event, userNotes, searchNotes, setSearchNotes });
 					}}
 					sortByDate={() => {
-						sortByDate({ userNotes, sortBy, setSearchNotes, setSortBy });
+						sortNotesByDate({ userNotes, sortByDate, setSearchNotes, setSortByDate });
+					}}
+					sortByCompleted={() => {
+						sortNotesByCompleted({
+							userNotes,
+							sortByCompleted,
+							setSearchNotes,
+							setSortByCompleted,
+						});
 					}}
 				/>
 				<h2 className={styles.title}>Мои заметки</h2>
