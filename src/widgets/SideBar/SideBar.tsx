@@ -10,7 +10,7 @@ import { removeNote } from '@/shared/lib/removeNote';
 import { SortByDate, sortNotesByDate } from '@/shared/lib/sortByDate';
 import { SortByCompleted, sortNotesByCompleted } from '@/shared/lib/sortByCompleted';
 import { addNote } from '@/shared/lib/addNote';
-import { searchForNotes } from '@/shared/lib/SearchForNotes';
+import { searchForNotes } from '@/shared/lib/searchForNotes';
 
 const SideBar = () => {
 	const mockApiNotesUrl = 'https://64aff776c60b8f941af4f841.mockapi.io/server/notes';
