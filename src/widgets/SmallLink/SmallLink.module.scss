@@ -1,6 +1,6 @@
 @import '@/shared/styles/vars.scss';
 
-.dark_link {
+.small_link {
 	position: relative;
 	display: flex;
 	justify-content: center;
@@ -11,8 +11,7 @@
 	color: rgba(0, 0, 0, 0.3);
 	transition: all 0.2s;
 	cursor: pointer;
-}
-
-.dark_Link:hover {
-	color: rgba(0, 0, 0, 0.5);
+	&:hover {
+		color: rgba(0, 0, 0, 0.5);
+	}
 }

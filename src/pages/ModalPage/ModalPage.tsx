@@ -3,7 +3,7 @@ import { ModalTitle } from '@/widgets/ModalTitle/ModalTitle';
 import { ModalTemplate } from '@/widgets/ModalTemplate/ModalTemplate';
 import { ScrollBlock } from '@/widgets/ScrollBlock/ScrollBlock';
 import { useState } from 'react';
-import { DarkLink } from '@/widgets/DarkLink/DarkLink';
+import { SmallLink } from '@/widgets/SmallLink/SmallLink';
 
 import styles from './ModalPage.module.scss';
 
@@ -44,8 +44,8 @@ export const ModalPage = () => {
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta in minus dolores quia ad recusandae asperiores eaque rerum quos. Eveniet reiciendis natus modi nisi dolore ullam consectetur quidem consequuntur voluptatum.                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, obcaecati laudantium. Eligendi dignissimos nemo eaque magnam nobis maiores libero mollitia explicabo, deleniti minima eius nam delectus corporis modi odit animi?Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus possimus cupiditate perspiciatis obcaecati quae iure repudiandae quam at cum rerum exercitationem eos, hic doloremque, totam corporis aut magni. Officia, aliquid?Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque dolorem distinctio voluptatum at quam eos quisquam aliquam! Repudiandae laborum optio eveniet nesciunt omnis atque similique nihil. Veritatis nam necessitatibus doloribus.
             </ScrollBlock> : ''}
         {NoteState === STATUS_OPEN || NoteState === STATUS_DELETE ?
-            <DarkLink callback={() => SetModal(false)}>
+            <SmallLink callback={() => SetModal(false)}>
                 Написать заметку
-            </DarkLink> : ''}
+            </SmallLink> : ''}
     </ModalTemplate>;
 };
