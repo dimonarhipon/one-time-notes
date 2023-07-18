@@ -1,6 +1,5 @@
 export type TModalProps = {
-    active?: boolean,
-    callback?: () => void,
-    children: React.ReactNode,
+	active?: boolean;
+	callback?: () => void;
+	children: React.ReactNode;
 };
-
