@@ -1,17 +1,18 @@
 @import '@/shared/styles/vars.scss';
 
-.darklink {
-	cursor: pointer;
-	color: rgba(0, 0, 0, 0.3);
-	z-index: 2;
+.dark_link {
 	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 0 60px 60px 60px;
+	z-index: 2;
+	margin: 60px;
+	margin-top: 0;
+	color: rgba(0, 0, 0, 0.3);
 	transition: all 0.2s;
+	cursor: pointer;
 }
 
-.darklink:hover {
+.dark_Link:hover {
 	color: rgba(0, 0, 0, 0.5);
 }

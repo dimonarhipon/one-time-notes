@@ -1,20 +1,19 @@
 @import '@/shared/styles/vars.scss';
 
-.btn {
+.modal_button {
+	margin: 60px;
+	margin-top: 0;
 	padding: 18px 134px;
-	margin: 0px 60px 60px 60px;
 	background-color: $green;
-	color: #000;
 	border-radius: 20px;
 	border-color: $green;
-	transition: all 0.2s;
 	border-style: solid;
 	font-size: 20px;
 	cursor: pointer;
-}
-
-.btn:hover {
-	background-color: transparent;
-	color: rgba(0, 0, 0, 1);
-	border-color: #000;
+	transition: all 0.2s;
+	&:hover {
+		background-color: transparent;
+		color: rgba(0, 0, 0, 1);
+		border-color: #000;
+	}
 }

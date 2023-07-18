@@ -1,7 +1,8 @@
-.scroll {
+.scroll_container {
 	overflow: auto;
 	max-width: 920px;
 	max-height: 400px;
 	text-align: left;
-	margin: 0 60px 30px 60px;
+	margin: 0 60px;
+	margin-bottom: 30px;
 }

@@ -1,8 +1,8 @@
-import { ModalProps } from '@/shared/lib/ModalProps';
+import { TModalProps } from '@/shared/lib/TModalProps';
 import styles from './ModalTitle.module.scss';
 
-export const ModalTitle = ({ children }: ModalProps) => {
-    return <div className={styles.title}>
+export const ModalTitle = ({ children }: TModalProps) => {
+    return <div className={styles.modal_title}>
         {children}
     </div>;
 };

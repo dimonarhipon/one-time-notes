@@ -6,13 +6,11 @@
 	top: 0;
 	right: 0;
 	bottom: 0;
-
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	background-color: $main;
 	z-index: 2;
-
 	transform: scale(0);
 }
 
@@ -21,15 +19,12 @@
 }
 
 .modal_content {
-	min-width: 584px;
-	max-width: 920px;
-	max-height: 700px;
-
+	max-width: 1024px;
+	min-width: 560px;
+	max-height: 768px;
 	color: $main;
 	background-color: $white;
 	border-radius: 20px;
-
-	display: block;
 	text-align: center;
 	justify-content: center;
 }

@@ -6,7 +6,7 @@ type ButtonProps = {
 };
 
 export const DarkLink = ({ children, callback }: ButtonProps) => {
-    return <a className={styles.darklink} onClick={callback}>
+    return <a className={styles.dark_link} onClick={callback}>
         {children}
     </a>;
 };
