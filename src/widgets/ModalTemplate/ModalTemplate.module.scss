@@ -11,14 +11,31 @@
 	align-items: center;
 	background-color: $main;
 	z-index: 2;
-	transform: scale(0);
+	padding: 30px;
+	animation: anifirst 0.7s forwards;
+	@keyframes anifirst {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(-150%);
+		}
+	}
 }
 
-.modal_active {
-	transform: scale(1);
+.modalActive {
+	animation: anisecond 0.7s forwards;
+	@keyframes anisecond {
+		0% {
+			transform: translateX(-150%);
+		}
+		100% {
+			transform: translateX(0);
+		}
+	}
 }
 
-.modal_content {
+.modalContent {
 	max-width: 1024px;
 	min-width: 560px;
 	max-height: 768px;
@@ -27,4 +44,12 @@
 	border-radius: 20px;
 	text-align: center;
 	justify-content: center;
+	transition: all 0.2s;
+	@include respond-to($tablet) {
+		min-width: 400px;
+		width: 100%;
+	}
+	@include respond-to($mobile) {
+		min-width: 300px;
+	}
 }

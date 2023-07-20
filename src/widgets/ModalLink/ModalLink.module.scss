@@ -1,6 +1,6 @@
 @import '@/shared/styles/vars.scss';
 
-.small_link {
+.modalLink {
 	position: relative;
 	display: flex;
 	justify-content: center;
@@ -13,5 +13,12 @@
 	cursor: pointer;
 	&:hover {
 		color: rgba(0, 0, 0, 0.5);
+	}
+	@include respond-to($tablet) {
+		margin-bottom: 40px;
+	}
+	@include respond-to($mobile) {
+		margin: 30px;
+		margin-top: 0;
 	}
 }
