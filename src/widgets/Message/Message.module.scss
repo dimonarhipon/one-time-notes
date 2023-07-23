@@ -1,0 +1,17 @@
+@import '@/shared/styles/vars.scss';
+
+.scrollContainer {
+	overflow: auto;
+	max-width: 920px;
+	max-height: 400px;
+	text-align: left;
+	margin: 0 60px;
+	margin-bottom: 30px;
+	transition: all 0.2s;
+	@include respond-to($tablet) {
+		margin: 0 40px 30px 40px;
+	}
+	@include respond-to($mobile) {
+		margin: 0 30px 12px 30px;
+	}
+}

@@ -1,0 +1,33 @@
+@import '@/shared/styles/vars.scss';
+
+.navigationСontainer {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.2s;
+}
+
+.navigationСlose {
+	transition: all 0.2s;
+	cursor: pointer;
+	position: absolute;
+	right: 5%;
+	top: 50%;
+	background: none;
+	border: none;
+	.navigationImg {
+		width: 30px;
+		fill: rgba(0, 0, 0, 0.8);
+		&:hover {
+			transition: all 0.2s;
+			fill: rgba(0, 0, 0, 0.5);
+		}
+		@include respond-to($tablet) {
+			width: 25px;
+		}
+		@include respond-to($mobile) {
+			width: 20px;
+		}
+	}
+}
