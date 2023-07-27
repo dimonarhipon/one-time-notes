@@ -4,11 +4,11 @@ import AuthorizationPage from '@/pages/AuthorizationPage';
 
 const router = createBrowserRouter([
 	{
-		path: '/',
+		path: '/develop/',
 		Component: HomePage,
 	},
 	{
-		path: '/registration',
+		path: '/develop/registration',
 		Component: AuthorizationPage,
 	},
 ]);
