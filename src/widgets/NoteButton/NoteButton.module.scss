@@ -10,7 +10,7 @@
 	margin: 10px 0 0 10px;
 	padding: 10px 20px;
 	border-radius: 20px;
-	width: 230px;
+	width: 246px;
 	height: 85px;
 	cursor: pointer;
 	transition: width .2s ease-in-out, border-radius .2s ease-in;
@@ -21,7 +21,7 @@
 
 	&.active {
 		border-radius: 20px 0px 0px 20px;
-		width: 240px;
+		width: 256px;
 
 		.date {
 			margin-right: 10px;

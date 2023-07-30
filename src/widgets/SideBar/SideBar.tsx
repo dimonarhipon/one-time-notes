@@ -73,7 +73,6 @@ const SideBar = () => {
 									userNotes,
 									setUserNotes,
 									setSearchNotes,
-									setLoading,
 								})
 							}
 						/>
@@ -81,7 +80,7 @@ const SideBar = () => {
 			</div>
 			<AddButton
 				addNote={() => {
-					addNote({ userNotes, setUserNotes, setSearchNotes, setLoading, mockApiNotesUrl });
+					addNote({ userNotes, setUserNotes, setSearchNotes, mockApiNotesUrl });
 				}}
 			/>
 		</aside>

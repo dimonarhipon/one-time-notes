@@ -7,20 +7,16 @@ type AddNoteOptions = {
 	mockApiNotesUrl: string;
 	setUserNotes: (array:NoteType[]) => void;
 	setSearchNotes: (array:NoteType[]) => void;
-	setLoading: (array:boolean) => void;
 };
 
-export const addNote = async ({userNotes, setUserNotes, setSearchNotes, setLoading, mockApiNotesUrl}:AddNoteOptions) => {
-	setLoading(true);
+export const addNote = async ({userNotes, setUserNotes, setSearchNotes, mockApiNotesUrl}:AddNoteOptions) => {
 	const postNote = new Note();
 
 	const response = await fetchNotes(mockApiNotesUrl, 'POST', postNote);
-	console.log(response);
 
 	const copyUserNotes = [...userNotes];
 	await copyUserNotes.unshift(response);
 
 	setSearchNotes(copyUserNotes);
 	setUserNotes(copyUserNotes);
-	setLoading(false);
 };

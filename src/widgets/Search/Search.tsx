@@ -1,5 +1,5 @@
 import styles from './Search.module.scss';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { SortByDate } from '@/shared/lib/sortByDate';
 import { SortByCompleted } from '@/shared/lib/sortByCompleted';
 
