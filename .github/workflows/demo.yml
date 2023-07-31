@@ -1,6 +1,6 @@
 name: Demo Workflow
 
-on: workflow_dispatch
+on: [commit_comment]
 
 jobs:
   print:
