@@ -17,5 +17,5 @@ jobs:
       with:
         node-version: 18.16.1
     - run: npm ci
-    - run: npm run lint
+    - run: npm lint
 
