@@ -1,18 +1,24 @@
 import { ChangeEvent } from 'react';
 import NoteType from './NoteType';
 
-type SearchOptions = {
+type TSearchOptions = {
 	event: ChangeEvent<HTMLInputElement>;
 	userNotes: NoteType[];
-	notesData: NoteType[];
+	searchNotes: NoteType[];
 	setSearchNotes: (array: NoteType[]) => void;
 };
 
-export const SearchForNotes = ({ event, userNotes, notesData, setSearchNotes }: SearchOptions) => {
+export const searchForNotes = ({
+	event,
+	userNotes,
+	searchNotes,
+	setSearchNotes,
+}: TSearchOptions) => {
+	// TASK исправить баг с русскими буквами
 	const searchValue = event.target.value;
 
-	if (!searchValue) {
-		setSearchNotes(notesData);
+	if (searchValue.length === 0) {
+		setSearchNotes(searchNotes);
 		return;
 	}
 	const resultArray: NoteType[] = [];
@@ -22,7 +28,8 @@ export const SearchForNotes = ({ event, userNotes, notesData, setSearchNotes }: 
 			resultArray.push(note);
 		} else if (note.noteDate.includes(searchValue)) {
 			resultArray.push(note);
-			// TASK: добавить поиск по тексту заметки
+		} else if (note.noteText.includes(searchValue)) {
+			resultArray.push(note);
 		}
 	});
 

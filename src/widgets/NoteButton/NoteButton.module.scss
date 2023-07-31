@@ -7,7 +7,7 @@
 	justify-content: space-between;
 
 	background-color: $pink;
-	margin: 10px 0 0 10px;
+	margin-bottom: 10px;
 	padding: 10px 20px;
 	border-radius: 20px;
 	width: 230px;
@@ -23,14 +23,14 @@
 
 	&.active {
 		border-radius: 20px 0px 0px 20px;
-		width: 240px;
+		width: 266px;
 
 		.date {
-			margin-right: 10px;
+			margin-right: 36px;
 		}
 
 		.removeButton {
-			margin-right: 10px;
+			margin-right: 36px;
 		}
 	}
 
