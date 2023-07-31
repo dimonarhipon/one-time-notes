@@ -1,3 +1,5 @@
+const defaultNoteTitle = 'Новая заметка';
+
 export class Note {
 	noteId?: string;
 	noteTitle: string;
@@ -5,7 +7,7 @@ export class Note {
 	noteDate: string;
 	noteStatus: boolean;
 
-	constructor(noteTitle = 'Новая заметка'){
+	constructor(noteTitle = defaultNoteTitle) {
 		this.noteId = '';
 		this.noteText = '';
 		this.noteTitle = noteTitle;

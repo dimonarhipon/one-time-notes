@@ -4,7 +4,7 @@ import NoteButton from '@/widgets/NoteButton/NoteButton';
 import Search from '@/widgets/Search/Search';
 import AddButton from '../AddButton/AddButton';
 import NoteType from '@/shared/lib/NoteType';
-import Preloader from '../Preloader/Preloader';
+import Preloader from '../../shared/Preloader/Preloader';
 import { fetchNotes } from '@/shared/api/fetchNotes';
 import { removeNote } from '@/shared/lib/removeNote';
 import { SortByDate, sortNotesByDate } from '@/shared/lib/sortByDate';
@@ -12,8 +12,12 @@ import { SortByCompleted, sortNotesByCompleted } from '@/shared/lib/sortByComple
 import { addNote } from '@/shared/lib/addNote';
 import { searchForNotes } from '@/shared/lib/searchForNotes';
 
+const myNotes = 'Мои заметки';
+const noNotes = 'Заметок пока нет';
+const noSearch = 'Поиск не дал результатов';
+
 const SideBar = () => {
-	const mockApiNotesUrl = 'https://64aff776c60b8f941af4f841.mockapi.io/server/notes';
+	const mockApiNotesUrl = 'https://64aff776c60b8f941af4f841.mockapi.io/server/notes?_limit=10';
 
 	const [userNotes, setUserNotes] = useState<NoteType[]>([]);
 	const [searchNotes, setSearchNotes] = useState<NoteType[]>([]);
@@ -51,30 +55,31 @@ const SideBar = () => {
 					stateDate={sortByDate}
 					stateCompleted={sortByCompleted}
 				/>
-				<h2 className={styles.title}>Мои заметки</h2>
+				<h2 className={styles.title}>{myNotes}</h2>
 				{loading && <Preloader />}
 			</div>
 			<div className={styles.notes}>
-				{!loading && userNotes.length === 0 && <p className={styles.empty}>Заметок пока нет</p>}
+				{!loading && userNotes.length === 0 && <p className={styles.empty}>{noNotes}</p>}
 				{!loading && userNotes.length > 0 && searchNotes.length === 0 && (
-					<p className={styles.empty}>Поиск не дал результатов</p>
+					<p className={styles.empty}>{noSearch}</p>
 				)}
 				{userNotes.length > 0 &&
 					searchNotes.map((note, index) => (
 						<NoteButton
-							key={note.noteId}
+							key={index}
 							note={note}
 							active={index === activeNote}
 							openNoteFunction={() => setActiveNote(index)}
-							removeNoteFunction={(event) =>
+							removeNoteFunction={() => {
+								const noteId = note.noteId;
 								removeNote({
-									event,
+									noteId,
 									mockApiNotesUrl,
 									userNotes,
 									setUserNotes,
 									setSearchNotes,
-								})
-							}
+								});
+							}}
 						/>
 					))}
 			</div>

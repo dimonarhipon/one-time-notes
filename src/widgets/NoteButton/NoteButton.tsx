@@ -16,7 +16,7 @@ const NoteButton = ({ note, active, openNoteFunction, removeNoteFunction }: Note
 	const date = new Date(note.noteDate).toLocaleDateString();
 
 	return (
-		<div className={`${isActive} ${isRead}`} onClick={openNoteFunction} id={note.noteId}>
+		<section className={`${isActive} ${isRead}`} onClick={openNoteFunction}>
 			<div className={styles.header}>
 				<h3 className={styles.title}>{note.noteTitle}</h3>
 				<button className={styles.removeButton} onClick={removeNoteFunction}>
@@ -27,8 +27,10 @@ const NoteButton = ({ note, active, openNoteFunction, removeNoteFunction }: Note
 					</svg>
 				</button>
 			</div>
-			<p className={styles.date}>{date}</p>
-		</div>
+			<time className={styles.date} dateTime={note.noteDate}>
+				{date}
+			</time>
+		</section>
 	);
 };
 

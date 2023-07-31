@@ -7,14 +7,19 @@ export enum SortByDate {
 }
 
 type SortOptions = {
-	userNotes:NoteType[],
-	sortByDate:SortByDate,
-	setSearchNotes:(array:NoteType[]) => void,
-	setSortByDate:(sortByDate:SortByDate) => void,
+	userNotes: NoteType[];
+	sortByDate: SortByDate;
+	setSearchNotes: (array: NoteType[]) => void;
+	setSortByDate: (sortByDate: SortByDate) => void;
 };
 
-export const sortNotesByDate = ({userNotes, sortByDate, setSearchNotes, setSortByDate}: SortOptions): void => {
-	if(sortByDate === SortByDate.early){
+export const sortNotesByDate = ({
+	userNotes,
+	sortByDate,
+	setSearchNotes,
+	setSortByDate,
+}: SortOptions): void => {
+	if (sortByDate === SortByDate.early) {
 		setSearchNotes(userNotes);
 		setSortByDate(SortByDate.default);
 	}
@@ -26,11 +31,11 @@ export const sortNotesByDate = ({userNotes, sortByDate, setSearchNotes, setSortB
 	});
 
 	// 2. Сортировка по ранней дате
-	if(sortByDate === SortByDate.default){
+	if (sortByDate === SortByDate.default) {
 		dateArray.sort((a, b) => (+a.noteDate < +b.noteDate ? 1 : -1));
 		setSortByDate(SortByDate.late);
 	}
-	if(sortByDate === SortByDate.late){
+	if (sortByDate === SortByDate.late) {
 		dateArray.sort((a, b) => (+a.noteDate > +b.noteDate ? 1 : -1));
 		setSortByDate(SortByDate.early);
 	}
@@ -41,5 +46,3 @@ export const sortNotesByDate = ({userNotes, sortByDate, setSearchNotes, setSortB
 	});
 	setSearchNotes(dateArray);
 };
-
-

@@ -7,13 +7,15 @@
 	justify-content: space-between;
 
 	background-color: $pink;
-	margin: 10px 0 0 10px;
+	margin-bottom: 10px;
 	padding: 10px 20px;
 	border-radius: 20px;
-	width: 246px;
+	width: 230px;
 	height: 85px;
 	cursor: pointer;
-	transition: width .2s ease-in-out, border-radius .2s ease-in;
+	transition:
+		width 0.2s ease-in-out,
+		border-radius 0.2s ease-in;
 
 	&:first-child {
 		margin-top: 0;
@@ -21,14 +23,14 @@
 
 	&.active {
 		border-radius: 20px 0px 0px 20px;
-		width: 256px;
+		width: 266px;
 
 		.date {
-			margin-right: 10px;
+			margin-right: 36px;
 		}
 
 		.removeButton {
-			margin-right: 10px;
+			margin-right: 36px;
 		}
 	}
 
@@ -54,7 +56,9 @@
 	background-color: transparent;
 	border: 0;
 	opacity: 0.6;
-	transition: margin .2s ease-in-out, opacity .1s linear;
+	transition:
+		margin 0.2s ease-in-out,
+		opacity 0.1s linear;
 
 	&:hover {
 		opacity: 1;
@@ -92,5 +96,5 @@
 	font-weight: 400;
 	line-height: 1.2;
 	opacity: 0.6;
-	transition: margin .2s ease-in-out;
+	transition: margin 0.2s ease-in-out;
 }

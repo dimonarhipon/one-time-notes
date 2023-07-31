@@ -16,18 +16,18 @@
 	padding: 10px 16px;
 }
 
-.sorts{
+.sorts {
 	margin-top: 10px;
 }
 
 .sortButton {
 	color: $white;
-	opacity: .8;
+	opacity: 0.8;
 	font-size: 14px;
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
-	transition: opacity .1s linear;
+	transition: opacity 0.1s linear;
 
 	&:hover {
 		opacity: 1;
@@ -37,6 +37,14 @@
 		opacity: 1;
 		text-decoration: underline;
 	}
+	&:focus {
+		outline: none;
+		text-decoration: underline;
+	}
+}
+
+.labelForSearch {
+	display: none;
 }
 
 .searchInput {
@@ -47,29 +55,30 @@
 	font-weight: 400;
 	color: $white;
 
-	&::-webkit-input-placeholder{
+	&::-webkit-input-placeholder {
 		opacity: 1;
 	}
-	&::-moz-placeholder{
+	&::-moz-placeholder {
 		opacity: 1;
 	}
-	&:-ms-input-placeholder{
+	&:-ms-input-placeholder {
 		opacity: 1;
 	}
-	&::-ms-input-placeholder{
+	&::-ms-input-placeholder {
 		opacity: 1;
 	}
-	&::placeholder{
+	&::placeholder {
 		opacity: 1;
 	}
 }
 
 .searchButton {
+	width: 100%;
 	background-color: transparent;
 	cursor: pointer;
 	border: none;
 }
 
 .searchIcon {
-	width: 100%;
+	width: 20px;
 }

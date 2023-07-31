@@ -1,5 +1,5 @@
 import styles from './Search.module.scss';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent } from 'react';
 import { SortByDate } from '@/shared/lib/sortByDate';
 import { SortByCompleted } from '@/shared/lib/sortByCompleted';
 
@@ -11,6 +11,9 @@ type SearchProps = {
 	stateCompleted: SortByCompleted;
 };
 
+const inputPlaceholder = 'Найти заметку...';
+const searchText = 'Найти';
+
 const Search = ({
 	searchFunction,
 	sortByDate,
@@ -18,8 +21,6 @@ const Search = ({
 	stateDate,
 	stateCompleted,
 }: SearchProps) => {
-	const inputPlaceholder = 'Найти заметку...';
-
 	const isSortByDate =
 		stateDate === SortByDate.early || stateDate === SortByDate.late
 			? [styles.sortButton, styles.active].join(' ')
@@ -33,8 +34,13 @@ const Search = ({
 	return (
 		<div className={styles.search}>
 			<div className={styles.input}>
+				<label htmlFor='search' title={searchText} className={styles.labelForSearch}>
+					Поиск по заметкам
+				</label>
 				<input
-					type='text'
+					type='search'
+					id='search'
+					name='search'
 					className={styles.searchInput}
 					placeholder={inputPlaceholder}
 					onChange={(event) => searchFunction(event)}
@@ -42,6 +48,7 @@ const Search = ({
 				<button
 					className={styles.searchButton}
 					type='button'
+					title={searchText}
 					onClick={(event) => {
 						event.preventDefault();
 						return;
@@ -51,8 +58,7 @@ const Search = ({
 						width='19'
 						height='19'
 						viewBox='0 0 19 19'
-						fill='none'
-						xmlns='http://www.w3.org/2000/svg'
+						xlinkTitle='Поиск'
 						className={styles.searchIcon}
 					>
 						<g clipPath='url(#clip0_263_750)'>
