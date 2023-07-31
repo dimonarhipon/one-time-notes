@@ -1,8 +1,8 @@
-type NoteType = {
+type TNoteType = {
 	noteId: string;
 	noteTitle: string;
 	noteText: string;
 	noteDate: string;
 	noteStatus: boolean;
 };
-export default NoteType;
+export default TNoteType;

@@ -1,15 +1,15 @@
 import styles from './AddButton.module.scss';
 
-type AddButtonProps = {
+type TAddButtonProps = {
 	addNote: () => void;
 };
 
-const AddButton = ({ addNote }: AddButtonProps) => {
-	const addText = 'Добавить заметку';
+const addText = 'Добавить заметку';
 
+const AddButton = ({ addNote }: TAddButtonProps) => {
 	return (
-		<button className={styles.add} onClick={addNote} title={addText}>
-			<svg className={styles.svg} width='45' height='45' viewBox='0 0 45 45' xlinkTitle={addText}>
+		<button className={styles.add} onClick={addNote}>
+			<svg className={styles.svg} width='45' height='45' viewBox='0 0 45 45' aria-label={addText}>
 				<rect width='45' height='45' rx='12' fill='white' />
 				<path
 					d='M28.25 23.2188H16.75C16.3571 23.2188 16.0312 22.8929 16.0312 22.5C16.0312 22.1071 16.3571 21.7812 16.75 21.7812H28.25C28.6429 21.7812 28.9688 22.1071 28.9688 22.5C28.9688 22.8929 28.6429 23.2188 28.25 23.2188Z'

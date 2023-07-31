@@ -1,7 +1,7 @@
 import { ChangeEvent } from 'react';
 import NoteType from './NoteType';
 
-type SearchOptions = {
+type TSearchOptions = {
 	event: ChangeEvent<HTMLInputElement>;
 	userNotes: NoteType[];
 	searchNotes: NoteType[];
@@ -13,11 +13,11 @@ export const searchForNotes = ({
 	userNotes,
 	searchNotes,
 	setSearchNotes,
-}: SearchOptions) => {
+}: TSearchOptions) => {
 	// TASK исправить баг с русскими буквами
 	const searchValue = event.target.value;
 
-	if (!searchValue.length) {
+	if (searchValue.length === 0) {
 		setSearchNotes(searchNotes);
 		return;
 	}

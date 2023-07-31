@@ -6,7 +6,7 @@ export enum SortByDate {
 	default = 'default',
 }
 
-type SortOptions = {
+type TSortOptions = {
 	userNotes: NoteType[];
 	sortByDate: SortByDate;
 	setSearchNotes: (array: NoteType[]) => void;
@@ -18,13 +18,15 @@ export const sortNotesByDate = ({
 	sortByDate,
 	setSearchNotes,
 	setSortByDate,
-}: SortOptions): void => {
+}: TSortOptions): void => {
 	if (sortByDate === SortByDate.early) {
 		setSearchNotes(userNotes);
 		setSortByDate(SortByDate.default);
+		return;
 	}
 
 	const dateArray = [...userNotes];
+
 	// 1. Преобразование даты из ISO в miliseconds
 	dateArray.map((note) => {
 		note.noteDate = new Date(note.noteDate).getTime().toString();
@@ -34,15 +36,25 @@ export const sortNotesByDate = ({
 	if (sortByDate === SortByDate.default) {
 		dateArray.sort((a, b) => (+a.noteDate < +b.noteDate ? 1 : -1));
 		setSortByDate(SortByDate.late);
+
+		// 3. Преобразование обратно в ISO
+		dateArray.map((note) => {
+			note.noteDate = new Date(+note.noteDate).toISOString();
+		});
+		setSearchNotes(dateArray);
+		return;
 	}
 	if (sortByDate === SortByDate.late) {
 		dateArray.sort((a, b) => (+a.noteDate > +b.noteDate ? 1 : -1));
 		setSortByDate(SortByDate.early);
+
+		// 3. Преобразование обратно в ISO
+		dateArray.map((note) => {
+			note.noteDate = new Date(+note.noteDate).toISOString();
+		});
+		setSearchNotes(dateArray);
+		return;
 	}
 
-	// 3. Преобразование обратно в ISO
-	dateArray.map((note) => {
-		note.noteDate = new Date(+note.noteDate).toISOString();
-	});
-	setSearchNotes(dateArray);
+	return setSearchNotes(dateArray);
 };

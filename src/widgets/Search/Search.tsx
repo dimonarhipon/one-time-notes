@@ -3,8 +3,8 @@ import { ChangeEvent } from 'react';
 import { SortByDate } from '@/shared/lib/sortByDate';
 import { SortByCompleted } from '@/shared/lib/sortByCompleted';
 
-type SearchProps = {
-	searchFunction: (event: ChangeEvent<HTMLInputElement>) => void;
+type TSearchProps = {
+	searchForNotes: (event: ChangeEvent<HTMLInputElement>) => void;
 	sortByDate: () => void;
 	sortByCompleted: () => void;
 	stateDate: SortByDate;
@@ -12,15 +12,14 @@ type SearchProps = {
 };
 
 const inputPlaceholder = 'Найти заметку...';
-const searchText = 'Найти';
 
 const Search = ({
-	searchFunction,
+	searchForNotes,
 	sortByDate,
 	sortByCompleted,
 	stateDate,
 	stateCompleted,
-}: SearchProps) => {
+}: TSearchProps) => {
 	const isSortByDate =
 		stateDate === SortByDate.early || stateDate === SortByDate.late
 			? [styles.sortButton, styles.active].join(' ')
@@ -34,7 +33,7 @@ const Search = ({
 	return (
 		<div className={styles.search}>
 			<div className={styles.input}>
-				<label htmlFor='search' title={searchText} className={styles.labelForSearch}>
+				<label htmlFor='search' className={styles.visuallyHidden}>
 					Поиск по заметкам
 				</label>
 				<input
@@ -43,12 +42,11 @@ const Search = ({
 					name='search'
 					className={styles.searchInput}
 					placeholder={inputPlaceholder}
-					onChange={(event) => searchFunction(event)}
+					onChange={searchForNotes}
 				/>
 				<button
 					className={styles.searchButton}
 					type='button'
-					title={searchText}
 					onClick={(event) => {
 						event.preventDefault();
 						return;
@@ -58,7 +56,7 @@ const Search = ({
 						width='19'
 						height='19'
 						viewBox='0 0 19 19'
-						xlinkTitle='Поиск'
+						aria-label='Поиск'
 						className={styles.searchIcon}
 					>
 						<g clipPath='url(#clip0_263_750)'>

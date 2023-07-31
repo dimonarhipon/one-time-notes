@@ -4,7 +4,7 @@ import NoteButton from '@/widgets/NoteButton/NoteButton';
 import Search from '@/widgets/Search/Search';
 import AddButton from '../AddButton/AddButton';
 import NoteType from '@/shared/lib/NoteType';
-import Preloader from '../../shared/Preloader/Preloader';
+import Preloader from '@/shared/Preloader/Preloader';
 import { fetchNotes } from '@/shared/api/fetchNotes';
 import { removeNote } from '@/shared/lib/removeNote';
 import { SortByDate, sortNotesByDate } from '@/shared/lib/sortByDate';
@@ -17,7 +17,7 @@ const noNotes = 'Заметок пока нет';
 const noSearch = 'Поиск не дал результатов';
 
 const SideBar = () => {
-	const mockApiNotesUrl = 'https://64aff776c60b8f941af4f841.mockapi.io/server/notes?_limit=10';
+	const mockApiNotesUrl = 'https://64aff776c60b8f941af4f841.mockapi.io/server/notes';
 
 	const [userNotes, setUserNotes] = useState<NoteType[]>([]);
 	const [searchNotes, setSearchNotes] = useState<NoteType[]>([]);
@@ -38,7 +38,7 @@ const SideBar = () => {
 		<aside className={styles.sidebar}>
 			<div className={styles.header}>
 				<Search
-					searchFunction={(event) => {
+					searchForNotes={(event) => {
 						searchForNotes({ event, userNotes, searchNotes, setSearchNotes });
 					}}
 					sortByDate={() => {
@@ -66,7 +66,7 @@ const SideBar = () => {
 				{userNotes.length > 0 &&
 					searchNotes.map((note, index) => (
 						<NoteButton
-							key={index}
+							key={note.noteId}
 							note={note}
 							active={index === activeNote}
 							openNoteFunction={() => setActiveNote(index)}

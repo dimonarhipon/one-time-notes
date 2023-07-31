@@ -1,3 +1,4 @@
+import { fetchMethods } from '../api/fetchMethods';
 import { fetchNotes } from '../api/fetchNotes';
 import { Note } from './NoteClass';
 import NoteType from './NoteType';
@@ -15,10 +16,9 @@ export const addNote = async ({
 	setSearchNotes,
 	mockApiNotesUrl,
 }: TAddNoteOptions) => {
-	const postText = 'POST';
 	const postNote = new Note();
 
-	const response = await fetchNotes(mockApiNotesUrl, postText, postNote);
+	const response = await fetchNotes(mockApiNotesUrl, fetchMethods.post, postNote);
 
 	const copyUserNotes = [...userNotes];
 	await copyUserNotes.unshift(response);

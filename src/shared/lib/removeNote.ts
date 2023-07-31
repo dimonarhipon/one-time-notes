@@ -1,3 +1,4 @@
+import { fetchMethods } from '../api/fetchMethods';
 import { fetchNotes } from '../api/fetchNotes';
 import NoteType from './NoteType';
 
@@ -16,9 +17,7 @@ export const removeNote = ({
 	setUserNotes,
 	setSearchNotes,
 }: TRemoveNoteOptions) => {
-	const deleteText = 'DELETE';
-
-	fetchNotes(`${mockApiNotesUrl}/${noteId}`, deleteText).then(() => {
+	fetchNotes(`${mockApiNotesUrl}/${noteId}`, fetchMethods.delete).then(() => {
 		const resultNotes = userNotes.filter((note) => note.noteId !== noteId);
 
 		setUserNotes(resultNotes);

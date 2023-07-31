@@ -6,7 +6,7 @@ export enum SortByCompleted {
 	default = 'default',
 }
 
-type SortOptions = {
+type TSortOptions = {
 	userNotes: NoteType[];
 	sortByCompleted: SortByCompleted;
 	setSearchNotes: (array: NoteType[]) => void;
@@ -18,22 +18,32 @@ export const sortNotesByCompleted = ({
 	sortByCompleted,
 	setSearchNotes,
 	setSortByCompleted,
-}: SortOptions): void => {
-	if (sortByCompleted === SortByCompleted.unread) {
-		setSearchNotes(userNotes);
-		setSortByCompleted(SortByCompleted.default);
-	}
+}: TSortOptions): void => {
 	const sortArray = [...userNotes];
 
 	// Сортировка
-	if (sortByCompleted === SortByCompleted.default) {
-		sortArray.sort((note) => (note.noteStatus ? 1 : -1));
-		setSortByCompleted(SortByCompleted.read);
-	}
-	if (sortByCompleted === SortByCompleted.read) {
-		sortArray.sort((note) => (!note.noteStatus ? 1 : -1));
-		setSortByCompleted(SortByCompleted.unread);
-	}
+	switch (sortByCompleted) {
 
-	setSearchNotes(sortArray);
+		case SortByCompleted.default:
+			sortArray.sort((note) => (note.noteStatus ? 1 : -1));
+			setSortByCompleted(SortByCompleted.read);
+			setSearchNotes(sortArray);
+			break;
+
+		case SortByCompleted.read:
+			sortArray.sort((note) => (!note.noteStatus ? 1 : -1));
+			setSortByCompleted(SortByCompleted.unread);
+			setSearchNotes(sortArray);
+			break;
+
+		case SortByCompleted.unread:
+			setSearchNotes(userNotes);
+			setSortByCompleted(SortByCompleted.default);
+			break;
+
+		default:
+			setSearchNotes(userNotes);
+			setSortByCompleted(SortByCompleted.default);
+			break;
+	}
 };
