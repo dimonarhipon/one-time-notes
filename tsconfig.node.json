@@ -5,7 +5,7 @@
 		"skipLibCheck": true,
 		"module": "ESNext",
 		"moduleResolution": "node",
-		"allowSyntheticDefaultImports": false
+		"allowSyntheticDefaultImports": true
 	},
 	"include": ["vite.config.ts"],
 	"exclude": [
