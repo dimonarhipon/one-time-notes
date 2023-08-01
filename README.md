@@ -19,7 +19,6 @@
 	<img src="https://img.shields.io/github/forks/dimonarhipon/one-time-notes.svg">
 	<img src="https://img.shields.io/github/issues-pr/dimonarhipon/one-time-notes.svg">
 	<img src="https://img.shields.io/github/issues-pr-closed/dimonarhipon/one-time-notes.svg">
-	<img src="https://img.shields.io/github/last-commit/dimonarhipon/one-time-notes.svg">
 </p>
 
 ## Дизайн
@@ -35,11 +34,12 @@
 
 ## Contributers
 <p align="center">
-	<img width="200px" height="200px"src="https://avatars.githubusercontent.com/u/100697470?v=4" alt="">
-	<img width="200px" height="200px"src="https://avatars.githubusercontent.com/u/88786299?v=4" alt="">
-	<img width="200px" height="200px"src="https://avatars.githubusercontent.com/u/109140715?v=4" alt="">
-	<img width="200px" height="200px"src="https://avatars.githubusercontent.com/u/105843969?v=4" alt="">
-	<img width="200px" height="200px"src="https://avatars.githubusercontent.com/u/137802520?v=4" alt="">
-	<img width="200px" height="200px"src="https://avatars.githubusercontent.com/u/40203705?v=4" alt="">
+	<img width="200px" height="200px" src="https://avatars.githubusercontent.com/u/100697470?v=4" alt="">
+	<img width="200px" height="200px" src="https://avatars.githubusercontent.com/u/88786299?v=4" alt="">
+	<img width="200px" height="200px" src="https://avatars.githubusercontent.com/u/109140715?v=4" alt="">
+	<img width="200px" height="200px" src="https://avatars.githubusercontent.com/u/105843969?v=4" alt="">
+	<img width="200px" height="200px" src="https://avatars.githubusercontent.com/u/119132341?v=4" alt="">
+	<img width="200px" height="200px" src="https://avatars.githubusercontent.com/u/137802520?v=4" alt="">
+	<img width="200px" height="200px" src="https://avatars.githubusercontent.com/u/40203705?v=4" alt="">
 </p>
 
