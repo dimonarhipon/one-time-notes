@@ -6,8 +6,6 @@
 		"module": "ESNext",
 		"skipLibCheck": true,
 
-		"types": ["vite-plugin-svg-icons/client"],
-
 		/* Bundler mode */
 		"moduleResolution": "node",
 		// "allowSyntheticDefaultImports": true,
