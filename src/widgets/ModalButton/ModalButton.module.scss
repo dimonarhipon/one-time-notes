@@ -1,0 +1,27 @@
+@import '@/shared/styles/vars.scss';
+
+.modalButton {
+	margin: 60px 0;
+	margin-top: 0;
+	padding: 18px 134px;
+	background-color: $green;
+	border-radius: 20px;
+	border-color: $green;
+	border-style: solid;
+	font-size: 20px;
+	color: #000;
+	cursor: pointer;
+	transition: all 0.2s;
+	&:hover {
+		background-color: transparent;
+		color: rgba(0, 0, 0, 1);
+		border-color: #000;
+	}
+	@include respond-to($tablet) {
+		margin-bottom: 40px;
+	}
+	@include respond-to($mobile) {
+		padding: 12px 80px;
+		margin-bottom: 30px;
+	}
+}

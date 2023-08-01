@@ -14,8 +14,8 @@ indent_style = tab
 indent_size = 2
 end_of_line = lf
 
-[{travis.yml}]
-indent_style = space
+[*.yaml]
+indent_style = tab
 indent_size = 2
 
 [*.md]

@@ -1,10 +1,9 @@
-@use '@/shared/styles/vars' as *;
-
 .container {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	height: 100vh;
+
 	background-color: $main;
 }
 

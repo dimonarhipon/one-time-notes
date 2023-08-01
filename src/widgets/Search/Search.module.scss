@@ -1,0 +1,90 @@
+.search {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.input {
+	border: 1px solid $white;
+	border-radius: 12px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 16px;
+}
+
+.sorts {
+	margin-top: 10px;
+}
+
+.sortButton {
+	color: $white;
+	opacity: 0.8;
+	font-size: 14px;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	transition: opacity 0.1s linear;
+
+	&:hover {
+		opacity: 1;
+	}
+
+	&.active {
+		opacity: 1;
+		text-decoration: underline;
+	}
+	&:focus {
+		outline: none;
+		text-decoration: underline;
+	}
+}
+
+.visuallyHidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+.searchInput {
+	outline: none;
+	background-color: transparent;
+	border: none;
+	font-size: 14px;
+	font-weight: 400;
+	color: $white;
+
+	&::-webkit-input-placeholder {
+		opacity: 1;
+	}
+	&::-moz-placeholder {
+		opacity: 1;
+	}
+	&:-ms-input-placeholder {
+		opacity: 1;
+	}
+	&::-ms-input-placeholder {
+		opacity: 1;
+	}
+	&::placeholder {
+		opacity: 1;
+	}
+}
+
+.searchButton {
+	width: 100%;
+	background-color: transparent;
+	cursor: pointer;
+	border: none;
+}
+
+.searchIcon {
+	min-width: 20px;
+}
