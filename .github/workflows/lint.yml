@@ -1,21 +1,52 @@
-name: Lint
+name: CI
 
 on:
-  pull_request:
   push:
     branches:
+      - main
       - develop
+      - deploy-start
+	pull_request:
+		branches:
+			- main
+			- develop
 
 jobs:
 
   lint:
+
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
       with:
-        node-version: 18.16.1
+        node-version: 18.x
     - run: npm ci
     - run: npm run lint
 
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 18.x
+    - run: npm ci
+    - run: npm run build
+
+
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 18.x
+    - run: npm ci
+    - run: npm test
