@@ -1,0 +1,14 @@
+@import '@/shared/styles/vars';
+
+.text {
+	margin: auto;
+	text-align: center;
+	color: $main;
+	font-family: Overpass;
+	font-size: 20px;
+	line-height: 20px;
+	text-align: center;
+	@include respond-to($mobile) {
+		font-size: 16px;
+	}
+}

@@ -1,0 +1,24 @@
+@import '@/shared/styles/vars.scss';
+
+.title {
+	position: absolute;
+	max-width: 200px;
+	padding: 0 10px;
+	top: -12%;
+	left: 50%;
+	transform: translateX(-50%);
+	color: $main;
+	background-color: transparent;
+	border: 1px solid rgba($color: $main, $alpha: 0.6);
+	border-radius: 20px;
+	text-align: center;
+	font-size: 24px;
+	line-height: 30px;
+	font-family: Overpass;
+	&:focus {
+		border: $main;
+	}
+	@include respond-to($mobile) {
+		font-size: 20px;
+	}
+}

@@ -1,0 +1,22 @@
+@import '@/shared/styles/vars.scss';
+
+.textarea {
+	width: 100%;
+	min-height: 64px;
+	margin-top: 35px;
+	padding: 10px 15px;
+	color: $main;
+	border-radius: 20px;
+	border: 1px solid rgba($color: $main, $alpha: 0.6);
+	background-color: transparent;
+	font-size: 20px;
+	line-height: 24px;
+	resize: none;
+	font-family: Overpass;
+	&:focus {
+		border: 1px solid $main;
+	}
+	@include respond-to($mobile) {
+		font-size: 16px;
+	}
+}

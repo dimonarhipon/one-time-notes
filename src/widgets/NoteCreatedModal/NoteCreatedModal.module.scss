@@ -2,10 +2,10 @@
 
 .modal {
 	position: relative;
-	max-width: 724px;
-	min-height: 150px;
+	width: 100%;
+	height: 100%;
 	margin: auto;
-	padding: 20px;
+	padding: 10px 20px;
 	background-color: $white;
 	border-radius: 26px;
 }
@@ -15,17 +15,20 @@
 	text-align: center;
 	font-size: 24px;
 	line-height: 30px;
+	@include respond-to($mobile) {
+		font-size: 20px;
+	}
 }
 
 .link {
 	margin-top: 30px;
 	color: rgba($color: $main, $alpha: 0.8);
 	font-family: Overpass;
-	font-size: 16px;
+	font-size: 20px;
 	line-height: 20px;
 	text-align: center;
-}
-
-.title--small {
-	font-size: 15px;
+	cursor: pointer;
+	@include respond-to($mobile) {
+		font-size: 16px;
+	}
 }
