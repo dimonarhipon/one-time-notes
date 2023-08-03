@@ -1,5 +1,23 @@
 @import '@/shared/styles/vars.scss';
 
+@keyframes anifirst {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-150%);
+	}
+}
+
+@keyframes anisecond {
+	0% {
+		transform: translateX(-150%);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
 .modal {
 	position: fixed;
 	left: 0;
@@ -13,26 +31,10 @@
 	z-index: 2;
 	padding: 30px;
 	animation: anifirst 0.7s forwards;
-	@keyframes anifirst {
-		0% {
-			transform: translateX(0);
-		}
-		100% {
-			transform: translateX(-150%);
-		}
-	}
 }
 
 .modalActive {
 	animation: anisecond 0.7s forwards;
-	@keyframes anisecond {
-		0% {
-			transform: translateX(-150%);
-		}
-		100% {
-			transform: translateX(0);
-		}
-	}
 }
 
 .modalContent {

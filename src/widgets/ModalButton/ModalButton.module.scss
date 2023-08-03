@@ -4,7 +4,7 @@
 	margin: 60px 0;
 	margin-top: 0;
 	padding: 18px 134px;
-	background-color: $green;
+	background-color: rgb(212, 255, 144) ;
 	border-radius: 20px;
 	border-color: $green;
 	border-style: solid;
@@ -13,9 +13,9 @@
 	cursor: pointer;
 	transition: all 0.2s;
 	&:hover {
-		background-color: transparent;
+		background-color: rgba(197, 255, 105, 1);
 		color: rgba(0, 0, 0, 1);
-		border-color: #000;
+		border-color: transparent;
 	}
 	@include respond-to($tablet) {
 		margin-bottom: 40px;
