@@ -1,0 +1,13 @@
+.modal_wrapper{
+    display: block;
+    top: 0;
+    bottom: 0;
+	min-width: 584px;
+    max-width: 1024px;
+    min-height: 178px;
+	max-height: 768px;
+	border-radius: 26px;
+    padding-bottom: 30px;
+    background-color: white;
+    color: $main;
+}

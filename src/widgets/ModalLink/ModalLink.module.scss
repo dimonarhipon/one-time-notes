@@ -5,21 +5,16 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	z-index: 2;
-	margin: 60px;
-	margin-top: 0;
+	margin: 30px;
+	margin-bottom: 0;
 	text-decoration: none;
-	color: rgba(0, 0, 0, 0.3);
 	transition: all 0.2s;
 	cursor: pointer;
+	color: rgb(255, 255, 255, 0.6);
 	&:hover {
-		color: rgba(0, 0, 0, 0.5);
+		color: rgb(255, 255, 255, 0.4);
 	}
 	@include respond-to($tablet) {
-		margin-bottom: 40px;
-	}
-	@include respond-to($mobile) {
 		margin: 30px;
-		margin-top: 0;
 	}
 }

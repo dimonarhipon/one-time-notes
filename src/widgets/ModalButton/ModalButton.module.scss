@@ -1,27 +1,25 @@
 @import '@/shared/styles/vars.scss';
 
 .modalButton {
-	margin: 60px 0;
-	margin-top: 0;
+	margin: 30px;
+	margin-bottom: 0;
 	padding: 18px 134px;
 	background-color: rgb(212, 255, 144) ;
 	border-radius: 20px;
-	border-color: $green;
+	border-color: transparent;
 	border-style: solid;
 	font-size: 20px;
-	color: #000;
+	color: $main;
 	cursor: pointer;
 	transition: all 0.2s;
 	&:hover {
 		background-color: rgba(197, 255, 105, 1);
-		color: rgba(0, 0, 0, 1);
-		border-color: transparent;
 	}
-	@include respond-to($tablet) {
-		margin-bottom: 40px;
-	}
-	@include respond-to($mobile) {
-		padding: 12px 80px;
-		margin-bottom: 30px;
-	}
+	// @include respond-to($tablet) {
+	// 	margin-bottom: 40px;
+	// }
+	// @include respond-to($mobile) {
+	// 	padding: 12px 80px;
+	// 	margin-bottom: 30px;
+	// }
 }

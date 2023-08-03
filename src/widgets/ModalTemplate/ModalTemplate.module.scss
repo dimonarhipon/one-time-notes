@@ -29,7 +29,6 @@
 	align-items: center;
 	background-color: $main;
 	z-index: 2;
-	padding: 30px;
 	animation: anifirst 0.7s forwards;
 }
 
@@ -38,20 +37,16 @@
 }
 
 .modalContent {
-	max-width: 1024px;
-	min-width: 560px;
-	max-height: 768px;
-	color: $main;
-	background-color: $white;
-	border-radius: 20px;
+	display: block;
 	text-align: center;
-	justify-content: center;
 	transition: all 0.2s;
-	@include respond-to($tablet) {
-		min-width: 400px;
-		width: 100%;
-	}
-	@include respond-to($mobile) {
-		min-width: 300px;
-	}
+	// align-items: center;
+	// vertical-align: middle;
+	// @include respond-to($tablet) {
+	// 	min-width: 400px;
+	// 	width: 100%;
+	// }
+	// @include respond-to($mobile) {
+	// 	min-width: 300px;
+	// }
 }
