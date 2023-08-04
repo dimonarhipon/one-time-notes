@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './SideBar.module.scss';
-import NoteButton from '@/widgets/NoteButton/NoteButton';
+import NoteButton from '@/widgets/NoteItem/NoteItem';
 import Search from '@/widgets/Search/Search';
 import AddButton from '../AddButton/AddButton';
 import NoteType from '@/shared/lib/NoteType';

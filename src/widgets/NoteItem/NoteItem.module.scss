@@ -11,12 +11,24 @@
 	width: 230px;
 	height: 85px;
 	cursor: pointer;
+	outline: none;
+	border: none;
 	transition:
 		width 0.2s ease-in-out,
-		border-radius 0.2s ease-in;
+		border-radius 0.2s ease-in,
+		background-color .2s linear;
 
 	&:first-child {
 		margin-top: 0;
+	}
+
+	&:hover {
+		background-color: $pink-hover;
+	}
+
+	&:focus {
+		background-color: $pink-hover;
+		outline: none;
 	}
 
 	&.active {
@@ -36,6 +48,15 @@
 		background-color: $green;
 		color: $main;
 
+		&:hover {
+			background-color: $green-hover;
+		}
+
+		&:focus {
+			background-color: $green-hover;
+			outline: none;
+		}
+
 		.removeIcon {
 			fill: $main;
 		}
@@ -53,19 +74,28 @@
 	cursor: pointer;
 	background-color: transparent;
 	border: 0;
+	border-radius: 4px;
 	opacity: 0.6;
 	transition:
 		margin 0.2s ease-in-out,
-		opacity 0.1s linear;
+		opacity 0.1s linear,
+		background-color .1s linear;
 
 	&:hover {
 		opacity: 1;
+		background-color: $main-hover;
+	}
+
+	&:focus {
+		opacity: 1;
+		background-color: $main-hover;
+		outline: none;
 	}
 }
 
 .removeIcon {
-	max-width: 16px;
-	width: 100%;
+	min-width: 16px;
+	width: 16px;
 	fill: $white;
 }
 

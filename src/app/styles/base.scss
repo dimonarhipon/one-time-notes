@@ -1,3 +1,9 @@
 html {
 	color-scheme: light dark;
 }
+
+body {
+	// Нет отскока страницы при скролле вверх/вниз
+	-ms-scroll-chaining: none;
+	overscroll-behavior: none;
+}
