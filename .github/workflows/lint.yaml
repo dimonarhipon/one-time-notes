@@ -13,6 +13,5 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18.16.1
-      - name: Install
-        run: npm ci
+      - uses: bahmutov/npm-install@1
       - run: npm run preview
