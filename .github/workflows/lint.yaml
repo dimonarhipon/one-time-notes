@@ -15,4 +15,4 @@ jobs:
           node-version: 18.16.1
       - name: Install
         run: npm ci
-      - run: npm run lint
+      - run: npm run preview
