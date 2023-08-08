@@ -4,7 +4,7 @@ import { Status } from '@/shared/lib/EnumStatus';
 
 export const ModalTitle = ({ noteState }: TModalProps) => {
 	const getModalTitle = () => {
-		switch (noteState){
+		switch (noteState) {
 			case Status.Get:
 				return 'Заметка получена';
 			case Status.Open:
@@ -13,7 +13,7 @@ export const ModalTitle = ({ noteState }: TModalProps) => {
 				return 'Заметка удалена';
 		}
 	};
-		return <div className={styles.modalTitle}>
-			{getModalTitle()}
-		</div>;
-	};
+	return <div className={styles.modalTitle}>
+		{getModalTitle()}
+	</div>;
+};

@@ -1,13 +1,33 @@
-.modal_wrapper{
-    display: block;
-    top: 0;
-    bottom: 0;
+.modal_wrapper {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	min-width: 584px;
-    max-width: 1024px;
-    min-height: 178px;
+	max-width: 1024px;
+	min-height: 178px;
 	max-height: 768px;
 	border-radius: 26px;
-    padding-bottom: 30px;
-    background-color: white;
-    color: $main;
+	padding: 30px;
+	background-color: white;
+	color: $main;
+	@include respond-to($tablet) {
+		min-width: 500px;
+		max-height: 700px;
+		min-height: 162px;
+	}
+	@include respond-to($mobile) {
+		min-width: 320px;
+		max-height: 470px;
+		min-height: 110px;
+		padding: 20px;
+	}
+	@include respond-to($small) {
+		min-width: 250px;
+		max-height: 470px;
+	}
+}
+
+.displayBlock {
+	display: block;
 }

@@ -4,7 +4,14 @@
 	font-size: 24px;
 	font-weight: 400;
 	text-align: center;
-	margin: 30px;
-	margin-bottom: 0;
 	transition: all 0.2s;
+	@include respond-to($tablet) {
+		font-size: 20px;
+	}
+	@include respond-to($mobile) {
+		font-size: 18px;
+	}
+	@include respond-to($small) {
+		font-size: 16px;
+	}
 }

@@ -1,16 +1,23 @@
 @import '@/shared/styles/vars.scss';
 
 .messege {
-	overflow: auto;
+	overflow-y: scroll;
 	max-width: 920px;
 	max-height: 400px;
 	text-align: left;
-	margin: 30px 60px 30px 60px;
+	margin: 30px;
 	transition: all 0.2s;
-	// @include respond-to($tablet) {
-	// 	margin: 0 40px 30px 40px;
-	// }
-	// @include respond-to($mobile) {
-	// 	margin: 0 30px 30px 30px;
-	// }
+	@include respond-to($tablet) {
+		max-height: 350px;
+		margin: 0;
+		margin-top: 10px;
+		font-size: 16px;
+	}
+	@include respond-to($mobile) {
+		max-height: 300px;
+		font-size: 14px;
+	}
+	@include respond-to($small) {
+		max-height: 250px;
+	}
 }
