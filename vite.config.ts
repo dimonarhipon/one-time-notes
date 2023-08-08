@@ -43,6 +43,17 @@ export default defineConfig({
 		},
 	},
 	build: {
-    sourcemap: true,
-  },
+		sourcemap: true,
+	},
+	server: {
+		proxy: {
+			'/api': {
+				target: process.env.BACKEND_URL,
+				changeOrigin: true,
+				secure: false,
+				ws: true,
+				rewrite: (path) => path.replace('/api/', ''),
+			},
+		},
+	},
 });
