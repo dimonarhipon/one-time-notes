@@ -39,7 +39,6 @@
 	overflow-y: auto;
 	overflow-x: hidden;
 	height: 100%;
-	-ms-overflow-style: -ms-autohiding-scrollbar;
 
 	&::-webkit-scrollbar {
 		position: absolute;
@@ -51,7 +50,7 @@
 
 	&::-webkit-scrollbar-thumb {
 		border-radius: 50px;
-		// width: 6px;
+		width: 6px;
 		background: $white;
 	}
 

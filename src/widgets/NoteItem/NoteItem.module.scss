@@ -3,6 +3,8 @@
 	flex-direction: column;
 	align-items: flex-end;
 	justify-content: space-between;
+	position: relative;
+	z-index: 1;
 
 	background-color: $pink;
 	margin-bottom: 10px;
@@ -17,6 +19,19 @@
 		width 0.2s ease-in-out,
 		border-radius 0.2s ease-in,
 		background-color .2s linear;
+
+	// &::before {
+	// 	content: '';
+	// 	position: absolute;
+	// 	top: 0;
+	// 	left: 0;
+	// 	z-index: 0;
+	// 	background-color: $green;
+	// 	width: 0px;
+	// 	border-radius: 20px;
+	// 	height: 100%;
+	// 	transition: width .2s ease-in-out;
+	// }
 
 	&:first-child {
 		margin-top: 0;
@@ -34,6 +49,10 @@
 	&.active {
 		border-radius: 20px 0px 0px 20px;
 		width: 266px;
+
+		// &::before {
+		// 	width: 270px;
+		// }
 
 		.date {
 			margin-right: 36px;
