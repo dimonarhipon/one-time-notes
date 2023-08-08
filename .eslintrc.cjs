@@ -13,7 +13,7 @@ module.exports = {
 		ecmaVersion: "latest",
 		sourceType: "module",
 	},
-	plugins: ["react-refresh"],
+	plugins: ["react-refresh", "@typescript-eslint"],
 	rules: {
 		"no-console": "error",
 		quotes: ["error", "single"],
