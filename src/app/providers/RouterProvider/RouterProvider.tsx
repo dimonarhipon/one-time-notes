@@ -1,4 +1,6 @@
 import { createBrowserRouter, RouterProvider as ReactRouterProvider } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from '@/store/store';
 import HomePage from '@/pages/HomePage';
 import AuthorizationPage from '@/pages/AuthorizationPage';
 
@@ -14,5 +16,9 @@ const router = createBrowserRouter([
 ]);
 
 export const RouterProvider = () => {
-	return <ReactRouterProvider router={router} />;
+	return (
+		<Provider store={store}>
+			<ReactRouterProvider router={router} />
+		</Provider>
+	);
 };

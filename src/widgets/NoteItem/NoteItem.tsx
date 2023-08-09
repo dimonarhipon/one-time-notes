@@ -15,12 +15,12 @@ const NoteButton = ({ note, active, openNoteFunction, removeNoteFunction }: TNot
 	const isRead = note.noteStatus === true ? [styles.read] : '';
 
 	// нормальная дата
-	const date = new Date(note.noteDate).toLocaleDateString();
+	// const date = new Date(note.noteDate).toLocaleDateString();
 
 	return (
 		<div className={`${isActive} ${isRead}`} onClick={openNoteFunction}>
 			<div className={styles.header}>
-				<h3 className={styles.title}>{note.noteTitle}</h3>
+				<h3 className={styles.title}>{note.title}</h3>
 				<button className={styles.removeButton} onClick={removeNoteFunction} type='button'>
 					<svg viewBox='0 0 24 25' className={styles.removeIcon} aria-label={removeText}>
 						<path d='M20.9999 7.54394H20.9199C15.6299 7.01394 10.3499 6.81394 5.11992 7.34394L3.07992 7.54394C2.98068 7.55429 2.88037 7.54487 2.7848 7.51623C2.68923 7.48758 2.60028 7.44027 2.5231 7.37704C2.44592 7.31381 2.38204 7.23591 2.33515 7.14784C2.28826 7.05977 2.25929 6.96327 2.24992 6.86394C2.20992 6.44394 2.50992 6.08394 2.91992 6.04394L4.95992 5.84394C10.2799 5.30394 15.6699 5.51394 21.0699 6.04394C21.4799 6.08394 21.7799 6.45394 21.7399 6.86394C21.7248 7.04962 21.6402 7.22278 21.5031 7.34883C21.3659 7.47488 21.1862 7.54455 20.9999 7.54394Z' />
@@ -29,9 +29,9 @@ const NoteButton = ({ note, active, openNoteFunction, removeNoteFunction }: TNot
 					</svg>
 				</button>
 			</div>
-			<time className={styles.date} dateTime={note.noteDate}>
+			{/* <time className={styles.date} dateTime={note.noteDate}>
 				{date}
-			</time>
+			</time> */}
 		</div>
 	);
 };

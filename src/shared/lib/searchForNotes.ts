@@ -16,6 +16,7 @@ export const searchForNotes = ({
 }: TSearchOptions) => {
 	// TASK исправить баг с русскими буквами
 	const searchValue = event.target.value;
+	console.log(searchValue);
 
 	if (searchValue.length === 0) {
 		setSearchNotes(searchNotes);
@@ -24,11 +25,12 @@ export const searchForNotes = ({
 	const resultArray: NoteType[] = [];
 
 	userNotes.map((note: NoteType) => {
-		if (note.noteTitle.toLowerCase().includes(searchValue.toLowerCase())) {
+		if (note.title.toLowerCase().includes(searchValue.toLowerCase())) {
 			resultArray.push(note);
-		} else if (note.noteDate.includes(searchValue)) {
-			resultArray.push(note);
-		} else if (note.noteText.includes(searchValue)) {
+		// TASK доделать поиск по дате
+		// } else if (note.date.includes(searchValue)) {
+		// 	resultArray.push(note);
+		} else if (note.content.includes(searchValue)) {
 			resultArray.push(note);
 		}
 	});

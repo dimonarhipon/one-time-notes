@@ -1,24 +1,23 @@
-import { fetchMethods } from '../api/fetchMethods';
-import { fetchNotes } from '../api/fetchNotes';
+import myFetch from '@/shared/api/myFetch';
 import NoteType from './NoteType';
 
 type TRemoveNoteOptions = {
-	noteId: string;
-	mockApiNotesUrl: string;
+	id: string;
+	db_url: string;
 	userNotes: NoteType[];
 	setUserNotes: (array: NoteType[]) => void;
 	setSearchNotes: (array: NoteType[]) => void;
 };
 
 export const removeNote = ({
-	noteId,
-	mockApiNotesUrl,
+	id,
+	db_url,
 	userNotes,
 	setUserNotes,
 	setSearchNotes,
 }: TRemoveNoteOptions) => {
-	fetchNotes(`${mockApiNotesUrl}/${noteId}`, fetchMethods.delete).then(() => {
-		const resultNotes = userNotes.filter((note) => note.noteId !== noteId);
+	myFetch.delete(`${db_url}api/notes/${id}`).then(() => {
+		const resultNotes = userNotes.filter((note) => note._id !== id);
 
 		setUserNotes(resultNotes);
 		setSearchNotes(resultNotes);

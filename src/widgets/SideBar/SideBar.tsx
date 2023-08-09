@@ -1,37 +1,48 @@
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import styles from './SideBar.module.scss';
 import NoteButton from '@/widgets/NoteItem/NoteItem';
 import Search from '@/widgets/Search/Search';
 import AddButton from '../AddButton/AddButton';
 import NoteType from '@/shared/lib/NoteType';
 import Preloader from '@/shared/Preloader/Preloader';
-import { fetchNotes } from '@/shared/api/fetchNotes';
 import { removeNote } from '@/shared/lib/removeNote';
 import { SortByDate, sortNotesByDate } from '@/shared/lib/sortByDate';
 import { SortByCompleted, sortNotesByCompleted } from '@/shared/lib/sortByCompleted';
 import { addNote } from '@/shared/lib/addNote';
 import { searchForNotes } from '@/shared/lib/searchForNotes';
+import myFetch from '@/shared/api/myFetch';
+import useDebounce from '@/shared/lib/useDebounce';
 
 const myNotes = 'Мои заметки';
 const noNotes = 'Заметок пока нет';
 const noSearch = 'Поиск не дал результатов';
 
-const SideBar = () => {
-	const mockApiNotesUrl = 'https://64aff776c60b8f941af4f841.mockapi.io/server/notes';
+const db_url = import.meta.env.VITE_BACKEND_URL;
 
+const SideBar = () => {
 	const [userNotes, setUserNotes] = useState<NoteType[]>([]);
 	const [searchNotes, setSearchNotes] = useState<NoteType[]>([]);
 	const [loading, setLoading] = useState<boolean>(true);
 	const [activeNote, setActiveNote] = useState<number>(-1);
 	const [sortByDate, setSortByDate] = useState<SortByDate>(SortByDate.default);
 	const [sortByCompleted, setSortByCompleted] = useState<SortByCompleted>(SortByCompleted.default);
+	const [error, setError] = useState<boolean | string>(false);
+
+	// const dispatch = useDispatch();
 
 	useEffect(() => {
-		fetchNotes(mockApiNotesUrl).then((notes) => {
-			setUserNotes(notes);
-			setLoading(false);
-			setSearchNotes(notes);
-		});
+		myFetch
+			.get(`${db_url}api/notes`)
+			.then((response) => {
+				setUserNotes(response);
+				setSearchNotes(response);
+				setLoading(false);
+				setError(false);
+			})
+			.catch((error) => {
+				setError(error.status);
+			});
 	}, []);
 
 	return (
@@ -66,15 +77,15 @@ const SideBar = () => {
 				{userNotes.length > 0 &&
 					searchNotes.map((note, index) => (
 						<NoteButton
-							key={note.noteId}
+							key={index}
 							note={note}
 							active={index === activeNote}
 							openNoteFunction={() => setActiveNote(index)}
 							removeNoteFunction={() => {
-								const noteId = note.noteId;
+								const id = note._id;
 								removeNote({
-									noteId,
-									mockApiNotesUrl,
+									id,
+									db_url,
 									userNotes,
 									setUserNotes,
 									setSearchNotes,
@@ -85,7 +96,7 @@ const SideBar = () => {
 			</div>
 			<AddButton
 				addNote={() => {
-					addNote({ userNotes, setUserNotes, setSearchNotes, mockApiNotesUrl });
+					addNote({ userNotes, setUserNotes, setSearchNotes, db_url });
 				}}
 			/>
 		</aside>
