@@ -38,7 +38,9 @@
 }
 
 .modalContent {
+	position: absolute;
 	display: block;
 	text-align: center;
+	align-items: center;
 	transition: all 0.2s;
 }

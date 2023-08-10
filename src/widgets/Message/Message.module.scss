@@ -1,7 +1,7 @@
 @import '@/shared/styles/vars.scss';
 
 .messege {
-	overflow-y: scroll;
+	overflow-y: auto;
 	max-width: 920px;
 	max-height: 400px;
 	text-align: left;
