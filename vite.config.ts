@@ -9,7 +9,7 @@ import 'dotenv/config';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	base: '/develop/',
+	base: '/one-time-notes/develop/',
 	plugins: [
 		react(),
 		legacy({

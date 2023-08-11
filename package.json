@@ -1,5 +1,6 @@
 {
 	"name": "one-time-notes",
+	"homepage": "https://dimonarhipon.github.io/one-time-notes/develop",
 	"private": true,
 	"version": "0.0.2",
 	"type": "module",

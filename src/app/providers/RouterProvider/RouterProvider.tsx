@@ -4,11 +4,11 @@ import AuthorizationPage from '@/pages/AuthorizationPage';
 
 const router = createBrowserRouter([
 	{
-		path: '/develop/',
+		path: '/one-time-notes/develop/',
 		Component: HomePage,
 	},
 	{
-		path: '/develop/registration',
+		path: '/one-time-notes/develop/registration',
 		Component: AuthorizationPage,
 	},
 ]);
