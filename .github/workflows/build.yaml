@@ -11,14 +11,16 @@ jobs:
     runs-on: ubuntu-latest
 		needs: lint
 
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+		needs: lint
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18.x
-
+		steps:
+			- uses: actions/checkout@v3
+			- uses: actions/setup-node@v3
+				with:
+					node-version: 18.x
 			- run: npm ci
-			- run: npm run build
+			- run: npm run lint
