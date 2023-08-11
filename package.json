@@ -34,7 +34,7 @@
 		"prettier": "3.0.0",
 		"sass": "1.63.6",
 		"typescript": "5.0.2",
-		"vite": "4.2.0",
-		"vite-plugin-svg-icons": "2.0.1"
+		"vite": "^4.4.9",
+		"vite-plugin-svg-icons": "^0.1.0"
 	}
 }
