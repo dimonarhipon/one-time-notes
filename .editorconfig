@@ -14,5 +14,9 @@ indent_style = tab
 indent_size = 2
 end_of_line = lf
 
+[*.yaml]
+indent_style = tab
+indent_size = 2
+
 [*.md]
 trim_trailing_whitespace = false
