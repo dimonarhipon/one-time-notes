@@ -1,17 +1,14 @@
-name: Deploy
+name: Deploy Github
 
 on:
   pull_request:
     branches:
       - '*'
   push:
-    branches:
-      - 'develop'
-			- 'deploy'
+    branches: ['develop', 'deploy']
 
 jobs:
   deploy:
-		name: Deploy
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -21,10 +18,8 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
+      - uses: JamesIves/github-pages-deploy-action@v4
 				with:
           token: ${{ secrets.GITHUB_TOKEN }}
           folder: ./dist
           branch: develop
-          single-commit: true
