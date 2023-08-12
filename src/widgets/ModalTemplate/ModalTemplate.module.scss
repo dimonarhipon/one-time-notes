@@ -11,10 +11,10 @@
 
 @keyframes anisecond {
 	0% {
-		transform: translateX(-150%);
+		transform: translateY(-150%);
 	}
 	100% {
-		transform: translateX(0);
+		transform: translateY(0);
 	}
 }
 
@@ -30,12 +30,12 @@
 	align-items: center;
 	background-color: $main;
 	z-index: 2;
-	animation: anifirst 0.7s forwards;
+	// animation: anifirst 0.7s forwards;
 }
 
-.modalActive {
-	animation: anisecond 0.7s forwards;
-}
+// .modalActive {
+// 	animation: anisecond 0.7s forwards;
+// }
 
 .modalContent {
 	position: absolute;
@@ -44,3 +44,8 @@
 	align-items: center;
 	transition: all 0.2s;
 }
+
+// .modalActiveContent {
+// 	animation: anisecond 0.7s forwards;
+// 	display: block;
+// }

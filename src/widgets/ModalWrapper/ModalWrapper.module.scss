@@ -1,6 +1,15 @@
-.modal_wrapper {
+@keyframes anisecond {
+	0% {
+		transform: translateY(-150%);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+.modalWrapper {
 	// width: 100%;
-	// display: flex;
+	display: none;
 	// justify-content: center;
 	// align-items: center;
 	min-width: 584px;
@@ -26,6 +35,11 @@
 		min-width: 250px;
 		max-height: 470px;
 	}
+}
+
+.wrapperActive {
+	animation: anisecond 0.7s forwards;
+	display: block;
 }
 
 .displayBlock {
