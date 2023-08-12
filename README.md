@@ -1,5 +1,9 @@
 <h1 align="center"> One time notes (Одноразовые заметки)</h1>
 
+<p align="center">
+	<a href="https://dimonarhipon.github.io/one-time-notes/" target="_blank">develop</a>
+</p>
+
 Приложение позволяет пользователям создавать заметки, которые автоматически удаляются после прочтения другим пользователем.
 
 <p align="center">
