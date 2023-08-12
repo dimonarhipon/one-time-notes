@@ -1,10 +1,10 @@
 <h1 align="center"> One time notes (Одноразовые заметки)</h1>
 
+Приложение позволяет пользователям создавать заметки, которые автоматически удаляются после прочтения другим пользователем.
+
 <p align="center">
 	<a href="https://dimonarhipon.github.io/one-time-notes/" target="_blank">develop</a>
 </p>
-
-Приложение позволяет пользователям создавать заметки, которые автоматически удаляются после прочтения другим пользователем.
 
 <p align="center">
 	<img src="https://img.shields.io/badge/node-18.16.1-green.svg">
