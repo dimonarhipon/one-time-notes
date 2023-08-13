@@ -20,10 +20,10 @@ export const getNotesFromDB = createAsyncThunk(
 	'notes/getNotesFromDB',
 	async function(_, {rejectWithValue}) {
 		try {
-			const response = await myFetch.get(`${db_url}api/notes`);
+			const response: any = await myFetch.get(`${db_url}api/notes`);
 			const result = response.json();
 			return result;
-		} catch (error) {
+		} catch (error: any) {
 			return rejectWithValue(error.message);
 		}
 	}
@@ -50,8 +50,9 @@ const notesSlice = createSlice({
 			state.status = 'fulfilled';
 		});
 		builder.addCase(getNotesFromDB.rejected, (state, action) => {
+			const error: any = action.payload;
 			state.status = 'rejected';
-			state.error = action.payload;
+			state.error = error;
 		});
 	},
 });
