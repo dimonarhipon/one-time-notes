@@ -22,28 +22,30 @@ export const sortNotesByCompleted = ({
 	const sortArray = [...notes];
 
 	// Сортировка
-	switch (sortByCompleted) {
 
-		case SortByCompleted.default:
-			sortArray.sort((note) => (note.status ? 1 : -1));
-			setSortByCompleted(SortByCompleted.read);
-			setUserNotes(sortArray);
-			break;
+	// TASK ввести, как будет готов бек
+	// switch (sortByCompleted) {
 
-		case SortByCompleted.read:
-			sortArray.sort((note) => (!note.status ? 1 : -1));
-			setSortByCompleted(SortByCompleted.unread);
-			setUserNotes(sortArray);
-			break;
+	// 	case SortByCompleted.default:
+	// 		sortArray.sort((note) => (note.status ? 1 : -1));
+	// 		setSortByCompleted(SortByCompleted.read);
+	// 		setUserNotes(sortArray);
+	// 		break;
 
-		case SortByCompleted.unread:
-			setUserNotes(notes);
-			setSortByCompleted(SortByCompleted.default);
-			break;
+	// 	case SortByCompleted.read:
+	// 		sortArray.sort((note) => (!note.status ? 1 : -1));
+	// 		setSortByCompleted(SortByCompleted.unread);
+	// 		setUserNotes(sortArray);
+	// 		break;
 
-		default:
-			setUserNotes(notes);
-			setSortByCompleted(SortByCompleted.default);
-			break;
-	}
+	// 	case SortByCompleted.unread:
+	// 		setUserNotes(notes);
+	// 		setSortByCompleted(SortByCompleted.default);
+	// 		break;
+
+	// 	default:
+	// 		setUserNotes(notes);
+	// 		setSortByCompleted(SortByCompleted.default);
+	// 		break;
+	// }
 };

@@ -27,36 +27,36 @@ export const sortNotesByDate = ({
 
 	const dateArray = [...notes];
 
-	// TASK переделать дату под нормальный будущий бек
+	// TASK ввести как будет готов бек
 
 	// 1. Преобразование даты из ISO в miliseconds
-	dateArray.map((note) => {
-		note.noteDate = new Date(note.noteDate).getTime().toString();
-	});
+	// dateArray.map((note) => {
+	// 	note.noteDate = new Date(note.noteDate).getTime().toString();
+	// });
 
-	// 2. Сортировка по ранней дате
-	if (sortByDate === SortByDate.default) {
-		dateArray.sort((a, b) => (+a.noteDate < +b.noteDate ? 1 : -1));
-		setSortByDate(SortByDate.late);
+	// // 2. Сортировка по ранней дате
+	// if (sortByDate === SortByDate.default) {
+	// 	dateArray.sort((a, b) => (+a.noteDate < +b.noteDate ? 1 : -1));
+	// 	setSortByDate(SortByDate.late);
 
-		// 3. Преобразование обратно в ISO
-		dateArray.map((note) => {
-			note.noteDate = new Date(+note.noteDate).toISOString();
-		});
-		setUserNotes(dateArray);
-		return;
-	}
-	if (sortByDate === SortByDate.late) {
-		dateArray.sort((a, b) => (+a.noteDate > +b.noteDate ? 1 : -1));
-		setSortByDate(SortByDate.early);
+	// 	// 3. Преобразование обратно в ISO
+	// 	dateArray.map((note) => {
+	// 		note.noteDate = new Date(+note.noteDate).toISOString();
+	// 	});
+	// 	setUserNotes(dateArray);
+	// 	return;
+	// }
+	// if (sortByDate === SortByDate.late) {
+	// 	dateArray.sort((a, b) => (+a.noteDate > +b.noteDate ? 1 : -1));
+	// 	setSortByDate(SortByDate.early);
 
-		// 3. Преобразование обратно в ISO
-		dateArray.map((note) => {
-			note.noteDate = new Date(+note.noteDate).toISOString();
-		});
-		setUserNotes(dateArray);
-		return;
-	}
+	// 	// 3. Преобразование обратно в ISO
+	// 	dateArray.map((note) => {
+	// 		note.noteDate = new Date(+note.noteDate).toISOString();
+	// 	});
+	// 	setUserNotes(dateArray);
+	// 	return;
+	// }
 
 	return setUserNotes(dateArray);
 };
