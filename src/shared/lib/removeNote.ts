@@ -1,26 +1,26 @@
 import myFetch from '@/shared/api/myFetch';
-import NoteType from './NoteType';
+import TNoteType from './NoteType';
 
 type TRemoveNoteOptions = {
 	id: string;
 	db_url: string;
-	userNotes: NoteType[];
-	setUserNotes: (array: NoteType[]) => void;
-	setSearchNotes: (array: NoteType[]) => void;
+	notes: TNoteType[];
+	setUserNotes: (array: TNoteType[]) => void;
+	assignNotesInRedux: (notes: TNoteType[]) => void;
 };
 
-export const removeNote = ({
+export const removeNote = async ({
 	id,
 	db_url,
-	userNotes,
+	notes,
 	setUserNotes,
-	setSearchNotes,
+	assignNotesInRedux,
 }: TRemoveNoteOptions) => {
-	myFetch.delete(`${db_url}api/notes/${id}`).then(() => {
-		const resultNotes = userNotes.filter((note) => note._id !== id);
+	myFetch.delete(`${db_url}api/notes/${id}`);
 
-		setUserNotes(resultNotes);
-		setSearchNotes(resultNotes);
-	});
+	const resultNotes = notes.filter((note) => note._id !== id);
+
+	setUserNotes(resultNotes);
+	assignNotesInRedux(resultNotes);
 	// TASK обработка ошибки, вызов модального окна
 };

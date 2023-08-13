@@ -3,37 +3,37 @@ import NoteType from './NoteType';
 
 type TSearchOptions = {
 	event: ChangeEvent<HTMLInputElement>;
-	userNotes: NoteType[];
-	searchNotes: NoteType[];
-	setSearchNotes: (array: NoteType[]) => void;
+	notes: NoteType[];
+	setUserNotes: (array: NoteType[]) => void;
 };
 
 export const searchForNotes = ({
 	event,
-	userNotes,
-	searchNotes,
-	setSearchNotes,
+	notes,
+	setUserNotes,
 }: TSearchOptions) => {
-	// TASK исправить баг с русскими буквами
 	const searchValue = event.target.value;
-	console.log(searchValue);
 
 	if (searchValue.length === 0) {
-		setSearchNotes(searchNotes);
+		setUserNotes(notes);
 		return;
 	}
 	const resultArray: NoteType[] = [];
 
-	userNotes.map((note: NoteType) => {
+	notes.map((note: NoteType) => {
+		// 1. сортировка по title
 		if (note.title.toLowerCase().includes(searchValue.toLowerCase())) {
 			resultArray.push(note);
+		// 2. сортировка по дате
+
 		// TASK доделать поиск по дате
 		// } else if (note.date.includes(searchValue)) {
 		// 	resultArray.push(note);
+
+		// 3. Сортировка по контенту
 		} else if (note.content.includes(searchValue)) {
 			resultArray.push(note);
 		}
 	});
-
-	setSearchNotes(resultArray);
+	setUserNotes(resultArray);
 };

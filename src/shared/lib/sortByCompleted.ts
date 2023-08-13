@@ -7,42 +7,42 @@ export enum SortByCompleted {
 }
 
 type TSortOptions = {
-	userNotes: NoteType[];
+	notes: NoteType[];
+	setUserNotes: (array: NoteType[]) => void;
 	sortByCompleted: SortByCompleted;
-	setSearchNotes: (array: NoteType[]) => void;
 	setSortByCompleted: (SortByCompleted: SortByCompleted) => void;
 };
 
 export const sortNotesByCompleted = ({
-	userNotes,
+	notes,
+	setUserNotes,
 	sortByCompleted,
-	setSearchNotes,
 	setSortByCompleted,
 }: TSortOptions): void => {
-	const sortArray = [...userNotes];
+	const sortArray = [...notes];
 
 	// Сортировка
 	switch (sortByCompleted) {
 
 		case SortByCompleted.default:
-			sortArray.sort((note) => (note.noteStatus ? 1 : -1));
+			sortArray.sort((note) => (note.status ? 1 : -1));
 			setSortByCompleted(SortByCompleted.read);
-			setSearchNotes(sortArray);
+			setUserNotes(sortArray);
 			break;
 
 		case SortByCompleted.read:
-			sortArray.sort((note) => (!note.noteStatus ? 1 : -1));
+			sortArray.sort((note) => (!note.status ? 1 : -1));
 			setSortByCompleted(SortByCompleted.unread);
-			setSearchNotes(sortArray);
+			setUserNotes(sortArray);
 			break;
 
 		case SortByCompleted.unread:
-			setSearchNotes(userNotes);
+			setUserNotes(notes);
 			setSortByCompleted(SortByCompleted.default);
 			break;
 
 		default:
-			setSearchNotes(userNotes);
+			setUserNotes(notes);
 			setSortByCompleted(SortByCompleted.default);
 			break;
 	}

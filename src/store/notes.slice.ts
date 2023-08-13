@@ -1,22 +1,61 @@
 import TNoteType from '@/shared/lib/NoteType';
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import myFetch from '@/shared/api/myFetch';
 
-const notes:TNoteType[] = [];
+const db_url = import.meta.env.VITE_BACKEND_URL;
+
+type initialStateType = {
+	notes: TNoteType[],
+	status: null | string,
+	error: null | string;
+};
+
+const initialState: initialStateType = {
+		notes: [],
+		status: null,
+		error: null,
+};
+
+export const getNotesFromDB = createAsyncThunk(
+	'notes/getNotesFromDB',
+	async function(_, {rejectWithValue}) {
+		try {
+			const response = await myFetch.get(`${db_url}api/notes`);
+			const result = response.json();
+			return result;
+		} catch (error) {
+			return rejectWithValue(error.message);
+		}
+	}
+);
 
 
 const notesSlice = createSlice({
 	name: 'notes',
-	initialState: {
-		notes,
-	},
+	initialState,
 	reducers: {
-		getNotes(state, action) {
-			console.log(action.payload);
+		addNotes (state, action) {
+			state.notes.unshift(action.payload);
+		},
+		assignNotes (state, action) {
 			state.notes = action.payload;
 		},
 	},
+	extraReducers: (builder) => {
+		builder.addCase(getNotesFromDB.pending, (state, action) => {
+			state.status = 'loading';
+		});
+		builder.addCase(getNotesFromDB.fulfilled, (state, action) => {
+			state.notes = action.payload;
+			state.status = 'fulfilled';
+		});
+		builder.addCase(getNotesFromDB.rejected, (state, action) => {
+			state.status = 'rejected';
+			state.error = action.payload;
+		});
+	},
 });
 
-export const {getNotes} = notesSlice.actions;
+export const  {addNotes, assignNotes} = notesSlice.actions;
 
 export default notesSlice.reducer;

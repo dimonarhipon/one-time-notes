@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import styles from './SideBar.module.scss';
 import NoteButton from '@/widgets/NoteItem/NoteItem';
 import Search from '@/widgets/Search/Search';
@@ -11,8 +10,9 @@ import { SortByDate, sortNotesByDate } from '@/shared/lib/sortByDate';
 import { SortByCompleted, sortNotesByCompleted } from '@/shared/lib/sortByCompleted';
 import { addNote } from '@/shared/lib/addNote';
 import { searchForNotes } from '@/shared/lib/searchForNotes';
-import myFetch from '@/shared/api/myFetch';
-import useDebounce from '@/shared/lib/useDebounce';
+import { getNotesFromDB, addNotes, assignNotes } from '@/store/notes.slice';
+import TNoteType from '@/shared/lib/NoteType';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
 
 const myNotes = 'Мои заметки';
 const noNotes = 'Заметок пока нет';
@@ -21,45 +21,48 @@ const noSearch = 'Поиск не дал результатов';
 const db_url = import.meta.env.VITE_BACKEND_URL;
 
 const SideBar = () => {
+	const notes = useAppSelector((state) => state.notes.notes);
+	const { status, error } = useAppSelector((state) => state.notes);
+
 	const [userNotes, setUserNotes] = useState<NoteType[]>([]);
-	const [searchNotes, setSearchNotes] = useState<NoteType[]>([]);
-	const [loading, setLoading] = useState<boolean>(true);
 	const [activeNote, setActiveNote] = useState<number>(-1);
 	const [sortByDate, setSortByDate] = useState<SortByDate>(SortByDate.default);
 	const [sortByCompleted, setSortByCompleted] = useState<SortByCompleted>(SortByCompleted.default);
-	const [error, setError] = useState<boolean | string>(false);
 
-	// const dispatch = useDispatch();
+	const isNoNotes = status === 'fulfilled' && notes.length === 0;
+	const isNoSearch = status === 'fulfilled' && userNotes.length === 0;
+
+	const dispatch = useAppDispatch();
+
+	const assignNotesInRedux = (notes: TNoteType[]) => {
+		dispatch(assignNotes(notes));
+	};
 
 	useEffect(() => {
-		myFetch
-			.get(`${db_url}api/notes`)
-			.then((response) => {
-				setUserNotes(response);
-				setSearchNotes(response);
-				setLoading(false);
-				setError(false);
-			})
-			.catch((error) => {
-				setError(error.status);
-			});
-	}, []);
+		const getNotes = async () => {
+			const response = await dispatch(getNotesFromDB());
+			const result = response.payload;
+			setUserNotes(result);
+		};
+
+		getNotes();
+	}, [dispatch]);
 
 	return (
 		<aside className={styles.sidebar}>
 			<div className={styles.header}>
 				<Search
 					searchForNotes={(event) => {
-						searchForNotes({ event, userNotes, searchNotes, setSearchNotes });
+						searchForNotes({ event, notes, setUserNotes });
 					}}
 					sortByDate={() => {
-						sortNotesByDate({ userNotes, sortByDate, setSearchNotes, setSortByDate });
+						sortNotesByDate({ notes, sortByDate, setUserNotes, setSortByDate });
 					}}
 					sortByCompleted={() => {
 						sortNotesByCompleted({
-							userNotes,
+							notes,
+							setUserNotes,
 							sortByCompleted,
-							setSearchNotes,
 							setSortByCompleted,
 						});
 					}}
@@ -67,15 +70,14 @@ const SideBar = () => {
 					stateCompleted={sortByCompleted}
 				/>
 				<h2 className={styles.title}>{myNotes}</h2>
-				{loading && <Preloader />}
+				{status === 'loading' && <Preloader />}
 			</div>
 			<div className={styles.notes}>
-				{!loading && userNotes.length === 0 && <p className={styles.empty}>{noNotes}</p>}
-				{!loading && userNotes.length > 0 && searchNotes.length === 0 && (
-					<p className={styles.empty}>{noSearch}</p>
-				)}
-				{userNotes.length > 0 &&
-					searchNotes.map((note, index) => (
+				{isNoNotes && <p className={styles.empty}>{noNotes}</p>}
+				{isNoSearch && <p className={styles.empty}>{noSearch}</p>}
+
+				{notes.length > 0 &&
+					userNotes.map((note, index) => (
 						<NoteButton
 							key={index}
 							note={note}
@@ -86,9 +88,9 @@ const SideBar = () => {
 								removeNote({
 									id,
 									db_url,
-									userNotes,
+									notes,
 									setUserNotes,
-									setSearchNotes,
+									assignNotesInRedux,
 								});
 							}}
 						/>
@@ -96,7 +98,7 @@ const SideBar = () => {
 			</div>
 			<AddButton
 				addNote={() => {
-					addNote({ userNotes, setUserNotes, setSearchNotes, db_url });
+					addNote({ notes, db_url, setUserNotes, assignNotesInRedux });
 				}}
 			/>
 		</aside>

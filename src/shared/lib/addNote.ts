@@ -1,28 +1,31 @@
-import myFetch from '../api/myFetch';
 import { Note } from './NoteClass';
-import NoteType from './NoteType';
+import myFetch from '../api/myFetch';
+import TNoteType from './NoteType';
 
 type TAddNoteOptions = {
-	userNotes: NoteType[];
+	notes: TNoteType[];
 	db_url: string;
-	setUserNotes: (array: NoteType[]) => void;
-	setSearchNotes: (array: NoteType[]) => void;
+	setUserNotes: (array: TNoteType[]) => void;
+	assignNotesInRedux: (note: TNoteType[]) => void;
 };
 
+
 export const addNote = async ({
-	userNotes,
-	setUserNotes,
-	setSearchNotes,
+	notes,
 	db_url,
+	setUserNotes,
+	assignNotesInRedux,
 }: TAddNoteOptions) => {
+
 	const postNote = new Note();
 
-	myFetch.post(`${db_url}api/notes`, postNote).then((response) => {
-		const copyUserNotes = [...userNotes];
-		copyUserNotes.unshift(response);
+	const result = await myFetch.post(`${db_url}api/notes`, postNote);
+	const newNote = await result.json();
 
-		setSearchNotes(copyUserNotes);
-		setUserNotes(copyUserNotes);
-	});
+	// TASK добавление в начало или конец?
+	const copyUserNotes = [...notes];
+	copyUserNotes.unshift(newNote);
 
+	setUserNotes(copyUserNotes);
+	assignNotesInRedux(copyUserNotes);
 };

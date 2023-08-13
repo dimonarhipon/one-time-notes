@@ -7,25 +7,27 @@ export enum SortByDate {
 }
 
 type TSortOptions = {
-	userNotes: NoteType[];
+	notes: NoteType[];
 	sortByDate: SortByDate;
-	setSearchNotes: (array: NoteType[]) => void;
+	setUserNotes: (array: NoteType[]) => void;
 	setSortByDate: (sortByDate: SortByDate) => void;
 };
 
 export const sortNotesByDate = ({
-	userNotes,
+	notes,
 	sortByDate,
-	setSearchNotes,
+	setUserNotes,
 	setSortByDate,
 }: TSortOptions): void => {
 	if (sortByDate === SortByDate.early) {
-		setSearchNotes(userNotes);
+		setUserNotes(notes);
 		setSortByDate(SortByDate.default);
 		return;
 	}
 
-	const dateArray = [...userNotes];
+	const dateArray = [...notes];
+
+	// TASK переделать дату под нормальный будущий бек
 
 	// 1. Преобразование даты из ISO в miliseconds
 	dateArray.map((note) => {
@@ -41,7 +43,7 @@ export const sortNotesByDate = ({
 		dateArray.map((note) => {
 			note.noteDate = new Date(+note.noteDate).toISOString();
 		});
-		setSearchNotes(dateArray);
+		setUserNotes(dateArray);
 		return;
 	}
 	if (sortByDate === SortByDate.late) {
@@ -52,9 +54,9 @@ export const sortNotesByDate = ({
 		dateArray.map((note) => {
 			note.noteDate = new Date(+note.noteDate).toISOString();
 		});
-		setSearchNotes(dateArray);
+		setUserNotes(dateArray);
 		return;
 	}
 
-	return setSearchNotes(dateArray);
+	return setUserNotes(dateArray);
 };

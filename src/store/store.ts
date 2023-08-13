@@ -1,7 +1,7 @@
 import {configureStore} from '@reduxjs/toolkit';
 import notesReducer from './notes.slice';
 
-export default configureStore({
+const store = configureStore({
 	reducer: {
 		notes: notesReducer,
 		// activeNote: activeNoteReducer,
@@ -9,3 +9,7 @@ export default configureStore({
 	}
 });
 
+export default store;
+
+export type TState = ReturnType<typeof store.getState>;
+export type TDispatch = typeof store.dispatch;
