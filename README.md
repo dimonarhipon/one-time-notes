@@ -3,6 +3,10 @@
 Приложение позволяет пользователям создавать заметки, которые автоматически удаляются после прочтения другим пользователем.
 
 <p align="center">
+	<a href="https://dimonarhipon.github.io/one-time-notes/" target="_blank">develop</a>
+</p>
+
+<p align="center">
 	<img src="https://img.shields.io/badge/node-18.16.1-green.svg">
 	<img src="https://img.shields.io/badge/npm-9.5.1-red.svg">
 	<img src="https://img.shields.io/badge/vite-4.2.0-purple.svg">
