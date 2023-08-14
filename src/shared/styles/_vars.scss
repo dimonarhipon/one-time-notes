@@ -1,11 +1,30 @@
 $white: #ffffff;
-$white-90t: #ffffffe5;
+$white-2: rgba(255, 255, 255, 0.90);
+$white-3: rgba(255, 255, 255, 0.80);
+$white-4: rgba(255, 255, 255, 0.60);
+$white-5: rgba(255, 255, 255, 0.15);
 
 $main: #151515;
+$dark-2: rgba(21, 21, 21, 0.80);
+$dark-3: rgba(21, 21, 21, 0.60);
+$dark-4: rgba(21, 21, 21, 0.06);
+$dark-5: rgba(20, 20, 20, 0.40);
+
 $pink: #ff9090;
-$dark-pink: #905454;
+$pink-2: #ff7a7a;
 $green: #d4ff90;
-$blue: #90caff;
+$green-2: rgba(182, 233, 101, 0.36);
+$green-3: #c5ff69;
+
+
+
+$button-hover: rgba(182, 233, 101, 0.36);
+$button-focus: #c5ff69;
+$button-disabled: rgba(212, 255, 144, 0.6);
+$shadow-button: 2px 4px 4px 0px rgba(182, 233, 101, 0.60);
+$shadow-white: 2px 4px 4px 0px rgba(255, 255, 255, 0.20);
+$shadow-dark: 2px 4px 4px 0px rgba(0, 0, 0, 0.20);
+
 
 $small: 'small';
 $mobile: 'mobile';
