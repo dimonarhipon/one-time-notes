@@ -1,23 +1,47 @@
-<svg width="106" height="106" viewBox="0 0 106 106" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_i_655_1798)">
-<path d="M106 53C106 82.2711 82.2711 106 53 106C23.7289 106 0 82.2711 0 53C0 23.7289 23.7289 0 53 0C82.2711 0 106 23.7289 106 53ZM11.2451 53C11.2451 76.0606 29.9394 94.7549 53 94.7549C76.0606 94.7549 94.7549 76.0606 94.7549 53C94.7549 29.9394 76.0606 11.2451 53 11.2451C29.9394 11.2451 11.2451 29.9394 11.2451 53Z" fill="url(#paint0_angular_655_1798)"/>
-</g>
-<defs>
-<filter id="filter0_i_655_1798" x="0" y="0" width="106" height="110" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="4"/>
-<feGaussianBlur stdDeviation="2"/>
-<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-<feBlend mode="normal" in2="shape" result="effect1_innerShadow_655_1798"/>
-</filter>
-<radialGradient id="paint0_angular_655_1798" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(51 55.75) rotate(-0.924046) scale(46.506)">
-<stop stop-color="white"/>
-<stop offset="0.078125" stop-color="white"/>
-<stop offset="0.278187" stop-color="white"/>
-<stop offset="1" stop-color="white" stop-opacity="0.2"/>
-</radialGradient>
-</defs>
+<svg viewBox="0 0 106 106" height="106px" width="106">
+	<defs>
+		<linearGradient id="Gradient" x1="50%" y1="0%" x2="50%" y2="100%">
+			<stop offset="0%" stop-color="#7A5FFF">
+				<animate attributeName="stop-color" values="#7A5FFF; #01FF89; #7A5FFF" dur="4s" repeatCount="indefinite">
+				</animate>
+			</stop>
+
+			<stop offset="100%" stop-color="#01FF89">
+				<animate attributeName="stop-color" values="#01FF89; #7A5FFF; #01FF89" dur="4s" repeatCount="indefinite">
+				</animate>
+			</stop>
+
+		</linearGradient>
+	</defs>
+	<circle class="circle" cx="50" cy="50" r="30" fill="none"></circle>
+
+	<style>
+		.circle {
+			animation:
+				80s loader ease infinite alternate,
+				20s loader2 linear infinite;
+			stroke: url(#Gradient);
+			stroke-linecap: round;
+			stroke-width: 5;
+			stroke-dasharray: 94 94;
+			stroke-dashoffset: 0;
+		}
+
+		@keyframes loader {
+			0% {
+				stroke-dasharray: 84 104;
+			}
+			100% {
+				stroke-dasharray: 178 10;
+			}
+		}
+		@keyframes loader2 {
+			0% {
+				stroke-dashoffset: 0;
+			}
+			100% {
+				stroke-dashoffset: -188;
+			}
+		}
+	</style>
 </svg>
