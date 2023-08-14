@@ -1,13 +1,15 @@
-import * as path from 'path';
+import path from 'path';
 
-import { defineConfig } from 'vite';
+import {defineConfig} from 'vite';
 import react from '@vitejs/plugin-react';
 import legacy from '@vitejs/plugin-legacy';
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 
+import 'dotenv/config';
+
 // https://vitejs.dev/config/
 export default defineConfig({
-	base: '/develop/',
+	base: '/one-time-notes/',
 	plugins: [
 		react(),
 		legacy({
@@ -21,26 +23,37 @@ export default defineConfig({
 				plugins: [
 					{
 						name: 'convertColors',
-						params: { currentColor: true }
+						params: {currentColor: true}
 					}
 				]
 			}
 		})
 	],
 	resolve: {
-		alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
+		alias: [{find: '@', replacement: path.resolve(__dirname, 'src')}],
 	},
-  css: {
-    preprocessorOptions: {
+	css: {
+		preprocessorOptions: {
 			scss: {
-        additionalData: '@import "./src/shared/styles/_vars.scss";',
-        sassOptions: {
-          includePaths: [path.resolve(__dirname, 'src/styles')],
-        },
-      },
-    },
-  },
+				additionalData: '@import "./src/shared/styles/_vars.scss";',
+				sassOptions: {
+					includePaths: [path.resolve(__dirname, 'src/styles')],
+				},
+			},
+		},
+	},
 	build: {
-    sourcemap: true,
-  },
+		sourcemap: true,
+	},
+	server: {
+		proxy: {
+			'/api': {
+				target: process.env.BACKEND_URL,
+				changeOrigin: true,
+				secure: false,
+				ws: true,
+				rewrite: (path) => path.replace('/api/', ''),
+			},
+		},
+	},
 });
