@@ -1,0 +1,30 @@
+.layout {
+	display: flex;
+	justify-content: space-between;
+	padding-left: 60px;
+	padding-right: 40px;
+	margin-top: 50px;
+}
+
+.buttonsGroup {
+	display: flex;
+	gap: 20px;
+}
+
+.icon {
+	width: 24px;
+	height: 24px;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.buttonSave {
+	background-color: transparent;
+	border: none;
+	color: $main;
+	font-family: 'Overpass';
+	font-size: 20px;
+	line-height: 25px;
+	cursor: pointer;
+}
