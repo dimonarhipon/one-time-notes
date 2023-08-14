@@ -22,4 +22,4 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           folder: ./dist
-          branch: develop
+          branch: gh-pages
