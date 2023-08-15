@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import styles from './Input.module.scss';
-import { IInput } from '../../shared/Types/AuthTypes';
+import type { TInput } from '@/shared/Types/AuthTypes';
 import { IconEye, IconEyeSlash } from '@/shared/assets/icons';
 
-const Input: React.FC<IInput> = ({ label, errorMessage, onChange, type, ...inputProps }) => {
+const Input: React.FC<TInput> = ({ label, errorMessage, onChange, type, ...inputProps }) => {
     
     const [typeInput, setTypeInput] = useState(type);
     const [focused, setFocused] = useState(false);

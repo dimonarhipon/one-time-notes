@@ -1,9 +1,9 @@
-import { IForm } from '../../shared/Types/AuthTypes';
+import type { TForm } from '@/shared/Types/AuthTypes';
 import Input from '../Input/Input';
 import styles from './Form.module.scss';
 import { Link } from 'react-router-dom';
 
-const Form: React.FC<IForm> = ({ InputProps, InputValues, setInputValues, buttonText, linkTo, pText, onSubmit }) => {
+const Form: React.FC<TForm> = ({ InputProps, InputValues, setInputValues, buttonText, linkTo, pText, onSubmit }) => {
 
     const onUserChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInputValues({ ...InputValues, [event.target.name]: event.target.value });

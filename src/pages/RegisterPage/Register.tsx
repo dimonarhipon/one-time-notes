@@ -1,6 +1,6 @@
-import Form from '../../widgets/Form/Form';
+import Form from '@/widgets/Form/Form';
 import { useState } from 'react';
-import { IInput, TInputValues } from '../../shared/Types/AuthTypes';
+import type { TInput, TInputValues } from '@/shared/Types/AuthTypes';
 
 const Register = () => {
 
@@ -26,7 +26,7 @@ const Register = () => {
         pText: 'Войти',
     };
 
-    const InputProps: Array<IInput> = [
+    const InputProps: Array<TInput> = [
         {
             id: 1,
             name: 'username',

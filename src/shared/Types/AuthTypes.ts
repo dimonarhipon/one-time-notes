@@ -5,7 +5,7 @@ export type TInputValues = {
     confirmPassword?: string,
 };
 
-export interface IInput {
+export type TInput = {
     id: number;
     name: string;
     type: string;
@@ -18,15 +18,15 @@ export interface IInput {
     onBlur?: () => void;
     value?: string;
     focused?: string;
-}
+};
 
 
-export interface IForm {
+export type TForm = {
     onSubmit?: (event: React.SyntheticEvent) => Promise<void>,
-    InputProps: Array<IInput>,
+    InputProps: Array<TInput>,
     InputValues: TInputValues,
     setInputValues: (InputValues: TInputValues) => void,
     buttonText: string,
     linkTo: string,
     pText: string,
-}
+};

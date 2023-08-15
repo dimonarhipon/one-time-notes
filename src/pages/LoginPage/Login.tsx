@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import Form from '../../widgets/Form/Form';
-import { IInput, TInputValues } from '../../shared/Types/AuthTypes';
+import Form from '@/widgets/Form/Form';
+import type { TInput } from '@/shared/Types/AuthTypes';
 
 const Login = () => {
 
-    const InputProps: Array<IInput> = [
+    const InputProps: Array<TInput> = [
         {
             id: 1,
             name: 'username',
