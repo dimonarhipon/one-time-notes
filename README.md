@@ -5,13 +5,13 @@
 <p align="center">
 	<a href="https://dimonarhipon.github.io/one-time-notes/" target="_blank">develop</a>
 </p>
-
 <p align="center">
-	<img src="https://img.shields.io/badge/node-18.16.1-green.svg">
-	<img src="https://img.shields.io/badge/npm-9.5.1-red.svg">
-	<img src="https://img.shields.io/badge/vite-4.2.0-purple.svg">
 	<img src="https://img.shields.io/badge/react-18.2.0-blue.svg">
 	<img src="https://img.shields.io/badge/typescript-5.0.2-blue.svg">
+</p>
+<p align="center">
+	<img src="https://img.shields.io/badge/node-18.16.1-green.svg">
+	<img src="https://img.shields.io/badge/vite-4.2.0-purple.svg">
 	<img src="https://img.shields.io/badge/eslint-8.38.0-purple.svg">
 	<img src="https://img.shields.io/badge/prettiert-3.0.0-purple.svg">
 </p>
@@ -19,8 +19,6 @@
 <p align="center">
 	<img src="https://img.shields.io/github/stars/dimonarhipon/one-time-notes.svg?style=flat">
 	<img src="https://img.shields.io/github/languages/top/dimonarhipon/one-time-notes.svg">
-	<img src="https://img.shields.io/github/watchers/dimonarhipon/one-time-notes.svg">
-	<img src="https://img.shields.io/github/forks/dimonarhipon/one-time-notes.svg">
 	<img src="https://img.shields.io/github/issues-pr/dimonarhipon/one-time-notes.svg">
 	<img src="https://img.shields.io/github/issues-pr-closed/dimonarhipon/one-time-notes.svg">
 </p>
