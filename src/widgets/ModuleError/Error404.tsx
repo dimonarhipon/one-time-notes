@@ -1,6 +1,6 @@
 import styles from './Error404.module.scss';
 
-export const Error404 = ({ color = '#C5FF69', children }: { color?: string, children: React.ReactNode }) => {
+export const Error404 = ({ color = '#C5FF69', children = 'Страница не найдена' }: { color?: string, children?: React.ReactNode }) => {
     return <a href='/' className={styles.errorLink} >
         <svg className={styles.errorSvg} viewBox='0 0 480 274'>
             <path d='M183.502 18.0008L87.5021 114C84.2221 117.28 78.7821 117.28 75.5021 114C72.2221 110.72 72.2221 105.28 75.5021 102L171.502 6.00085C174.782 2.72088 180.222 2.72088 183.502 6.00085C186.782 9.28083 186.782 14.7208 183.502 18.0008Z' fill={color} />
