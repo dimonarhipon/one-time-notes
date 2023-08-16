@@ -4,17 +4,19 @@ const defaultContent = 'Это контент, держу в курсе';
 
 export class Note {
 	_id?: string;
-	author: string;
 	title: string;
+	author: string;
 	content: string;
-	// date: string;
-	// status: boolean;
+	isRead: boolean;
+	createdAt: string;
+	updatedAt: Date;
 
-	constructor(title = defaultTitle, author = defaultAuthor, content = defaultContent) {
-		this.author = author;
+	constructor(title = defaultTitle, author = defaultAuthor, content = defaultContent, isRead = false, updatedAt = new Date()) {
 		this.title = title;
+		this.author = author;
 		this.content = content;
-		// this.date = new Date().toISOString();
-		// this.status = false;
+		this.isRead = isRead;
+		this.createdAt = new Date().toISOString();
+		this.updatedAt = updatedAt;
 	}
 }

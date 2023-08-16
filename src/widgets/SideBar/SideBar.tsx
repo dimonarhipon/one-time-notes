@@ -42,6 +42,8 @@ const SideBar = () => {
 		const getNotes = async () => {
 			const response = await dispatch(getNotesFromDB());
 			const result = response.payload;
+			console.log(result);
+
 			setUserNotes(result);
 		};
 
@@ -77,24 +79,27 @@ const SideBar = () => {
 				{isNoSearch && <p className={styles.empty}>{noSearch}</p>}
 
 				{notes.length > 0 &&
-					userNotes.map((note, index) => (
-						<NoteButton
-							key={index}
-							note={note}
-							active={index === activeNote}
-							openNoteFunction={() => setActiveNote(index)}
-							removeNoteFunction={() => {
-								const id = note._id;
-								removeNote({
-									id,
-									db_url,
-									notes,
-									setUserNotes,
-									assignNotesInRedux,
-								});
-							}}
-						/>
-					))}
+					userNotes
+						.slice()
+						.reverse()
+						.map((note, index) => (
+							<NoteButton
+								key={index}
+								note={note}
+								active={index === activeNote}
+								openNoteFunction={() => setActiveNote(index)}
+								removeNoteFunction={() => {
+									const id = note._id;
+									removeNote({
+										id,
+										db_url,
+										notes,
+										setUserNotes,
+										assignNotesInRedux,
+									});
+								}}
+							/>
+						))}
 			</div>
 			<AddButton
 				addNote={() => {

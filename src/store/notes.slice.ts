@@ -35,7 +35,7 @@ const notesSlice = createSlice({
 	initialState,
 	reducers: {
 		addNotes (state, action) {
-			state.notes.unshift(action.payload);
+			state.notes.push(action.payload);
 		},
 		assignNotes (state, action) {
 			state.notes = action.payload;

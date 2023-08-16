@@ -12,10 +12,10 @@ const removeText = 'remove';
 
 const NoteButton = ({ note, active, openNoteFunction, removeNoteFunction }: TNoteButtonProps) => {
 	const isActive = active ? [styles.note, styles.active].join(' ') : styles.note;
-	const isRead = note.noteStatus === true ? [styles.read] : '';
+	const isRead = note.isRead === true ? [styles.read] : '';
 
 	// нормальная дата
-	// const date = new Date(note.noteDate).toLocaleDateString();
+	const date = new Date(note.updatedAt).toLocaleDateString();
 
 	return (
 		<div className={`${isActive} ${isRead}`} onClick={openNoteFunction}>
@@ -29,9 +29,11 @@ const NoteButton = ({ note, active, openNoteFunction, removeNoteFunction }: TNot
 					</svg>
 				</button>
 			</div>
-			{/* <time className={styles.date} dateTime={note.noteDate}>
-				{date}
-			</time> */}
+			{date && (
+				<time className={styles.date} dateTime={note.createdAt}>
+					{date}
+				</time>
+			)}
 		</div>
 	);
 };

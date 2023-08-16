@@ -21,16 +21,10 @@ export const searchForNotes = ({
 	const resultArray: NoteType[] = [];
 
 	notes.map((note: NoteType) => {
-		// 1. сортировка по title
+		// 1. поиск по title
 		if (note.title.toLowerCase().includes(searchValue.toLowerCase())) {
 			resultArray.push(note);
-		// 2. сортировка по дате
-
-		// TASK доделать поиск по дате
-		// } else if (note.date.includes(searchValue)) {
-		// 	resultArray.push(note);
-
-		// 3. Сортировка по контенту
+		// 2. поиск по контенту
 		} else if (note.content.includes(searchValue)) {
 			resultArray.push(note);
 		}

@@ -17,14 +17,14 @@ export const addNote = async ({
 	assignNotesInRedux,
 }: TAddNoteOptions) => {
 
-	const postNote = new Note();
+	const postNote = new Note(`Заметка ${notes.length}`);
 
 	const result: any = await myFetch.post(`${db_url}api/notes`, postNote);
 	const newNote = await result.json();
 
 	// TASK добавление в начало или конец?
 	const copyUserNotes = [...notes];
-	copyUserNotes.unshift(newNote);
+	copyUserNotes.push(newNote);
 
 	setUserNotes(copyUserNotes);
 	assignNotesInRedux(copyUserNotes);

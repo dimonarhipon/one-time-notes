@@ -3,7 +3,8 @@ type TNoteType = {
 	author: string;
 	title: string;
 	content: string;
-	// date: string;
-	// status: string;
+	isRead: boolean;
+	createdAt: string;
+	updatedAt: string;
 };
 export default TNoteType;

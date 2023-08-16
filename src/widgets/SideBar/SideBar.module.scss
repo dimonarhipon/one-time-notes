@@ -45,7 +45,9 @@
 		top: 0;
 		left: 0;
 		z-index: 1;
-		width: 10px;
+		width: 6px;
+		// Доделать скроллбар
+		// background-color: transparent;
 	}
 
 	&::-webkit-scrollbar-thumb {
