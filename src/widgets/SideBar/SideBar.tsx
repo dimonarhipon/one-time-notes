@@ -22,7 +22,7 @@ const db_url = import.meta.env.VITE_BACKEND_URL;
 
 const SideBar = () => {
 	const notes = useAppSelector((state) => state.notes.notes);
-	const { status, error } = useAppSelector((state) => state.notes);
+	const { status } = useAppSelector((state) => state.notes);
 
 	const [userNotes, setUserNotes] = useState<NoteType[]>([]);
 	const [activeNote, setActiveNote] = useState<number>(-1);

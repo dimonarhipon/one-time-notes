@@ -42,7 +42,7 @@ const notesSlice = createSlice({
 		},
 	},
 	extraReducers: (builder) => {
-		builder.addCase(getNotesFromDB.pending, (state, action) => {
+		builder.addCase(getNotesFromDB.pending, (state) => {
 			state.status = 'loading';
 		});
 		builder.addCase(getNotesFromDB.fulfilled, (state, action) => {
