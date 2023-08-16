@@ -2,7 +2,6 @@ import styles from './Search.module.scss';
 import { ChangeEvent } from 'react';
 import { SortByDate } from '@/shared/lib/sortByDate';
 import { SortByCompleted } from '@/shared/lib/sortByCompleted';
-import useDebounce from '@/shared/lib/useDebounce';
 
 type TSearchProps = {
 	searchForNotes: (event: ChangeEvent<HTMLInputElement>) => void;
