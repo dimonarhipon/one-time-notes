@@ -27,7 +27,7 @@ export const sortNotesByDate = ({
 
 	const dateArray = [...notes];
 
-	// TASK доделать сорт по дате
+	// TASK пофиксить ошибку
 
 	// 1. Преобразование даты из ISO в miliseconds
 	dateArray.map((note) => {
@@ -39,18 +39,20 @@ export const sortNotesByDate = ({
 		dateArray.sort((a, b) => (+a.updatedAt < +b.updatedAt ? 1 : -1));
 		setSortByDate(SortByDate.late);
 
-		// 3. Преобразование обратно в ISO
+		// Преобразование обратно в ISO
 		dateArray.map((note) => {
 			note.updatedAt = new Date(+note.updatedAt).toISOString();
 		});
 		setUserNotes(dateArray);
 		return;
 	}
+
+	// 3. Сортировка по поздней дате
 	if (sortByDate === SortByDate.late) {
 		dateArray.sort((a, b) => (+a.updatedAt > +b.updatedAt ? 1 : -1));
 		setSortByDate(SortByDate.early);
 
-		// 3. Преобразование обратно в ISO
+		// Преобразование обратно в ISO
 		dateArray.map((note) => {
 			note.updatedAt = new Date(+note.updatedAt).toISOString();
 		});

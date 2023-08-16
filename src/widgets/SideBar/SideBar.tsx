@@ -10,7 +10,7 @@ import { SortByDate, sortNotesByDate } from '@/shared/lib/sortByDate';
 import { SortByCompleted, sortNotesByCompleted } from '@/shared/lib/sortByCompleted';
 import { addNote } from '@/shared/lib/addNote';
 import { searchForNotes } from '@/shared/lib/searchForNotes';
-import { getNotesFromDB, addNotes, assignNotes } from '@/store/notes.slice';
+import { getNotesFromDB, assignNotes } from '@/store/notes.slice';
 import TNoteType from '@/shared/lib/NoteType';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 
@@ -42,8 +42,6 @@ const SideBar = () => {
 		const getNotes = async () => {
 			const response = await dispatch(getNotesFromDB());
 			const result = response.payload;
-			console.log(result);
-
 			setUserNotes(result);
 		};
 

@@ -9,9 +9,9 @@ export class Note {
 	content: string;
 	isRead: boolean;
 	createdAt: string;
-	updatedAt: Date;
+	updatedAt: string;
 
-	constructor(title = defaultTitle, author = defaultAuthor, content = defaultContent, isRead = false, updatedAt = new Date()) {
+	constructor(title = defaultTitle, author = defaultAuthor, content = defaultContent, isRead = false, updatedAt = new Date().toISOString()) {
 		this.title = title;
 		this.author = author;
 		this.content = content;

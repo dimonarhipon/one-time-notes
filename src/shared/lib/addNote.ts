@@ -19,7 +19,7 @@ export const addNote = async ({
 
 	const postNote = new Note(`Заметка ${notes.length}`);
 
-	const result: any = await myFetch.post(`${db_url}api/notes`, postNote);
+	const result: any= await myFetch.post(`${db_url}api/notes`, postNote);
 	const newNote = await result.json();
 
 	// TASK добавление в начало или конец?

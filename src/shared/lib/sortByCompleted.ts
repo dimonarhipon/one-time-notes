@@ -22,18 +22,16 @@ export const sortNotesByCompleted = ({
 	const sortArray = [...notes];
 
 	// Сортировка
-
-	// TASK ввести, как будет готов бек
 	switch (sortByCompleted) {
 
 		case SortByCompleted.default:
-			sortArray.sort((note) => (!note.isRead ? 1 : -1));
+			sortArray.sort((note) => (note.isRead ? 1 : -1));
 			setSortByCompleted(SortByCompleted.read);
 			setUserNotes(sortArray);
 			break;
 
 		case SortByCompleted.read:
-			sortArray.sort((note) => (note.isRead ? 1 : -1));
+			sortArray.sort((note) => (!note.isRead ? 1 : -1));
 			setSortByCompleted(SortByCompleted.unread);
 			setUserNotes(sortArray);
 			break;
