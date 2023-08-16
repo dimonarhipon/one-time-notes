@@ -14,7 +14,7 @@ import styles from './ModalPage.module.scss';
 
 const PATH_ID = location.pathname.substring(13);
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL + 'api/notes/';
-const GET_BACKEND = BACKEND_URL + PATH_ID;
+const FULL_PATH = BACKEND_URL + PATH_ID;
 
 type GetNote = {
     content: string,
@@ -28,7 +28,7 @@ export const ModalPage = () => {
 
     useEffect(() => {
         (async function () {
-            await fetchNotes(GET_BACKEND).then((note) => {
+            await fetchNotes(FULL_PATH).then((note) => {
                 switch (note) {
                     case null:
                         SetFetch(Status.Error);
@@ -48,7 +48,7 @@ export const ModalPage = () => {
     };
 
     const DeleteNote = () => {
-        fetchNotes(BACKEND_URL, fetchMethods.delete);
+        fetchNotes(FULL_PATH, fetchMethods.delete);
     };
 
     const getNote = noteState === Status.Get;
