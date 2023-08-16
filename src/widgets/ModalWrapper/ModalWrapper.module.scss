@@ -8,10 +8,7 @@
 }
 
 .modalWrapper {
-	// width: 100%;
 	display: none;
-	// justify-content: center;
-	// align-items: center;
 	min-width: 584px;
 	max-width: 1024px;
 	min-height: 178px;
@@ -39,9 +36,11 @@
 
 .wrapperActive {
 	animation: anisecond 0.7s forwards;
-	display: block;
+	display: flex;
+	align-items: center;
 }
 
 .displayBlock {
+	width: 100%;
 	display: block;
 }
