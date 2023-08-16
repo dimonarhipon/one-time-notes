@@ -77,7 +77,7 @@ export const ModalPage = () => {
                 )}
 
                 {openNote && (
-                    <Message>
+                    <Message title={fetchState?.title}>
                         {fetchState?.content}
                     </Message>
                 )}

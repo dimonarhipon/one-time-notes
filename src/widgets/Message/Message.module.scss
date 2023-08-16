@@ -21,3 +21,22 @@
 		max-height: 250px;
 	}
 }
+
+.messegeTitle {
+	text-indent: 20px;
+	font-size: 20px;
+	@include respond-to($tablet) {
+		font-size: 18px;
+	}
+	@include respond-to($mobile) {
+		font-size: 16px;
+		text-indent: 10px;
+	}
+}
+.messegeContent {
+	margin-top: 10px;
+	font-size: 16px;
+	@include respond-to($tablet) {
+		font-size: 14px;
+	}
+}
