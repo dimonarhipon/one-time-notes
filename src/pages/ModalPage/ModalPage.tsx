@@ -8,19 +8,10 @@ import { Status } from '@/shared/lib/EnumStatus';
 import { fetchNotes } from '@/shared/api/fetchNotes';
 import { ModalWrapper } from '@/widgets/ModalWrapper/ModalWrapper';
 import { Error404 } from '@/widgets/ModuleError/Error404';
-import { fetchMethods } from '@/shared/api/fetchMethods';
-import Preloader from '@/shared/Preloader/Preloader';
+import { DeleteNote, FULL_PATH, ReadNote } from './ModalUtils';
+import { GetNote } from '@/shared/lib/TGetNote';
 import styles from './ModalPage.module.scss';
-
-const PATH_ID = location.pathname.substring(20);
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL + 'api/notes/';
-const FULL_PATH = BACKEND_URL + PATH_ID;
-
-type GetNote = {
-    content: string,
-    title: string,
-    author: string,
-};
+import Preloader from '@/shared/Preloader/Preloader';
 
 export const ModalPage = () => {
     const [noteState, SetNote] = useState<Status.Open | Status.Get | Status.Delete>(Status.Get);
@@ -39,17 +30,6 @@ export const ModalPage = () => {
             });
         })();
     }, []);
-
-    const ReadNote = () => {
-        fetchNotes(BACKEND_URL, fetchMethods.put, {
-            '_id': `${PATH_ID}`,
-            'isRead': true,
-        });
-    };
-
-    const DeleteNote = () => {
-        fetchNotes(FULL_PATH, fetchMethods.delete);
-    };
 
     const getNote = noteState === Status.Get;
     const openNote = noteState === Status.Open;
