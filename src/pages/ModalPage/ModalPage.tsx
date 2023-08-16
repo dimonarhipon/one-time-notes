@@ -12,8 +12,9 @@ import { fetchMethods } from '@/shared/api/fetchMethods';
 import Preloader from '@/shared/Preloader/Preloader';
 import styles from './ModalPage.module.scss';
 
+const PATH_ID = location.pathname.substring(13);
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL + 'api/notes/';
-const GET_BACKEND = BACKEND_URL + location.pathname.substring(13);
+const GET_BACKEND = BACKEND_URL + PATH_ID;
 
 type GetNote = {
     content: string,
@@ -38,6 +39,13 @@ export const ModalPage = () => {
             });
         })();
     }, []);
+
+    const ReadNote = () => {
+        fetchNotes(BACKEND_URL, fetchMethods.put, {
+            '_id': `${PATH_ID}`,
+            'isRead': true,
+        });
+    };
 
     const DeleteNote = () => {
         fetchNotes(BACKEND_URL, fetchMethods.delete);
@@ -65,7 +73,7 @@ export const ModalPage = () => {
                 </div>
 
                 {getNote && (
-                    <ModalButton callback={() => SetNote(Status.Open)}>Открыть</ModalButton>
+                    <ModalButton callback={() => { SetNote(Status.Open); ReadNote(); }}>Открыть</ModalButton>
                 )}
 
                 {openNote && (
