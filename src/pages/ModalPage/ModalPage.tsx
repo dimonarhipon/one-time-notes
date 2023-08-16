@@ -12,7 +12,7 @@ import { fetchMethods } from '@/shared/api/fetchMethods';
 import Preloader from '@/shared/Preloader/Preloader';
 import styles from './ModalPage.module.scss';
 
-const PATH_ID = location.pathname.substring(13);
+const PATH_ID = location.pathname.substring(20);
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL + 'api/notes/';
 const FULL_PATH = BACKEND_URL + PATH_ID;
 
@@ -85,7 +85,7 @@ export const ModalPage = () => {
         }
 
         {(openNote || deleteNote) && (
-            <ModalLink path='/develop/' >Написать заметку</ModalLink>
+            <ModalLink path='/one-time-notes/' >Написать заметку</ModalLink>
         )}
 
     </ModalTemplate>;

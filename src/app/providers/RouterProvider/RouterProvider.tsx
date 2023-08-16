@@ -5,15 +5,15 @@ import ModalPage from '@/pages/ModalPage';
 
 const router = createBrowserRouter([
 	{
-		path: '/develop/',
+		path: '/one-time-notes/',
 		Component: HomePage,
 	},
 	{
-		path: '/develop/registration',
+		path: '/one-time-notes/registration',
 		Component: AuthorizationPage,
 	},
 	{
-		path: 'develop/get/:id',
+		path: '/one-time-notes/get/:id',
 		Component: ModalPage,
 	},
 ]);
