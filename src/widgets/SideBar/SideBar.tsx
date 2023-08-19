@@ -16,7 +16,7 @@ const myNotes = 'Мои заметки';
 const noNotes = 'Заметок пока нет';
 const noSearch = 'Поиск не дал результатов';
 
-type TSidebarProps ={
+type TSidebarProps = {
 	className?: string;
 };
 

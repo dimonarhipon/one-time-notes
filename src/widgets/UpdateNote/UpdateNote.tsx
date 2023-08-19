@@ -5,7 +5,7 @@ import iconDelete from './icons/icon-delete.svg';
 const DELETE = 'Delete note';
 const TEXTAREAHOLDER = 'Напиши свой секрет здесь...';
 
-type TUpdateProps ={
+type TUpdateProps = {
 	className?: string;
 };
 

@@ -3,9 +3,8 @@
 	grid-template-columns: 266px 1fr;
 	grid-template-rows: 100px 1fr;
 	grid-template-areas:
-		"sidebar header"
-		"sidebar content"
-	;
+		'sidebar header'
+		'sidebar content';
 
 	background-color: $main;
 	width: 100vw;

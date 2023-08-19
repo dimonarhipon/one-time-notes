@@ -8,7 +8,7 @@ const NotesPage = () => {
 		<div className={styles.notes}>
 			<SideBar className={styles.sidebar} />
 			<Header className={styles.header} />
-			<UpdateNote className={styles.content}/>
+			<UpdateNote className={styles.content} />
 		</div>
 	);
 };
