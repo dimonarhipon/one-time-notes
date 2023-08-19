@@ -1,0 +1,25 @@
+.notes {
+	display: grid;
+	grid-template-columns: 266px 1fr;
+	grid-template-rows: 100px 1fr;
+	grid-template-areas:
+		'sidebar header'
+		'sidebar content';
+
+	background-color: $main;
+	width: 100vw;
+	height: 100dvh;
+	scrollbar-gutter: auto;
+}
+
+.header {
+	grid-area: header;
+}
+
+.sidebar {
+	grid-area: sidebar;
+}
+
+.content {
+	grid-area: content;
+}
