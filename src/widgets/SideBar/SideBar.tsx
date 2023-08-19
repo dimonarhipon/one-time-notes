@@ -4,7 +4,7 @@ import NoteButton from '@/widgets/NoteButton/NoteButton';
 import Search from '@/widgets/Search/Search';
 import AddButton from '../AddButton/AddButton';
 import NoteType from '@/shared/lib/NoteType';
-import Preloader from '@/shared/Preloader/Preloader';
+import { Loader } from '@/shared/Loader';
 import { fetchNotes } from '@/shared/api/fetchNotes';
 import { removeNote } from '@/shared/lib/removeNote';
 import { SortByDate, sortNotesByDate } from '@/shared/lib/sortByDate';
@@ -56,7 +56,7 @@ const SideBar = () => {
 					stateCompleted={sortByCompleted}
 				/>
 				<h2 className={styles.title}>{myNotes}</h2>
-				{loading && <Preloader />}
+				{loading && <Loader />}
 			</div>
 			<div className={styles.notes}>
 				{!loading && userNotes.length === 0 && <p className={styles.empty}>{noNotes}</p>}

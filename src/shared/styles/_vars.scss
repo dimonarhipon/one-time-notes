@@ -9,6 +9,7 @@ $dark-2: rgba(21, 21, 21, 0.80);
 $dark-3: rgba(21, 21, 21, 0.60);
 $dark-4: rgba(21, 21, 21, 0.06);
 $dark-5: rgba(20, 20, 20, 0.40);
+$dark-6: rgba(0, 0, 0, 0.20);
 
 $pink: #ff9090;
 $pink-2: #ff7a7a;
@@ -22,7 +23,7 @@ $button-focus: #c5ff69;
 $button-disabled: rgba(212, 255, 144, 0.6);
 $shadow-button: 2px 4px 4px 0px rgba(182, 233, 101, 0.60);
 $shadow-white: 2px 4px 4px 0px rgba(255, 255, 255, 0.20);
-$shadow-dark: 2px 4px 4px 0px rgba(0, 0, 0, 0.20);
+$shadow-dark: 2px 4px 4px 0px $dark-6;
 
 
 
