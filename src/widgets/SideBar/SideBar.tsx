@@ -16,7 +16,11 @@ const myNotes = 'Мои заметки';
 const noNotes = 'Заметок пока нет';
 const noSearch = 'Поиск не дал результатов';
 
-const SideBar = () => {
+type TSidebarProps ={
+	className?: string;
+};
+
+const SideBar = ({ className }: TSidebarProps) => {
 	const mockApiNotesUrl = 'https://64aff776c60b8f941af4f841.mockapi.io/server/notes';
 
 	const [userNotes, setUserNotes] = useState<NoteType[]>([]);
@@ -35,7 +39,7 @@ const SideBar = () => {
 	}, []);
 
 	return (
-		<aside className={styles.sidebar}>
+		<aside className={`${styles.sidebar} ${className}`}>
 			<div className={styles.header}>
 				<Search
 					searchForNotes={(event) => {
