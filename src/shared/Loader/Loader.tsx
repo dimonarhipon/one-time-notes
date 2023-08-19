@@ -1,10 +1,10 @@
 import styles from './Loader.module.scss';
 
 type TLoaderProps = {
-	isDark?: boolean
+	isDark?: boolean;
 };
 
-export const Loader = ({ isDark = true }: TLoaderProps) => {
+export const Loader = ({ isDark = false }: TLoaderProps) => {
 	const modificator = isDark ? styles.loaderDark : styles.loaderWhite;
 
 	return (
