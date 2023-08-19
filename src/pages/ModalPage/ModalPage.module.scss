@@ -18,10 +18,10 @@
 	border: none;
 	.navigationImg {
 		width: 30px;
-		fill: rgba(0, 0, 0, 0.8);
+		fill: $dark-2;
 		&:hover {
 			transition: all 0.2s;
-			fill: rgba(0, 0, 0, 0.5);
+			fill: $dark-3;
 		}
 	}
 	@include respond-to($tablet) {

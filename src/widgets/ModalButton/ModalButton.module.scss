@@ -13,7 +13,7 @@
 	cursor: pointer;
 	transition: all 0.2s;
 	&:hover {
-		background-color: rgba(197, 255, 105, 1);
+		background-color: $green-3;
 	}
 	@include respond-to($mobile) {
 		padding: 12px 80px;

@@ -11,9 +11,9 @@
 	text-decoration: none;
 	transition: all 0.2s;
 	cursor: pointer;
-	color: $white-60t;
+	color: $white-4;
 	&:hover {
-		color: rgb(255, 255, 255, 0.4);
+		color: $white-3;
 	}
 	@include respond-to($tablet) {
 		margin: 20px;
