@@ -1,4 +1,4 @@
-export type GetNote = {
+export type TGetNote = {
     content: string,
     title: string,
     author: string,

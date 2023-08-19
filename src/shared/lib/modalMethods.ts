@@ -1,4 +1,4 @@
-export enum Status {
+export enum modalMethods {
     Get = 'get',
     Open = 'open',
     Delete = 'delete',

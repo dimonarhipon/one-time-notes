@@ -1,4 +1,4 @@
-@keyframes anisecond {
+@keyframes wrapperAnimate {
 	0% {
 		transform: translateY(-150%);
 	}
@@ -35,7 +35,7 @@
 }
 
 .wrapperActive {
-	animation: anisecond 0.7s forwards;
+	animation: wrapperAnimate 0.7s forwards;
 	display: flex;
 	align-items: center;
 }
