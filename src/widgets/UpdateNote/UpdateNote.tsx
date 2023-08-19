@@ -5,9 +5,13 @@ import iconDelete from './icons/icon-delete.svg';
 const DELETE = 'Delete note';
 const TEXTAREAHOLDER = 'Напиши свой секрет здесь...';
 
-export default function UpdateNote() {
+type TUpdateProps = {
+	className?: string;
+};
+
+export default function UpdateNote({ className }: TUpdateProps) {
 	return (
-		<section className={style.updateSection}>
+		<section className={`${style.updateSection} ${className}`}>
 			<div>
 				<h3 className={style.title}>Заметка 1</h3>
 				<div>
