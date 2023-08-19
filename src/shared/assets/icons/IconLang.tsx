@@ -1,5 +1,6 @@
 export const IconLang = () => (
 	<svg width='31' height='31' viewBox='0 0 31 31' fill='none'>
+		<title>Переключить язык</title>
 		<path
 			d='M24.6192 24.1154L21.855 18.6L19.0908 24.1154M19.5946 23.1337H24.1412'
 			stroke='white'

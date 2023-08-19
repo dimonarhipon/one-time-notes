@@ -40,7 +40,7 @@ const SideBar = ({ className }: TSidebarProps) => {
 
 	return (
 		<aside className={`${styles.sidebar} ${className}`}>
-			<div className={styles.header}>
+			<div className={styles.header} role='complementary'>
 				<Search
 					searchForNotes={(event) => {
 						searchForNotes({ event, userNotes, searchNotes, setSearchNotes });

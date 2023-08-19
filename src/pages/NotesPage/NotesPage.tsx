@@ -6,8 +6,8 @@ import Header from '@/widgets/Header/Header';
 const NotesPage = () => {
 	return (
 		<div className={styles.notes}>
-			<SideBar className={styles.sidebar} />
 			<Header className={styles.header} />
+			<SideBar className={styles.sidebar} />
 			<UpdateNote className={styles.content} />
 		</div>
 	);
