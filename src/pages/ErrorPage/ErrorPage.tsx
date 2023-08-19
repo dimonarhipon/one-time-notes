@@ -1,11 +1,11 @@
 import { TModalProps } from '@/shared/lib/TModalProps';
 import { ModalTemplate } from '@/widgets/ModalTemplate/ModalTemplate';
-import { Error404 } from '@/widgets/ModuleError/Error404';
+import { ErrorContent } from '@/widgets/ModuleError/ErrorContent';
 
 export const ErrorPage = ({ children }: TModalProps) => {
     return <ModalTemplate>
-        <Error404>
+        <ErrorContent>
             {children}
-        </Error404>
+        </ErrorContent>
     </ModalTemplate>;
 };

@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { modalMethods } from '@/shared/lib/modalMethods';
 import { fetchNotes } from '@/shared/api/fetchNotes';
 import { ModalWrapper } from '@/widgets/ModalWrapper/ModalWrapper';
-import { Error404 } from '@/widgets/ModuleError/Error404';
+import { ErrorContent } from '@/widgets/ModuleError/ErrorContent';
 import { DeleteNote, FULL_PATH, ReadNote } from './utils';
 import { TGetNote } from '@/shared/lib/TGetNote';
 import styles from './ModalPage.module.scss';
@@ -31,9 +31,9 @@ export const ModalPage = () => {
 
     return <ModalTemplate >
         {!fetchState && <Preloader />}
-        {(fetchState === (modalMethods.Error || null)) ? <Error404>
+        {(fetchState === (modalMethods.Error || null)) ? <ErrorContent>
             Страница не найдена
-        </Error404> : (
+        </ErrorContent> : (
             <ModalWrapper active={!!fetchState}>
                 <div className={styles.navigationСontainer}>
                     <ModalTitle noteState={noteState} />
