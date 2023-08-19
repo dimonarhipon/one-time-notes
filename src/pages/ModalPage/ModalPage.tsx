@@ -11,7 +11,7 @@ import { ErrorContent } from '@/widgets/ModuleError/ErrorContent';
 import { DeleteNote, FULL_PATH, ReadNote } from './utils';
 import { TGetNote } from '@/shared/lib/TGetNote';
 import styles from './ModalPage.module.scss';
-import Preloader from '@/shared/Preloader/Preloader';
+import { Loader } from '@/shared/Loader';
 
 export const ModalPage = () => {
     const [noteState, SetNote] = useState<modalMethods.Open | modalMethods.Get | modalMethods.Delete>(modalMethods.Get);
@@ -30,7 +30,7 @@ export const ModalPage = () => {
     const deleteNote = noteState === modalMethods.Delete;
 
     return <ModalTemplate >
-        {!fetchState && <Preloader />}
+        {!fetchState && <Loader />}
         {(fetchState === (modalMethods.Error || null)) ? <ErrorContent>
             Страница не найдена
         </ErrorContent> : (
