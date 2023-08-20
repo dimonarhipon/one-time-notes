@@ -1,28 +1,15 @@
 {
   "name": "One time notes",
   "icons": [{
-    "src": "../public/favicon/favicon-16.svg",
-		"type": "image/svg+xml",
-    "sizes": "16x16",
-		"purpose": "any maskable"
+    "src": "../favicon/favicon-16.svg",
+    "sizes": "16x16"
   }, {
-    "src": "../public/favicon/favicon-32.svg",
-		"type": "image/svg+xml",
-    "sizes": "32x32",
-		"purpose": "any maskable"
+    "src": "../favicon/favicon-32.svg",
+    "sizes": "32x32"
   }, {
-    "src": "../public/favicon/favicon-152.svg",
-		"type": "image/svg+xml",
-    "sizes": "152x152",
-		"purpose": "any maskable"
-  }, {
-    "src": "../public/favicon/favicon-512.svg",
-		"type": "image/svg+xml",
-    "sizes": "512x512",
-		"purpose": "any maskable"
+    "src": "../favicon/favicon-152.svg",
+    "sizes": "152x152"
   }],
   "display": "fullscreen",
-  "orientation": "landscape",
-	"theme_color": "#151515",
-	"description": "Приложение позволяет пользователям создавать заметки, которые автоматически удаляются после прочтения другим пользователем"
+  "orientation": "landscape"
 }
