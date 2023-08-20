@@ -8,6 +8,10 @@
 	height: 100vh;
 	position: relative;
 	background-color: $main;
+
+	@include respond-to($tablet) {
+    max-width: 100vw;
+	}
 }
 
 .active {
