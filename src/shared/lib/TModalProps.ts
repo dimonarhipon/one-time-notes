@@ -1,5 +1,7 @@
 export type TModalProps = {
 	active?: boolean;
 	callback?: () => void;
-	children: React.ReactNode;
+	children?: React.ReactNode;
+	noteState?: 'get' | 'open' | 'delete';
+	path?: string;
 };
