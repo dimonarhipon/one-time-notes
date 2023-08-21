@@ -1,5 +1,6 @@
 import NoteType from '@/shared/lib/NoteType';
 import styles from './NoteItem.module.scss';
+// import { Link } from 'react-router-dom';
 
 type TNoteButtonProps = {
 	note: NoteType;
@@ -10,14 +11,15 @@ type TNoteButtonProps = {
 
 const removeText = 'remove';
 
-const NoteButton = ({ note, active, openNoteFunction, removeNoteFunction }: TNoteButtonProps) => {
+const NoteItem = ({ note, active, openNoteFunction, removeNoteFunction }: TNoteButtonProps) => {
 	const isActive = active ? [styles.note, styles.active].join(' ') : styles.note;
 	const isRead = note.isRead === true ? [styles.read] : '';
 
-	// нормальная дата
+	// нормальная дата последнего обновления
 	const date = new Date(note.updatedAt).toLocaleDateString();
 
 	return (
+		// <Link to={`./${note._id}`} className={`${isActive} ${isRead}`} onClick={openNoteFunction}>
 		<div className={`${isActive} ${isRead}`} onClick={openNoteFunction}>
 			<div className={styles.header}>
 				<h3 className={styles.title}>{note.title}</h3>
@@ -30,12 +32,13 @@ const NoteButton = ({ note, active, openNoteFunction, removeNoteFunction }: TNot
 				</button>
 			</div>
 			{date && (
-				<time className={styles.date} dateTime={note.createdAt}>
+				<time className={styles.date} dateTime={note.updatedAt}>
 					{date}
 				</time>
 			)}
 		</div>
+		// </Link>
 	);
 };
 
-export default NoteButton;
+export default NoteItem;

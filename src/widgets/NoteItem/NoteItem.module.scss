@@ -1,4 +1,5 @@
 .note {
+	text-decoration: none;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
@@ -16,22 +17,9 @@
 	outline: none;
 	border: none;
 	transition:
-		width 0.2s ease-in-out,
-		border-radius 0.2s ease-in,
-		background-color .2s linear;
-
-	// &::before {
-	// 	content: '';
-	// 	position: absolute;
-	// 	top: 0;
-	// 	left: 0;
-	// 	z-index: 0;
-	// 	background-color: $green;
-	// 	width: 0px;
-	// 	border-radius: 20px;
-	// 	height: 100%;
-	// 	transition: width .2s ease-in-out;
-	// }
+	width 0.2s ease-in-out,
+	border-radius 0.2s ease-in,
+	background-color .2s linear;
 
 	&:first-child {
 		margin-top: 0;
@@ -50,10 +38,6 @@
 		border-radius: 20px 0px 0px 20px;
 		width: 266px;
 
-		// &::before {
-		// 	width: 270px;
-		// }
-
 		.date {
 			margin-right: 36px;
 		}
@@ -66,6 +50,15 @@
 	&.read {
 		background-color: $green;
 		color: $main;
+
+		.title {
+			color: $main;
+			text-decoration: none;
+		}
+
+		.date {
+			color: $main;
+		}
 
 		&:hover {
 			background-color: $green-hover;
@@ -119,6 +112,7 @@
 }
 
 .title {
+	color: $white;
 	margin: 0;
 	max-width: 130px;
 	width: 100%;
@@ -138,6 +132,7 @@
 }
 
 .date {
+	color: $white;
 	margin: 0;
 	font-size: 14px;
 	font-weight: 400;

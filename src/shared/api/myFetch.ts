@@ -21,6 +21,7 @@ const myFetch = () => {
 					},
 					body: JSON.stringify(body),
 				});
+
 				return response;
 			} catch (error) {
 				return error;

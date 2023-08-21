@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './SideBar.module.scss';
-import NoteButton from '@/widgets/NoteItem/NoteItem';
+import NoteItem from '@/widgets/NoteItem/NoteItem';
 import Search from '@/widgets/Search/Search';
 import AddButton from '../AddButton/AddButton';
 import NoteType from '@/shared/lib/NoteType';
@@ -13,6 +13,7 @@ import { searchForNotes } from '@/shared/lib/searchForNotes';
 import { getNotesFromDB, assignNotes } from '@/store/notes.slice';
 import TNoteType from '@/shared/lib/NoteType';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { Navigate } from 'react-router-dom';
 
 const myNotes = 'Мои заметки';
 const noNotes = 'Заметок пока нет';
@@ -81,11 +82,14 @@ const SideBar = () => {
 						.slice()
 						.reverse()
 						.map((note, index) => (
-							<NoteButton
+							<NoteItem
 								key={index}
 								note={note}
 								active={index === activeNote}
-								openNoteFunction={() => setActiveNote(index)}
+								openNoteFunction={() => {
+									setActiveNote(index);
+									<Navigate to={`./${note._id}`} />;
+								}}
 								removeNoteFunction={() => {
 									const id = note._id;
 									removeNote({
