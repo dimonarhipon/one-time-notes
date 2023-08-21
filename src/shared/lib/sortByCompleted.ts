@@ -23,7 +23,6 @@ export const sortNotesByCompleted = ({
 
 	// Сортировка
 	switch (sortByCompleted) {
-
 		case SortByCompleted.default:
 			sortArray.sort((note) => (note.isRead ? 1 : -1));
 			setSortByCompleted(SortByCompleted.read);

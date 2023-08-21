@@ -1,31 +1,44 @@
+@import '@/shared/styles/vars.scss';
+
 .navigationСontainer {
 	position: relative;
-	display: flex;
+	display: block;
 	justify-content: center;
 	align-items: center;
 	transition: all 0.2s;
 }
 
-.navigationСlose {
+.navigationOpen {
 	transition: all 0.2s;
 	cursor: pointer;
 	position: absolute;
-	right: 5%;
-	top: 50%;
+	right: 2%;
+	top: 10%;
 	background: none;
 	border: none;
 	.navigationImg {
 		width: 30px;
-		fill: rgba(0, 0, 0, 0.8);
+		fill: $dark-2;
 		&:hover {
 			transition: all 0.2s;
-			fill: rgba(0, 0, 0, 0.5);
+			fill: $dark-3;
 		}
-		@include respond-to($tablet) {
+	}
+	@include respond-to($tablet) {
+		.navigationImg {
 			width: 25px;
 		}
-		@include respond-to($mobile) {
+	}
+	@include respond-to($mobile) {
+		top: 10%;
+		.navigationImg {
 			width: 20px;
+		}
+	}
+	@include respond-to($small) {
+		top: 7%;
+		.navigationImg {
+			width: 16px;
 		}
 	}
 }

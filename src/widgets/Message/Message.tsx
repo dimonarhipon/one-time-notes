@@ -1,8 +1,13 @@
-import { TModalProps } from '@/shared/lib/TModalProps';
 import styles from './Message.module.scss';
 
-export const Message = ({ children }: TModalProps) => {
-	return <div className={styles.scrollContainer}>{children}</div>;
+type TMessageProps = {
+	children: string | React.ReactNode, title?: string
 };
 
-//TODO  Доделать отображение абзацей
+export const Message = ({ children, title }: TMessageProps ) => {
+	return <div className={styles.messege}>
+		<div className={styles.messegeTitle}>{title}</div>
+		<div className={styles.messegeContent}>{children}</div>
+	</div>;
+};
+

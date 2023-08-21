@@ -1,24 +1,26 @@
-@import '@/shared/styles/vars.scss';
+@import '@/shared/styles/vars';
 
 .modalLink {
 	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	z-index: 2;
-	margin: 60px;
-	margin-top: 0;
-	color: rgba(0, 0, 0, 0.3);
+	font-size: 20px;
+	margin: 30px;
+	margin-bottom: 0;
+	text-decoration: none;
 	transition: all 0.2s;
 	cursor: pointer;
+	color: $white-4;
 	&:hover {
-		color: rgba(0, 0, 0, 0.5);
+		color: $white-3;
 	}
 	@include respond-to($tablet) {
-		margin-bottom: 40px;
+		margin: 20px;
+		font-size: 18px;
 	}
 	@include respond-to($mobile) {
-		margin: 30px;
-		margin-top: 0;
+		margin: 10px;
+		font-size: 16px;
 	}
 }

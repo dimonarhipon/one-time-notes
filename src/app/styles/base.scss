@@ -1,5 +1,14 @@
 html {
 	color-scheme: light dark;
+
+	@media (prefers-reduced-motion: no-preference) {
+		scroll-behavior: smooth;
+	}
+}
+
+html,
+body {
+	scrollbar-gutter: auto;
 }
 
 body {

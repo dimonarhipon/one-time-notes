@@ -4,7 +4,7 @@ import NoteItem from '@/widgets/NoteItem/NoteItem';
 import Search from '@/widgets/Search/Search';
 import AddButton from '../AddButton/AddButton';
 import NoteType from '@/shared/lib/NoteType';
-import Preloader from '@/shared/Preloader/Preloader';
+import { Loader } from '@/shared/Loader';
 import { removeNote } from '@/shared/lib/removeNote';
 import { SortByDate, sortNotesByDate } from '@/shared/lib/sortByDate';
 import { SortByCompleted, sortNotesByCompleted } from '@/shared/lib/sortByCompleted';
@@ -21,15 +21,20 @@ const noSearch = 'Поиск не дал результатов';
 
 const db_url = import.meta.env.VITE_BACKEND_URL;
 
-const SideBar = () => {
+type TSidebarProps = {
+	className?: string;
+};
+
+const SideBar = ({ className }: TSidebarProps) => {
 	const notes = useAppSelector((state) => state.notes.notes);
-	const { status } = useAppSelector((state) => state.notes);
+	const { status, error } = useAppSelector((state) => state.notes);
 
 	const [userNotes, setUserNotes] = useState<NoteType[]>([]);
 	const [activeNote, setActiveNote] = useState<number>(-1);
 	const [sortByDate, setSortByDate] = useState<SortByDate>(SortByDate.default);
 	const [sortByCompleted, setSortByCompleted] = useState<SortByCompleted>(SortByCompleted.default);
 
+	const isLoading = status === 'loading';
 	const isNoNotes = status === 'fulfilled' && notes.length === 0;
 	const isNoSearch = status === 'fulfilled' && userNotes.length === 0;
 
@@ -50,8 +55,8 @@ const SideBar = () => {
 	}, [dispatch]);
 
 	return (
-		<aside className={styles.sidebar}>
-			<div className={styles.header}>
+		<aside className={`${styles.sidebar} ${className}`}>
+			<div className={styles.header} role='complementary'>
 				<Search
 					searchForNotes={(event) => {
 						searchForNotes({ event, notes, setUserNotes });
@@ -71,7 +76,7 @@ const SideBar = () => {
 					stateCompleted={sortByCompleted}
 				/>
 				<h2 className={styles.title}>{myNotes}</h2>
-				{status === 'loading' && <Preloader />}
+				{isLoading && <Loader />}
 			</div>
 			<div className={styles.notes}>
 				{isNoNotes && <p className={styles.empty}>{noNotes}</p>}
