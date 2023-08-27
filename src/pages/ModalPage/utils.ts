@@ -1,17 +1,20 @@
 import { fetchMethods } from '@/shared/api/fetchMethods';
 import { fetchNotes } from '@/shared/api/fetchNotes';
 
-export const PATH_ID = location.pathname.substring(20);
 export const BACKEND_URL = import.meta.env.VITE_BACKEND_URL + 'api/notes/';
-export const FULL_PATH = BACKEND_URL + PATH_ID;
 
-export const ReadNote = () => {
-    fetchNotes(BACKEND_URL, fetchMethods.put, {
-        '_id': `${PATH_ID}`,
+export const ReadNote = (id: string, path: string) => {
+    fetchNotes(path, fetchMethods.put, {
+        '_id': `${id}`,
         'isRead': true,
     });
 };
 
-export const DeleteNote = () => {
-    fetchNotes(FULL_PATH, fetchMethods.delete);
+export const DeleteNote = (path: string) => {
+    fetchNotes(path, fetchMethods.delete);
 };
+
+export enum ErrorsResponse {
+    Error404 = 'Произошла ошибка 404',
+    Error500 = 'Ошибка сервера (500)',
+}
