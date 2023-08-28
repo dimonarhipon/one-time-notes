@@ -16,10 +16,12 @@ export const addNote = async ({
 	setUserNotes,
 	assignNotesInRedux,
 }: TAddNoteOptions) => {
+	// Проверка на контент последней заметки
 	const lastNote = notes.length - 1;
 	if(!notes[lastNote].content) {
 		return;
 	}
+
 	const postNote = new Note(`Заметка ${notes.length}`);
 
 	const result: any = await myFetch.post(`${db_url}api/notes`, postNote);
