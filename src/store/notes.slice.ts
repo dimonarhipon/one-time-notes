@@ -1,8 +1,9 @@
 import TNoteType from '@/shared/lib/NoteType';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import myFetch from '@/shared/api/myFetch';
+import axios from 'axios';
 
 const db_url = import.meta.env.VITE_BACKEND_URL;
+const NOTES_URL = `${db_url}api/notes`;
 
 type initialStateType = {
 	notes: TNoteType[],
@@ -18,13 +19,15 @@ const initialState: initialStateType = {
 
 export const getNotesFromDB = createAsyncThunk(
 	'notes/getNotesFromDB',
-	async function(_, {rejectWithValue}) {
+	async function() {
 		try {
-			const response: any = await myFetch.get(`${db_url}api/notes`);
-			const result = response.json();
+			const response = await axios.get(NOTES_URL);
+			const result = response.data;
 			return result;
-		} catch (error: any) {
-			return rejectWithValue(error.message);
+		} catch (error) {
+			if(axios.isAxiosError(error)){
+				throw new Error(`${error.response?.status}, ${error.response?.statusText}`);
+			}
 		}
 	}
 );

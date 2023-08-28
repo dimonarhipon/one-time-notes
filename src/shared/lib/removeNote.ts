@@ -1,5 +1,5 @@
-import myFetch from '@/shared/api/myFetch';
 import TNoteType from './NoteType';
+import axios from 'axios';
 
 type TRemoveNoteOptions = {
 	id: string;
@@ -16,11 +16,18 @@ export const removeNote = async ({
 	setUserNotes,
 	assignNotesInRedux,
 }: TRemoveNoteOptions) => {
-	myFetch.delete(`${db_url}api/notes/${id}`);
+	const NOTE_URL = `${db_url}api/notes/${id}`;
 
-	const resultNotes = notes.filter((note) => note._id !== id);
+	try {
+		await axios.delete(NOTE_URL);
 
-	setUserNotes(resultNotes);
-	assignNotesInRedux(resultNotes);
-	// TASK обработка ошибки, вызов модального окна
+		const resultNotes = notes.filter((note) => note._id !== id);
+
+		setUserNotes(resultNotes);
+		assignNotesInRedux(resultNotes);
+	} catch (error) {
+		if(axios.isAxiosError(error)){
+			throw new Error(`${error.response?.status}, ${error.response?.statusText}`);
+		}
+	}
 };

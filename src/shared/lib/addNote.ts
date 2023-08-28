@@ -1,6 +1,6 @@
 import { Note } from './NoteClass';
-import myFetch from '../api/myFetch';
 import TNoteType from './NoteType';
+import axios from 'axios';
 
 type TAddNoteOptions = {
 	notes: TNoteType[];
@@ -9,13 +9,14 @@ type TAddNoteOptions = {
 	assignNotesInRedux: (note: TNoteType[]) => void;
 };
 
-
 export const addNote = async ({
 	notes,
 	db_url,
 	setUserNotes,
 	assignNotesInRedux,
 }: TAddNoteOptions) => {
+	const NOTES_URL = `${db_url}api/notes`;
+
 	// Проверка на контент последней заметки
 	const lastNote = notes.length - 1;
 	if(!notes[lastNote].content) {
@@ -24,12 +25,18 @@ export const addNote = async ({
 
 	const postNote = new Note(`Заметка ${notes.length}`);
 
-	const result: any = await myFetch.post(`${db_url}api/notes`, postNote);
-	const newNote = await result.json();
+	try {
+		const result = await axios.post(NOTES_URL, postNote);
+		const newNote = await result.data;
 
-	const copyUserNotes = [...notes];
-	copyUserNotes.push(newNote);
+		const copyUserNotes = [...notes];
+		copyUserNotes.push(newNote);
 
-	setUserNotes(copyUserNotes);
-	assignNotesInRedux(copyUserNotes);
+		setUserNotes(copyUserNotes);
+		assignNotesInRedux(copyUserNotes);
+	} catch (error) {
+		if(axios.isAxiosError(error)){
+			throw new Error(`${error.response?.status}, ${error.response?.statusText}`);
+		}
+	}
 };

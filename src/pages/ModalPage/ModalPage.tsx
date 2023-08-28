@@ -5,13 +5,13 @@ import { Message } from '@/widgets/Message/Message';
 import { ModalLink } from '@/widgets/ModalLink/ModalLink';
 import { useEffect, useState } from 'react';
 import { modalMethods } from '@/shared/lib/modalMethods';
-import myFetch from '@/shared/api/myFetch';
 import { ModalWrapper } from '@/widgets/ModalWrapper/ModalWrapper';
 import { ErrorContent } from '@/widgets/ModuleError/ErrorContent';
 import { DeleteNote, FULL_PATH, ReadNote } from './utils';
 import { TGetNote } from '@/shared/lib/TGetNote';
 import styles from './ModalPage.module.scss';
 import { Loader } from '@/shared/Loader';
+import axios from 'axios';
 
 export const ModalPage = () => {
 	const [noteState, SetNote] = useState<modalMethods.Open | modalMethods.Get | modalMethods.Delete>(
@@ -20,10 +20,10 @@ export const ModalPage = () => {
 	const [fetchState, SetFetch] = useState<TGetNote | modalMethods.Error>();
 
 	useEffect(() => {
-		myFetch
+		axios
 			.get(FULL_PATH)
 			.then((note) => {
-				note.name ? SetFetch(modalMethods.Error) : SetFetch(note);
+				note.data.name ? SetFetch(modalMethods.Error) : SetFetch(note.data);
 			})
 			.catch(() => {
 				SetFetch(modalMethods.Error);
