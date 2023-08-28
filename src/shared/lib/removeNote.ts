@@ -1,27 +1,33 @@
-import { fetchMethods } from '../api/fetchMethods';
-import { fetchNotes } from '../api/fetchNotes';
-import NoteType from './NoteType';
+import TNoteType from './NoteType';
+import axios from 'axios';
 
 type TRemoveNoteOptions = {
-	noteId: string;
-	mockApiNotesUrl: string;
-	userNotes: NoteType[];
-	setUserNotes: (array: NoteType[]) => void;
-	setSearchNotes: (array: NoteType[]) => void;
+	id: string;
+	db_url: string;
+	notes: TNoteType[];
+	setUserNotes: (array: TNoteType[]) => void;
+	assignNotesInRedux: (notes: TNoteType[]) => void;
 };
 
-export const removeNote = ({
-	noteId,
-	mockApiNotesUrl,
-	userNotes,
+export const removeNote = async ({
+	id,
+	db_url,
+	notes,
 	setUserNotes,
-	setSearchNotes,
+	assignNotesInRedux,
 }: TRemoveNoteOptions) => {
-	fetchNotes(`${mockApiNotesUrl}/${noteId}`, fetchMethods.delete).then(() => {
-		const resultNotes = userNotes.filter((note) => note.noteId !== noteId);
+	const NOTE_URL = `${db_url}api/notes/${id}`;
+
+	try {
+		await axios.delete(NOTE_URL);
+
+		const resultNotes = notes.filter((note) => note._id !== id);
 
 		setUserNotes(resultNotes);
-		setSearchNotes(resultNotes);
-	});
-	// TASK обработка ошибки, вызов модального окна
+		assignNotesInRedux(resultNotes);
+	} catch (error) {
+		if(axios.isAxiosError(error)){
+			throw new Error(`${error.response?.status}, ${error.response?.statusText}`);
+		}
+	}
 };

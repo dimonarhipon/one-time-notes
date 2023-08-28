@@ -12,6 +12,15 @@
 	display: flex;
 	justify-content: space-between;
 	padding: 10px 16px;
+	transition: background-color .1s linear;
+
+	&:hover {
+		background-color: $white-hover;
+	}
+
+	&:focus {
+		background-color: $white-hover;
+	}
 }
 
 .sorts {
@@ -80,9 +89,21 @@
 
 .searchButton {
 	width: 100%;
+	max-width: 30px;
 	background-color: transparent;
 	cursor: pointer;
 	border: none;
+	border-radius: 4px;
+	transition: background-color .2s linear;
+
+	&:hover {
+		background-color: $white-hover;
+	}
+
+	&:focus {
+		background-color: $white-hover;
+		outline: none;
+	}
 }
 
 .searchIcon {
