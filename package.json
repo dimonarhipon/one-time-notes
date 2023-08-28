@@ -35,7 +35,6 @@
 		"husky": "8.0.3",
 		"lint-staged": "13.2.3",
 		"prettier": "3.0.0",
-		"react-redux": "^8.1.2",
 		"sass": "1.63.6",
 		"typescript": "5.0.2",
 		"vite": "4.2.0",
