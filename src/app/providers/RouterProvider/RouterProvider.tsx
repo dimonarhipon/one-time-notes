@@ -1,4 +1,6 @@
 import { createBrowserRouter, RouterProvider as ReactRouterProvider } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from '@/store/store';
 import HomePage from '@/pages/HomePage';
 import AuthorizationPage from '@/pages/AuthorizationPage';
 import ModalPage from '@/pages/ModalPage';
@@ -20,9 +22,13 @@ const router = createBrowserRouter([
 	{
 		path: '*',
 		Component: ErrorPage,
-	}
+	},
 ]);
 
 export const RouterProvider = () => {
-	return <ReactRouterProvider router={router} />;
+	return (
+		<Provider store={store}>
+			<ReactRouterProvider router={router} />
+		</Provider>
+	);
 };

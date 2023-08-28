@@ -1,8 +1,10 @@
 type TNoteType = {
-	noteId: string;
-	noteTitle: string;
-	noteText: string;
-	noteDate: string;
-	noteStatus: boolean;
+	_id: string;
+	author: string;
+	title: string;
+	content: string;
+	isRead: boolean;
+	createdAt: string;
+	updatedAt: string;
 };
 export default TNoteType;

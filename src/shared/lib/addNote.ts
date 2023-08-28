@@ -1,28 +1,42 @@
-import { fetchMethods } from '../api/fetchMethods';
-import { fetchNotes } from '../api/fetchNotes';
 import { Note } from './NoteClass';
-import NoteType from './NoteType';
+import TNoteType from './NoteType';
+import axios from 'axios';
 
 type TAddNoteOptions = {
-	userNotes: NoteType[];
-	mockApiNotesUrl: string;
-	setUserNotes: (array: NoteType[]) => void;
-	setSearchNotes: (array: NoteType[]) => void;
+	notes: TNoteType[];
+	db_url: string;
+	setUserNotes: (array: TNoteType[]) => void;
+	assignNotesInRedux: (note: TNoteType[]) => void;
 };
 
 export const addNote = async ({
-	userNotes,
+	notes,
+	db_url,
 	setUserNotes,
-	setSearchNotes,
-	mockApiNotesUrl,
+	assignNotesInRedux,
 }: TAddNoteOptions) => {
-	const postNote = new Note();
+	const NOTES_URL = `${db_url}api/notes`;
 
-	const response = await fetchNotes(mockApiNotesUrl, fetchMethods.post, postNote);
+	// Проверка на контент последней заметки
+	const lastNote = notes.length - 1;
+	if(!notes[lastNote].content) {
+		return;
+	}
 
-	const copyUserNotes = [...userNotes];
-	await copyUserNotes.unshift(response);
+	const postNote = new Note(`Заметка ${notes.length}`);
 
-	setSearchNotes(copyUserNotes);
-	setUserNotes(copyUserNotes);
+	try {
+		const result = await axios.post(NOTES_URL, postNote);
+		const newNote = await result.data;
+
+		const copyUserNotes = [...notes];
+		copyUserNotes.push(newNote);
+
+		setUserNotes(copyUserNotes);
+		assignNotesInRedux(copyUserNotes);
+	} catch (error) {
+		if(axios.isAxiosError(error)){
+			throw new Error(`${error.response?.status}, ${error.response?.statusText}`);
+		}
+	}
 };

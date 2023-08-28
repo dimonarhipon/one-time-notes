@@ -1,17 +1,22 @@
-const defaultNoteTitle = 'Новая заметка';
+const defaultTitle = 'Новая заметка';
+const defaultAuthor = 'Кирилл';
+const defaultContent = 'Это контент, держу в курсе';
 
 export class Note {
-	noteId?: string;
-	noteTitle: string;
-	noteText: string;
-	noteDate: string;
-	noteStatus: boolean;
+	_id?: string;
+	title: string;
+	author: string;
+	content: string;
+	isRead: boolean;
+	createdAt: string;
+	updatedAt: string;
 
-	constructor(noteTitle = defaultNoteTitle) {
-		this.noteId = '';
-		this.noteText = '';
-		this.noteTitle = noteTitle;
-		this.noteDate = new Date().toISOString();
-		this.noteStatus = false;
+	constructor(title = defaultTitle, author = defaultAuthor, content = defaultContent, isRead = false, updatedAt = new Date().toISOString()) {
+		this.title = title;
+		this.author = author;
+		this.content = content;
+		this.isRead = isRead;
+		this.createdAt = new Date().toISOString();
+		this.updatedAt = updatedAt;
 	}
 }
