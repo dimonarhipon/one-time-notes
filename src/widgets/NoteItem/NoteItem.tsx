@@ -1,6 +1,5 @@
 import NoteType from '@/shared/lib/NoteType';
 import styles from './NoteItem.module.scss';
-// import { Link } from 'react-router-dom';
 
 type TNoteButtonProps = {
 	note: NoteType;
@@ -19,7 +18,6 @@ const NoteItem = ({ note, active, openNoteFunction, removeNoteFunction }: TNoteB
 	const date = new Date(note.updatedAt).toLocaleDateString();
 
 	return (
-		// <Link to={`./${note._id}`} className={`${isActive} ${isRead}`} onClick={openNoteFunction}>
 		<div className={`${isActive} ${isRead}`} onClick={openNoteFunction}>
 			<div className={styles.header}>
 				<h3 className={styles.title}>{note.title}</h3>
@@ -37,7 +35,6 @@ const NoteItem = ({ note, active, openNoteFunction, removeNoteFunction }: TNoteB
 				</time>
 			)}
 		</div>
-		// </Link>
 	);
 };
 

@@ -19,6 +19,9 @@ const myNotes = 'Мои заметки';
 const noNotes = 'Заметок пока нет';
 const noSearch = 'Поиск не дал результатов';
 
+const fulfilledText = 'fulfilled';
+const loadingText = 'loading';
+
 const db_url = import.meta.env.VITE_BACKEND_URL;
 
 type TSidebarProps = {
@@ -27,16 +30,16 @@ type TSidebarProps = {
 
 const SideBar = ({ className }: TSidebarProps) => {
 	const notes = useAppSelector((state) => state.notes.notes);
-	const { status, error } = useAppSelector((state) => state.notes);
+	const { status } = useAppSelector((state) => state.notes);
 
 	const [userNotes, setUserNotes] = useState<NoteType[]>([]);
 	const [activeNote, setActiveNote] = useState<number>(-1);
 	const [sortByDate, setSortByDate] = useState<SortByDate>(SortByDate.default);
 	const [sortByCompleted, setSortByCompleted] = useState<SortByCompleted>(SortByCompleted.default);
 
-	const isLoading = status === 'loading';
-	const isNoNotes = status === 'fulfilled' && notes.length === 0;
-	const isNoSearch = status === 'fulfilled' && userNotes.length === 0;
+	const isLoading = status === loadingText;
+	const isNoNotes = status === fulfilledText && notes.length === 0;
+	const isNoSearch = status === fulfilledText && userNotes.length === 0;
 
 	const dispatch = useAppDispatch();
 

@@ -21,6 +21,11 @@
 
 .header {
 	padding: 0 10px;
+
+	@include respond-to($mobile) {
+		width: 100%;
+		padding: 0 20px;
+	}
 }
 
 .title {
@@ -29,11 +34,17 @@
 	font-size: 24px;
 	font-weight: 400;
 	margin: 20px auto 0;
+
+	@include respond-to($mobile) {
+		margin-top: 30px;
+	}
 }
 
 .empty {
 	font-size: 16px;
 	text-align: center;
+	color: $white;
+	cursor: text;
 }
 
 .notes {
@@ -47,6 +58,12 @@
 	@media (prefers-reduced-motion: no-preference) {
 		scroll-behavior: smooth;
 	}
+
+	@include respond-to($mobile) {
+		margin-top: 15px;
+		padding: 0 14px 0 20px;
+	}
+
 
 	&::-webkit-scrollbar {
 		position: absolute;

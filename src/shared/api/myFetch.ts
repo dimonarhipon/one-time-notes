@@ -2,7 +2,12 @@ import { fetchMethods } from './fetchMethods';
 
 const myFetch = () => {
 	return {
-		get: async (url: string) => {
+		/**
+		 * Метод отправляет GET запрос на указанный адрес
+		 * @param {string} url адрес
+		 * @returns {object | Error} объект не в json формате или ошибка
+		 */
+		get: async (url: string)=> {
 			try {
 				const response = await fetch(url, {
 					method: fetchMethods.get,
@@ -12,6 +17,13 @@ const myFetch = () => {
 				return error;
 			}
 		},
+
+		/**
+		 * Метод отправляет POST запрос на указанный адрес
+		 * @param {string} url адрес
+		 * @param {object} body отправляемый объект не в json формате
+		 * @returns {object | Error} объект не в json формате или ошибка
+		 */
 		post: async (url: string, body: object) => {
 			try {
 				const response = await fetch(url, {
@@ -27,6 +39,13 @@ const myFetch = () => {
 				return error;
 			}
 		},
+
+		/**
+		 * Метод отправляет PUT запрос на указанный адрес
+		 * @param {string} url адрес
+		 * @param {object} body объект не в json формате
+		 * @returns {object | Error} объект не в json формате или ошибка
+		 */
 		put: async (url: string, body: object) => {
 			try {
 				const response = await fetch(url, {
@@ -41,6 +60,12 @@ const myFetch = () => {
 				return error;
 			}
 		},
+
+		/**
+		 * Метод отправляет DELETE запрос на указанный адрес
+		 * @param {string} url адрес
+		 * @returns {object | Error} объект не в json формате или ошибка
+		 */
 		delete: async (url: string) => {
 			try {
 				const response = await fetch(url, {

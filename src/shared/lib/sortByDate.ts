@@ -25,7 +25,8 @@ export const sortNotesByDate = ({
 		return;
 	}
 
-	const dateArray = [...notes];
+	const dateArray = notes.slice(0);
+
 
 	// TASK пофиксить ошибку
 

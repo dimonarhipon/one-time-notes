@@ -10,9 +10,3 @@ html,
 body {
 	scrollbar-gutter: auto;
 }
-
-body {
-	// Нет отскока страницы при скролле вверх/вниз
-	-ms-scroll-chaining: none;
-	overscroll-behavior: none;
-}

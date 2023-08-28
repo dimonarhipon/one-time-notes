@@ -21,6 +21,10 @@
 	border-radius 0.2s ease-in,
 	background-color .2s linear;
 
+	@include respond-to($mobile) {
+		width: 100%;
+	}
+
 	&:first-child {
 		margin-top: 0;
 	}
@@ -45,6 +49,20 @@
 		.removeButton {
 			margin-right: 36px;
 		}
+
+		@include respond-to($mobile) {
+			border-radius: 20px;
+			width: 100%;
+
+			.date {
+				margin-right: 0;
+			}
+
+			.removeButton {
+				margin-right: 0;
+			}
+		}
+
 	}
 
 	&.read {
