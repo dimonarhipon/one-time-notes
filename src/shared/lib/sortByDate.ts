@@ -1,3 +1,4 @@
+import TNoteType from './NoteType';
 import NoteType from './NoteType';
 
 export enum SortByDate {
@@ -25,14 +26,21 @@ export const sortNotesByDate = ({
 		return;
 	}
 
-	const dateArray = notes.slice(0);
-	console.log(dateArray);
-
-	// TASK пофиксить ошибку
+	const tempArray: TNoteType[] = notes.slice(0);
+	const dateArray: TNoteType[] = [];
 
 	// 1. Преобразование даты из ISO в miliseconds
-	dateArray.map((note) => {
-		note.updatedAt = new Date(note.updatedAt).getTime().toString();
+	tempArray.map((note) => {
+		const dateInSeconds = new Date(note.updatedAt).getTime().toString();
+		dateArray.push({
+			_id: note._id,
+			author: note.author,
+			title: note.title,
+			content: note.content,
+			isRead: note.isRead,
+			createdAt: note.createdAt,
+			updatedAt: dateInSeconds,
+		});
 	});
 
 	// 2. Сортировка по ранней дате
