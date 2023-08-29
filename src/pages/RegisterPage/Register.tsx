@@ -29,7 +29,8 @@ const Register = () => {
         linkTo: '/one-time-notes/login',
         pText: 'Войти',
     };
-    const emailconfirm = /^[a-zA-Z0-9.!#$%&'*+/=?^_{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+    const emailconfirm = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
 
     const InputProps: Array<TInput> = [
         {
@@ -47,9 +48,9 @@ const Register = () => {
             name: 'email',
             type: 'email',
             placeholder: 'Email',
-            errorMessage: '!!!!!',
+            errorMessage: 'Неверная почта',
             label: 'Email',
-            pattern: new RegExp(`^${emailconfirm}$`),
+            pattern: new RegExp(emailconfirm),
             required: true,
         },
         {
