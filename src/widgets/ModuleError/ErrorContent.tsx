@@ -1,19 +1,16 @@
 import styles from './ErrorContent.module.scss';
 
 type TError = {
-	color?: string,
-	children?: string
+	color?: string;
+	children?: string;
 };
 
 const enum Error {
 	Page = 'Страница не найдена',
-	Symbol = 'Знак ошибки'
+	Symbol = 'Знак ошибки',
 }
 
-export const ErrorContent = ({
-	color,
-	children = Error.Page,
-}: TError) => {
+export const ErrorContent = ({ color, children = Error.Page }: TError) => {
 	return (
 		<>
 			<svg className={styles.errorSvg} viewBox='0 0 480 274' aria-label={Error.Symbol}>
@@ -33,7 +30,13 @@ export const ErrorContent = ({
 					d='M403.502 113.999C400.222 117.279 394.782 117.279 391.502 113.999L295.502 17.9999C292.222 14.72 292.222 9.28002 295.502 6.00005C298.782 2.72008 304.222 2.72008 307.502 6.00005L403.502 101.999C406.782 105.279 406.782 110.719 403.502 113.999Z'
 					fill={color}
 				/>
-				<path className={styles.line} d='M4 270H475.004' stroke={color} strokeWidth='8' strokeLinecap='round' />
+				<path
+					className={styles.line}
+					d='M4 270H475.004'
+					stroke={color}
+					strokeWidth='8'
+					strokeLinecap='round'
+				/>
 			</svg>
 			<p className={styles.errorMessege}>{children}</p>
 			<a href='/' className={styles.errorLink}>

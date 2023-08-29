@@ -6,40 +6,37 @@ const db_url = import.meta.env.VITE_BACKEND_URL;
 const NOTES_URL = `${db_url}api/notes`;
 
 type initialStateType = {
-	notes: TNoteType[],
-	status: null | string,
+	notes: TNoteType[];
+	status: null | string;
 	error: null | string;
 };
 
 const initialState: initialStateType = {
-		notes: [],
-		status: null,
-		error: null,
+	notes: [],
+	status: null,
+	error: null,
 };
 
-export const getNotesFromDB = createAsyncThunk(
-	'notes/getNotesFromDB',
-	async function() {
-		try {
-			const response = await axios.get(NOTES_URL);
-			const result = response.data;
-			return result;
-		} catch (error) {
-			if(axios.isAxiosError(error)){
-				throw new Error(`${error.response?.status}, ${error.response?.statusText}`);
-			}
+export const getNotesFromDB = createAsyncThunk('notes/getNotesFromDB', async function () {
+	try {
+		const response = await axios.get(NOTES_URL);
+		const result = response.data;
+		return result;
+	} catch (error) {
+		if (axios.isAxiosError(error)) {
+			throw new Error(`${error.response?.status}, ${error.response?.statusText}`);
 		}
 	}
-);
+});
 
 const notesSlice = createSlice({
 	name: 'notes',
 	initialState,
 	reducers: {
-		addNotes (state, action) {
+		addNotes(state, action) {
 			state.notes.push(action.payload);
 		},
-		assignNotes (state, action) {
+		assignNotes(state, action) {
 			state.notes = action.payload;
 		},
 	},
@@ -59,6 +56,6 @@ const notesSlice = createSlice({
 	},
 });
 
-export const  {addNotes, assignNotes} = notesSlice.actions;
+export const { addNotes, assignNotes } = notesSlice.actions;
 
 export default notesSlice.reducer;

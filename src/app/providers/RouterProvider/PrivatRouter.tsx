@@ -7,11 +7,13 @@ type TPrivateRoute = {
 	children: JSX.Element;
 };
 
-export const PrivateRoute = ({ children, authorizationStatus = AuthorizationStatus.Auth}: TPrivateRoute): JSX.Element => {
-
+export const PrivateRoute = ({
+	children,
+	authorizationStatus = AuthorizationStatus.Auth,
+}: TPrivateRoute): JSX.Element => {
 	if (authorizationStatus === AuthorizationStatus.Unknown) {
-    return <Loader />;
-  }
+		return <Loader />;
+	}
 
 	return authorizationStatus === AuthorizationStatus.Auth ? (
 		children

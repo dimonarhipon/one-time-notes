@@ -7,20 +7,19 @@
 	z-index: 1;
 	background: transparent;
 	border: 0;
-	transition: -webkit-filter .2s linear;
+	transition: -webkit-filter 0.2s linear;
 
 	&:hover {
-		-webkit-filter: drop-shadow(2px 4px 4px #FFFFFF33);
-		filter: drop-shadow(2px 4px 4px #FFFFFF33);
+		-webkit-filter: drop-shadow(2px 4px 4px #ffffff33);
+		filter: drop-shadow(2px 4px 4px #ffffff33);
 	}
 
 	&:focus {
-		-webkit-filter: drop-shadow(2px 4px 4px #FFFFFF33);
-		filter: drop-shadow(2px 4px 4px #FFFFFF33);
+		-webkit-filter: drop-shadow(2px 4px 4px #ffffff33);
+		filter: drop-shadow(2px 4px 4px #ffffff33);
 		outline: none;
 
 		& .svg {
-
 			border: 2px solid $main-hover;
 		}
 	}

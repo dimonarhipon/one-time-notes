@@ -7,11 +7,7 @@ type TSearchOptions = {
 	setUserNotes: (array: NoteType[]) => void;
 };
 
-export const searchForNotes = ({
-	event,
-	notes,
-	setUserNotes,
-}: TSearchOptions) => {
+export const searchForNotes = ({ event, notes, setUserNotes }: TSearchOptions) => {
 	const searchValue = event.target.value;
 
 	if (searchValue.length === 0) {
@@ -24,7 +20,7 @@ export const searchForNotes = ({
 		// 1. поиск по title
 		if (note.title.toLowerCase().includes(searchValue.toLowerCase())) {
 			resultArray.push(note);
-		// 2. поиск по контенту
+			// 2. поиск по контенту
 		} else if (note.content.includes(searchValue)) {
 			resultArray.push(note);
 		}

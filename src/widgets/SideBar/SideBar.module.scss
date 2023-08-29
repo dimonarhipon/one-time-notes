@@ -10,7 +10,7 @@
 	background-color: $main;
 
 	@include respond-to($tablet) {
-    max-width: 100vw;
+		max-width: 100vw;
 	}
 }
 
@@ -63,7 +63,6 @@
 		margin-top: 15px;
 		padding: 0 14px 0 20px;
 	}
-
 
 	&::-webkit-scrollbar {
 		position: absolute;

@@ -19,7 +19,7 @@ export const addNote = async ({
 
 	// Проверка на контент последней заметки
 	const lastNote = notes.length - 1;
-	if(!notes[lastNote].content) {
+	if (!notes[lastNote].content) {
 		return;
 	}
 
@@ -35,7 +35,7 @@ export const addNote = async ({
 		setUserNotes(copyUserNotes);
 		assignNotesInRedux(copyUserNotes);
 	} catch (error) {
-		if(axios.isAxiosError(error)){
+		if (axios.isAxiosError(error)) {
 			throw new Error(`${error.response?.status}, ${error.response?.statusText}`);
 		}
 	}

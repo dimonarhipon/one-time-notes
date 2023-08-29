@@ -3,11 +3,11 @@ export enum AppRoute {
 	Register = 'register',
 	Login = 'login',
 	GetNote = '/one-time-notes/get',
-	All = '*'
+	All = '*',
 }
 
 export enum AuthorizationStatus {
-  Auth = 'AUTH',
-  NoAuth = 'NO_AUTH',
-  Unknown = 'UNKNOWN',
+	Auth = 'AUTH',
+	NoAuth = 'NO_AUTH',
+	Unknown = 'UNKNOWN',
 }

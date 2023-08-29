@@ -1,6 +1,6 @@
 export enum modalMethods {
-    Get = 'get',
-    Open = 'open',
-    Delete = 'delete',
-    Error = 'error'
+	Get = 'get',
+	Open = 'open',
+	Delete = 'delete',
+	Error = 'error',
 }

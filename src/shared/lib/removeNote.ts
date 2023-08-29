@@ -26,7 +26,7 @@ export const removeNote = async ({
 		setUserNotes(resultNotes);
 		assignNotesInRedux(resultNotes);
 	} catch (error) {
-		if(axios.isAxiosError(error)){
+		if (axios.isAxiosError(error)) {
 			throw new Error(`${error.response?.status}, ${error.response?.statusText}`);
 		}
 	}
