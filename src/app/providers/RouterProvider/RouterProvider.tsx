@@ -2,9 +2,8 @@ import { createBrowserRouter, RouterProvider as ReactRouterProvider } from 'reac
 import { Provider } from 'react-redux';
 import store from '@/store/store';
 import HomePage from '@/pages/HomePage';
-import AuthorizationPage from '@/pages/AuthorizationPage';
-import ModalPage from '@/pages/ModalPage';
-import ErrorPage from '@/pages/ErrorPage';
+import Login from '@/pages/LoginPage';
+import Register from '@/pages/RegisterPage';
 
 const router = createBrowserRouter([
 	{
@@ -12,16 +11,12 @@ const router = createBrowserRouter([
 		Component: HomePage,
 	},
 	{
-		path: '/one-time-notes/registration',
-		Component: AuthorizationPage,
+		path: '/one-time-notes/register',
+		Component: Register,
 	},
 	{
-		path: '/one-time-notes/get/:id',
-		Component: ModalPage,
-	},
-	{
-		path: '*',
-		Component: ErrorPage,
+		path: '/one-time-notes/login',
+		Component: Login,
 	},
 ]);
 
