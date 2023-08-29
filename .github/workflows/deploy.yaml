@@ -1,0 +1,25 @@
+name: Deploy Github
+
+on:
+  pull_request:
+    branches: ['develop']
+  push:
+    branches: ['develop', 'deploy', 'gh-pages']
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+      - run: npm ci
+      - run: npm run build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          folder: ./dist
+          branch: gh-pages

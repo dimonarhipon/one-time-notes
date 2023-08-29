@@ -1,0 +1,61 @@
+@keyframes rotation {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@-webkit-keyframes rotation {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.preloader {
+	display: flex;
+}
+
+.loader {
+	position: relative;
+	display: inline-block;
+	width: 106px;
+	height: 106px;
+	margin: auto;
+	border-radius: 50%;
+	box-sizing: border-box;
+	box-shadow: 0px 4px 4px 0px $dark-6 inset;
+	animation: rotation 5.4s linear infinite;
+
+	&::after {
+		position: absolute;
+		content: '';
+		left: 50%;
+		top: 50%;
+
+		transform: translate(-50%, -50%);
+		width: 84px;
+		height: 84px;
+		border-radius: 50%;
+	}
+}
+
+.loaderDark {
+	background: linear-gradient(0deg, $dark-5 15%, $dark-2 60%, $main 100%);
+
+	&::after {
+		background: $white;
+	}
+}
+
+.loaderWhite {
+	background: linear-gradient(0deg, $white-5 15%, $white-2 60%, $white 100%);
+
+	&::after {
+		background: $main;
+	}
+}

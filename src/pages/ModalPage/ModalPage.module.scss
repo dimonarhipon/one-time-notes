@@ -1,0 +1,44 @@
+@import '@/shared/styles/vars.scss';
+
+.navigationСontainer {
+	position: relative;
+	display: block;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.2s;
+}
+
+.navigationOpen {
+	transition: all 0.2s;
+	cursor: pointer;
+	position: absolute;
+	right: 2%;
+	top: 10%;
+	background: none;
+	border: none;
+	.navigationImg {
+		width: 30px;
+		fill: $dark-2;
+		&:hover {
+			transition: all 0.2s;
+			fill: $dark-3;
+		}
+	}
+	@include respond-to($tablet) {
+		.navigationImg {
+			width: 25px;
+		}
+	}
+	@include respond-to($mobile) {
+		top: 10%;
+		.navigationImg {
+			width: 20px;
+		}
+	}
+	@include respond-to($small) {
+		top: 7%;
+		.navigationImg {
+			width: 16px;
+		}
+	}
+}

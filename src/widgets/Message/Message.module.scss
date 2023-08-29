@@ -1,0 +1,42 @@
+@import '@/shared/styles/vars.scss';
+
+.messege {
+	overflow-y: auto;
+	max-width: 920px;
+	max-height: 400px;
+	text-align: left;
+	margin: 30px;
+	transition: all 0.2s;
+	@include respond-to($tablet) {
+		max-height: 350px;
+		margin: 0;
+		margin-top: 10px;
+		font-size: 16px;
+	}
+	@include respond-to($mobile) {
+		max-height: 300px;
+		font-size: 14px;
+	}
+	@include respond-to($small) {
+		max-height: 250px;
+	}
+}
+
+.messegeTitle {
+	text-indent: 20px;
+	font-size: 20px;
+	@include respond-to($tablet) {
+		font-size: 18px;
+	}
+	@include respond-to($mobile) {
+		font-size: 16px;
+		text-indent: 10px;
+	}
+}
+.messegeContent {
+	margin-top: 10px;
+	font-size: 16px;
+	@include respond-to($tablet) {
+		font-size: 14px;
+	}
+}

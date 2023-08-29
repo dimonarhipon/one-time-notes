@@ -1,112 +1,119 @@
 import { useEffect, useState } from 'react';
 import styles from './SideBar.module.scss';
-import NoteButton from '@/widgets/NoteButton/NoteButton';
+import NoteItem from '@/widgets/NoteItem/NoteItem';
 import Search from '@/widgets/Search/Search';
 import AddButton from '../AddButton/AddButton';
 import NoteType from '@/shared/lib/NoteType';
-import { SearchForNotes } from '@/shared/lib/SearchForNotes';
+import { Loader } from '@/shared/Loader';
+import { removeNote } from '@/shared/lib/removeNote';
+import { SortByDate, sortNotesByDate } from '@/shared/lib/sortByDate';
+import { SortByCompleted, sortNotesByCompleted } from '@/shared/lib/sortByCompleted';
+import { addNote } from '@/shared/lib/addNote';
+import { searchForNotes } from '@/shared/lib/searchForNotes';
+import { getNotesFromDB, assignNotes } from '@/store/notes.slice';
+import TNoteType from '@/shared/lib/NoteType';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { Navigate } from 'react-router-dom';
 
-const notesData: NoteType[] = [
-	{
-		noteId: '1',
-		noteTitle: 'Длинное название',
-		noteText: 'Some text in Note',
-		noteDate: '01.01.2023',
-		noteStatus: true,
-	},
-	{
-		noteId: '2',
-		noteTitle: 'Супер длинное название заметки',
-		noteText: 'Some text in Note',
-		noteDate: '17.03.2022',
-		noteStatus: true,
-	},
-	{
-		noteId: '3',
-		noteTitle: 'Title3',
-		noteText: 'Some text in Note',
-		noteDate: '31.12.1981',
-		noteStatus: false,
-	},
-	{
-		noteId: '4',
-		noteTitle: 'Title4',
-		noteText: 'Some text in Note',
-		noteDate: '25.07.1792',
-		noteStatus: true,
-	},
-	{
-		noteId: '5',
-		noteTitle: 'Какой то текст',
-		noteText: 'Some text in Note',
-		noteDate: '25.07.1792',
-		noteStatus: false,
-	},
-	{
-		noteId: '6',
-		noteTitle: 'Заметка',
-		noteText: 'Some text in Note',
-		noteDate: '25.07.1792',
-		noteStatus: true,
-	},
-	{
-		noteId: '7',
-		noteTitle: 'Очередная заметка',
-		noteText: 'Some text in Note',
-		noteDate: '25.07.1792',
-		noteStatus: false,
-	},
-	{
-		noteId: '8',
-		noteTitle: 'Последняя заметка',
-		noteText: 'Some text in Note',
-		noteDate: '25.07.1792',
-		noteStatus: true,
-	},
-];
+const myNotes = 'Мои заметки';
+const noNotes = 'Заметок пока нет';
+const noSearch = 'Поиск не дал результатов';
 
-const SideBar = () => {
+const fulfilledText = 'fulfilled';
+const loadingText = 'loading';
+
+const db_url = import.meta.env.VITE_BACKEND_URL;
+
+type TSidebarProps = {
+	className?: string;
+};
+
+const SideBar = ({ className }: TSidebarProps) => {
+	const notes = useAppSelector((state) => state.notes.notes);
+	const { status } = useAppSelector((state) => state.notes);
+
 	const [userNotes, setUserNotes] = useState<NoteType[]>([]);
-	const [searchNotes, setSearchNotes] = useState<NoteType[]>([]);
 	const [activeNote, setActiveNote] = useState<number>(-1);
+	const [sortByDate, setSortByDate] = useState<SortByDate>(SortByDate.default);
+	const [sortByCompleted, setSortByCompleted] = useState<SortByCompleted>(SortByCompleted.default);
+
+	const isLoading = status === loadingText;
+	const isNoNotes = status === fulfilledText && notes.length === 0;
+	const isNoSearch = status === fulfilledText && userNotes.length === 0;
+
+	const dispatch = useAppDispatch();
+
+	const assignNotesInRedux = (notes: TNoteType[]) => {
+		dispatch(assignNotes(notes));
+	};
 
 	useEffect(() => {
-		setUserNotes(notesData);
-	}, []);
+		const getNotes = async () => {
+			const response = await dispatch(getNotesFromDB());
+			const result = response.payload;
+			setUserNotes(result);
+		};
 
-	useEffect(() => {
-		setSearchNotes(notesData);
-	}, []);
+		getNotes();
+	}, [dispatch]);
 
 	return (
-		<aside className={styles.sidebar}>
-			<div className={styles.header}>
+		<aside className={`${styles.sidebar} ${className}`}>
+			<div className={styles.header} role='complementary'>
 				<Search
-					callback={(event) => {
-						SearchForNotes({ event, userNotes, notesData, setSearchNotes });
+					searchForNotes={(event) => {
+						searchForNotes({ event, notes, setUserNotes });
 					}}
+					sortByDate={() => {
+						sortNotesByDate({ notes, sortByDate, setUserNotes, setSortByDate });
+					}}
+					sortByCompleted={() => {
+						sortNotesByCompleted({
+							notes,
+							setUserNotes,
+							sortByCompleted,
+							setSortByCompleted,
+						});
+					}}
+					stateDate={sortByDate}
+					stateCompleted={sortByCompleted}
 				/>
-				<h2 className={styles.title}>Мои заметки</h2>
+				<h2 className={styles.title}>{myNotes}</h2>
+				{isLoading && <Loader />}
 			</div>
 			<div className={styles.notes}>
-				{userNotes.length === 0 && <p className={styles.empty}>Заметок пока нет</p>}
-				{userNotes.length > 0 &&
-					searchNotes.map((note, index) => (
-						<NoteButton
-							key={note.noteId}
-							note={note}
-							active={index === activeNote}
-							openNoteFunction={() => setActiveNote(index)}
-							removeNoteFunction={() => {
-								// TASK доделать удаление заметки
-								// Запрос на удаление из БД
-							}}
-						/>
-					))}
+				{isNoNotes && <p className={styles.empty}>{noNotes}</p>}
+				{isNoSearch && <p className={styles.empty}>{noSearch}</p>}
+
+				{notes.length > 0 &&
+					userNotes
+						.slice()
+						.reverse()
+						.map((note, index) => (
+							<NoteItem
+								key={index}
+								note={note}
+								active={index === activeNote}
+								openNoteFunction={() => {
+									setActiveNote(index);
+									<Navigate to={`./${note._id}`} />;
+								}}
+								removeNoteFunction={() => {
+									const id = note._id;
+									removeNote({
+										id,
+										db_url,
+										notes,
+										setUserNotes,
+										assignNotesInRedux,
+									});
+								}}
+							/>
+						))}
 			</div>
 			<AddButton
-				callback={() => {
-					return;
+				addNote={() => {
+					addNote({ notes, db_url, setUserNotes, assignNotesInRedux });
 				}}
 			/>
 		</aside>
