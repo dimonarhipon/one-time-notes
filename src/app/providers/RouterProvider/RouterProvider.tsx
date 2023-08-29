@@ -11,11 +11,11 @@ const router = createBrowserRouter([
 		Component: HomePage,
 	},
 	{
-		path: '/register',
+		path: '/one-time-notes/register',
 		Component: Register,
 	},
 	{
-		path: '/login',
+		path: '/one-time-notes/login',
 		Component: Login,
 	},
 ]);

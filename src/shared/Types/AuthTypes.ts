@@ -2,7 +2,7 @@
 export type TInputValues = {
     username: string,
     password: string,
-    confirmPassword?: string,
+    [key: string]: string,
 };
 
 export type TInput = {
@@ -17,7 +17,7 @@ export type TInput = {
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     onBlur?: () => void;
     value?: string;
-    focused?: string;
+    focused?: boolean;
 };
 
 

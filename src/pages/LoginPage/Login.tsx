@@ -29,7 +29,7 @@ const Login = () => {
 
     const FormProps = {
         buttonText: 'Войти',
-        linkTo: '/register',
+        linkTo: '/one-time-notes/register',
         pText: 'Зарегистрируйтесь'
     };
 
