@@ -58,7 +58,7 @@ const Register = () => {
             required: true,
         },
     ];
-
+    
     const onFormSubmit = async (event: React.SyntheticEvent) => {
         event.preventDefault();
         
@@ -91,6 +91,34 @@ const Register = () => {
             if (err) {
                 alert('No Server Response');
             } 
+        }
+    };
+    const onFormSubmit = async (event: React.SyntheticEvent) => {
+        event.preventDefault();
+
+        const firstCheck = USER_REGEX.test(InputValues.username);
+        const secondCheck = PASSWORD_REGEX.test(InputValues.password);
+
+        if (!firstCheck || !secondCheck) {
+            alert(errorMessages.valuesError);
+            return;
+        }
+        try {
+            const apiUrl = 'http://localhost:4444/register';
+            axios
+                .post(apiUrl, InputValues)
+                .then((response) => {
+                    const token = response.data.token;
+                    localStorage.setItem('token', token);
+                    navigate(fromPage); // Используем navigate для перенаправления
+                })
+                .catch((error) => {
+                    console.error('Ошибка регистрации:', error);
+                });
+        } catch (err) {
+            if (err) {
+                alert('No Server Response');
+            }
         }
     };
 
