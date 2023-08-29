@@ -16,6 +16,6 @@ export const PrivateRoute = ({ children, authorizationStatus = AuthorizationStat
 	return authorizationStatus === AuthorizationStatus.Auth ? (
 		children
 	) : (
-		<Navigate to={AppRoute.Registration} />
+		<Navigate to={AppRoute.Register} />
 	);
 };

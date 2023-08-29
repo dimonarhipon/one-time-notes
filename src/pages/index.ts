@@ -1,11 +1,13 @@
 import ErrorPage from './ErrorPage';
-import AuthorizationPage from './AuthorizationPage';
+import RegisterPage from './RegisterPage';
+import LoginPage from './LoginPage';
 import HomePage from './HomePage';
 import ModalPage from './ModalPage';
 import NotesPage from './NotesPage';
 export {
   ErrorPage,
-  AuthorizationPage,
+  RegisterPage,
+	LoginPage,
   HomePage,
   ModalPage,
   NotesPage

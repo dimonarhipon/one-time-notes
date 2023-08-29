@@ -1,6 +1,7 @@
 export enum AppRoute {
 	Root = '/one-time-notes/',
-	Registration = 'registration',
+	Register = 'register',
+	Login = 'login',
 	GetNote = '/one-time-notes/get',
 	All = '*'
 }
