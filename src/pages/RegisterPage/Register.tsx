@@ -29,6 +29,7 @@ const Register = () => {
         linkTo: '/one-time-notes/login',
         pText: 'Войти',
     };
+    const emailconfirm = /^[a-zA-Z0-9.!#$%&'*+/=?^_{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
     const InputProps: Array<TInput> = [
         {
@@ -43,6 +44,16 @@ const Register = () => {
         },
         {
             id: 2,
+            name: 'email',
+            type: 'email',
+            placeholder: 'Email',
+            errorMessage: '!!!!!',
+            label: 'Email',
+            pattern: new RegExp(`^${emailconfirm}$`),
+            required: true,
+        },
+        {
+            id: 3,
             name: 'password',
             type: 'password',
             placeholder: 'Password',
@@ -52,7 +63,7 @@ const Register = () => {
             required: true,
         },
         {
-            id: 3,
+            id: 4,
             name: 'confirmPassword',
             type: 'password',
             placeholder: 'Confirm Password',
