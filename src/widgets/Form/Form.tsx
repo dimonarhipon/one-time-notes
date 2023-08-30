@@ -3,7 +3,7 @@ import Input from '../Input/Input';
 import styles from './Form.module.scss';
 import { Link } from 'react-router-dom';
 
-const Form: React.FC<TForm> = ({ InputProps, InputValues, setInputValues, buttonText, linkTo, pText, onSubmit }) => {
+const Form: React.FC<TForm> = ({ InputProps, InputValues, setInputValues, buttonText, linkTo, pText, onSubmit, passwordSecurity }) => {
 
     const onUserChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInputValues({ ...InputValues, [event.target.name]: event.target.value });
@@ -19,6 +19,7 @@ const Form: React.FC<TForm> = ({ InputProps, InputValues, setInputValues, button
                         {...input}
                         value={InputValues[input.name]}
                         onChange={onUserChange}
+                        passwordSecurity={passwordSecurity}
                     />
                 ))}
                 <button className={styles.button}>{buttonText}</button>

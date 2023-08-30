@@ -3,7 +3,7 @@ import styles from './Input.module.scss';
 import type { TInput } from '@/shared/Types/AuthTypes';
 import { IconEye, IconEyeSlash } from '@/shared/assets/icons';
 
-const Input: React.FC<TInput> = ({id, label, errorMessage, onChange, type, pattern, ...inputProps }) => {
+const Input: React.FC<TInput> = ({id, name, label, errorMessage, onChange, type, pattern, passwordSecurity, ...inputProps }) => {
     
     const [typeInput, setTypeInput] = useState(type);
     const [focused, setFocused] = useState(false);
@@ -22,13 +22,14 @@ const Input: React.FC<TInput> = ({id, label, errorMessage, onChange, type, patte
 
     const inputAttrs = {
         id: id.toString(),
+        name,
         onChange,
         onFocus: onInputFocus,
         onBlur: onInputBlur,
         type: typeInput,
         pattern: pattern instanceof RegExp ? pattern.source : pattern,
         focused: focused.toString(),
-        ...inputProps, // Включаем остальные свойства
+        ...inputProps,
     };
 
     return (
@@ -47,6 +48,12 @@ const Input: React.FC<TInput> = ({id, label, errorMessage, onChange, type, patte
                     className={styles.passwordHide}>
                     {typeInput === 'password' ? <IconEye /> : <IconEyeSlash/>} 
                 </div>
+            }
+            {
+                name === 'password' && passwordSecurity &&
+                    <div>
+                        {passwordSecurity}
+                    </div>
             }
         </div>
     );

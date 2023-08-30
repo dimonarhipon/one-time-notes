@@ -3,6 +3,7 @@ import { useState } from 'react';
 import type { TInput, TInputValues } from '@/shared/Types/AuthTypes';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import PasswordSecurity from '@/widgets/PasswordSecurity/PasswordSecurity';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -20,6 +21,7 @@ const Register = () => {
 
     const [InputValues, setInputValues] = useState<TInputValues>({
         username: localStorage.getItem('username') || '',
+        email: localStorage.getItem('email') || '',
         password: localStorage.getItem('password') || '',
         confirmPassword: localStorage.getItem('confirmPassword') || '',
     });
@@ -92,7 +94,7 @@ const Register = () => {
                 .then((response) => {
                     const token = response.data.token;
                     localStorage.setItem('token', token);
-                    navigate(fromPage); // Используем navigate для перенаправления
+                    navigate(fromPage); 
                 })
                 .catch((error) => {
                     alert(`Ошибка регистрации: ${error}`);
@@ -114,6 +116,7 @@ const Register = () => {
                 buttonText={FormProps.buttonText}
                 linkTo={FormProps.linkTo}
                 pText={FormProps.pText}
+                passwordSecurity={<PasswordSecurity password={InputValues.password}/>}
             />
         </div>
     );

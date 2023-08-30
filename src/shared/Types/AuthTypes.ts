@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 
 export type TInputValues = {
     username: string,
@@ -18,6 +19,7 @@ export type TInput = {
     onBlur?: () => void;
     value?: string;
     focused?: boolean;
+    passwordSecurity?: ReactElement;
 };
 
 
@@ -29,4 +31,5 @@ export type TForm = {
     buttonText: string,
     linkTo: string,
     pText: string,
+    passwordSecurity?: ReactElement,
 };
