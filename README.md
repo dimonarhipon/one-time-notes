@@ -8,6 +8,8 @@
 <p align="center">
 	<img src="https://img.shields.io/badge/react-18.2.0-blue.svg">
 	<img src="https://img.shields.io/badge/typescript-5.0.2-blue.svg">
+	<img src="https://img.shields.io/badge/reduxjs/toolkit-1.9.5-purple.svg">
+	<img src="https://img.shields.io/badge/axios-1.5.0-blue.svg">
 </p>
 <p align="center">
 	<img src="https://img.shields.io/badge/node-18.16.1-green.svg">
