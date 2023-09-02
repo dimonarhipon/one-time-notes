@@ -12,7 +12,7 @@
 	display: flex;
 	justify-content: space-between;
 	padding: 10px 16px;
-	transition: background-color .1s linear;
+	transition: background-color 0.1s linear;
 
 	&:hover {
 		background-color: $white-hover;
@@ -94,7 +94,7 @@
 	cursor: pointer;
 	border: none;
 	border-radius: 4px;
-	transition: background-color .2s linear;
+	transition: background-color 0.2s linear;
 
 	&:hover {
 		background-color: $white-hover;

@@ -17,9 +17,9 @@
 	outline: none;
 	border: none;
 	transition:
-	width 0.2s ease-in-out,
-	border-radius 0.2s ease-in,
-	background-color .2s linear;
+		width 0.2s ease-in-out,
+		border-radius 0.2s ease-in,
+		background-color 0.2s linear;
 
 	@include respond-to($mobile) {
 		width: 100%;
@@ -62,7 +62,6 @@
 				margin-right: 0;
 			}
 		}
-
 	}
 
 	&.read {
@@ -109,7 +108,7 @@
 	transition:
 		margin 0.2s ease-in-out,
 		opacity 0.1s linear,
-		background-color .1s linear;
+		background-color 0.1s linear;
 
 	&:hover {
 		opacity: 1;

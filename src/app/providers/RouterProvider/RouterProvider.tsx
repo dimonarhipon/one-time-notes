@@ -1,22 +1,34 @@
 import { createBrowserRouter, RouterProvider as ReactRouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '@/store/store';
-import HomePage from '@/pages/HomePage';
-import Login from '@/pages/LoginPage';
-import Register from '@/pages/RegisterPage';
+import { HomePage, LoginPage, RegisterPage, ErrorPage, ModalPage } from '@/pages';
+import { PrivateRoute } from './PrivatRouter';
+import { AppRoute } from '@/shared/contants';
 
 const router = createBrowserRouter([
 	{
-		path: '/one-time-notes/',
-		Component: HomePage,
+		path: AppRoute.Root,
+		element: (
+			<PrivateRoute>
+				<HomePage />
+			</PrivateRoute>
+		),
 	},
 	{
-		path: '/one-time-notes/register',
-		Component: Register,
+		path: AppRoute.Root + AppRoute.Register,
+		element: <RegisterPage />,
 	},
 	{
-		path: '/one-time-notes/login',
-		Component: Login,
+		path: AppRoute.Root + AppRoute.Login,
+		element: <LoginPage />,
+	},
+	{
+		path: AppRoute.GetNote + AppRoute.Id,
+		element: <ModalPage />,
+	},
+	{
+		path: AppRoute.All,
+		element: <ErrorPage />,
 	},
 ]);
 

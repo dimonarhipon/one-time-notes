@@ -7,7 +7,7 @@ const myFetch = () => {
 		 * @param {string} url адрес
 		 * @returns {object | Error} объект не в json формате или ошибка
 		 */
-		get: async (url: string)=> {
+		get: async (url: string) => {
 			try {
 				const response = await fetch(url, {
 					method: fetchMethods.get,
@@ -29,7 +29,7 @@ const myFetch = () => {
 				const response = await fetch(url, {
 					method: fetchMethods.post,
 					headers: {
-						'Content-Type': 'application/json'
+						'Content-Type': 'application/json',
 					},
 					body: JSON.stringify(body),
 				});
@@ -51,7 +51,7 @@ const myFetch = () => {
 				const response = await fetch(url, {
 					method: fetchMethods.put,
 					headers: {
-						'Content-Type': 'application/json'
+						'Content-Type': 'application/json',
 					},
 					body: JSON.stringify(body),
 				});

@@ -11,7 +11,13 @@ export class Note {
 	createdAt: string;
 	updatedAt: string;
 
-	constructor(title = defaultTitle, author = defaultAuthor, content = defaultContent, isRead = false, updatedAt = new Date().toISOString()) {
+	constructor(
+		title = defaultTitle,
+		author = defaultAuthor,
+		content = defaultContent,
+		isRead = false,
+		updatedAt = new Date().toISOString(),
+	) {
 		this.title = title;
 		this.author = author;
 		this.content = content;

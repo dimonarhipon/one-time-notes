@@ -1,4 +1,4 @@
-import {configureStore} from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import notesReducer from './notes.slice';
 
 const store = configureStore({
@@ -6,7 +6,7 @@ const store = configureStore({
 		notes: notesReducer,
 		// activeNote: activeNoteReducer,
 		// user: userReducer,
-	}
+	},
 });
 
 export default store;

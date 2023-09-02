@@ -1,6 +1,22 @@
-@import '@/shared/styles/vars.scss';
-
 .errorLink {
+	// color: $green-3;
+	// text-decoration: none;
+	// border: none;
+	// font-size: 24px;
+	@include button;
+
+
+	@include respond-to($tablet) {
+		font-size: 20px;
+	}
+	@include respond-to($mobile) {
+		font-size: 18px;
+	}
+}
+
+.errorMessege {
+	margin-top: 20px;
+
 	color: $green-3;
 	text-decoration: none;
 	border: none;
@@ -13,11 +29,8 @@
 	}
 }
 
-.errorMessege {
-	margin-top: 20px;
-}
-
 .errorSvg {
+	color: $green-3;
 	width: 480px;
 	@include respond-to($tablet) {
 		width: 380px;
@@ -25,4 +38,8 @@
 	@include respond-to($mobile) {
 		width: 250px;
 	}
+}
+
+.line {
+	stroke: $green-3;
 }

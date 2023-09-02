@@ -1,14 +1,14 @@
 $white: #ffffff;
-$white-hover: #FFFFFF26;
+$white-hover: #ffffff26;
 $white-90t: #ffffffe5;
 
 $main: #151515;
-$main-hover: #1515150F;
+$main-hover: #1515150f;
 $pink: #ff9090;
-$pink-hover: #FF7A7A;
+$pink-hover: #ff7a7a;
 $dark-pink: #905454;
 $green: #d4ff90;
-$green-hover: #C5FF69;
+$green-hover: #c5ff69;
 $blue: #90caff;
 $white-2: rgba(255, 255, 255, 0.9);
 $white-3: rgba(255, 255, 255, 0.8);
@@ -28,8 +28,7 @@ $green: #d4ff90;
 $green-2: rgba(182, 233, 101, 0.36);
 $green-3: #c5ff69;
 
-$button-hover: rgba(182, 233, 101, 0.36);
-$button-focus: #c5ff69;
+$button-active: #c5ff69;
 $button-disabled: rgba(212, 255, 144, 0.6);
 $shadow-button: 2px 4px 4px 0px rgba(182, 233, 101, 0.6);
 $shadow-white: 2px 4px 4px 0px rgba(255, 255, 255, 0.2);
@@ -78,5 +77,42 @@ $breakpoints: (
 	} @else {
 		@error 'Не указано значение для `#{$breakpoint}`. '
 			+ 'Пожалуйста, убедитесь, что точка останова объявлена в карте `$breakpoints`.';
+	}
+}
+
+@mixin button($width: 260px) {
+	display: block;
+	min-width: $width;
+	border: none;
+	border-radius: 20px;
+	padding: 20px;
+
+	font-family: $overpass;
+	font-size: 20px;
+	line-height: 25px;
+	background-color: $green;
+	color: $main;
+	cursor: pointer;
+
+	transition: 0.6s ease;
+	text-decoration: none;
+	box-shadow: none;
+
+	&:hover,
+	&:focus {
+		transition: 0.6s ease;
+		box-shadow: $shadow-button;
+	}
+
+	&:active {
+		transition: 0.6s ease;
+		background-color: $button-active;
+		box-shadow: none;
+	}
+
+	&:disabled {
+		transition: 0.6s ease;
+		background-color: $button-disabled;
+		box-shadow: none;
 	}
 }
