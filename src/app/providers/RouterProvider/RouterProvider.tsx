@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider as ReactRouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '@/store/store';
-import { HomePage, LoginPage, RegisterPage, ErrorPage } from '@/pages';
+import { HomePage, LoginPage, RegisterPage, ErrorPage, ModalPage } from '@/pages';
 import { PrivateRoute } from './PrivatRouter';
 import { AppRoute } from '@/shared/contants';
 
@@ -21,6 +21,10 @@ const router = createBrowserRouter([
 	{
 		path: AppRoute.Root + AppRoute.Login,
 		element: <LoginPage />,
+	},
+	{
+		path: AppRoute.GetNote + AppRoute.Id,
+		element: <ModalPage />,
 	},
 	{
 		path: AppRoute.All,
