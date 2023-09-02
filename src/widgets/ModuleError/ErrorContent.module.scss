@@ -1,8 +1,11 @@
 .errorLink {
-	color: $green-3;
-	text-decoration: none;
-	border: none;
-	font-size: 24px;
+	// color: $green-3;
+	// text-decoration: none;
+	// border: none;
+	// font-size: 24px;
+	@include button;
+
+
 	@include respond-to($tablet) {
 		font-size: 20px;
 	}
