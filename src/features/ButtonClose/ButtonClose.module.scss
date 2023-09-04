@@ -1,0 +1,13 @@
+@import '@/shared/styles/vars.scss';
+
+.buttonClose {
+	position: absolute;
+	top: -40px;
+	right: -20px;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	@include respond-to($mobile) {
+		right: -28px;
+	}
+}
