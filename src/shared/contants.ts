@@ -12,3 +12,26 @@ export enum AuthorizationStatus {
 	NoAuth = 'NO_AUTH',
 	Unknown = 'UNKNOWN',
 }
+
+export enum IconName {
+	Translate = 'trasnlate',
+	ThemeLight = 'theme-light',
+	ThemeDark = 'theme-dark',
+	Bold = 'bold',
+	Italic = 'italic',
+	Underline = 'underline',
+	LineThrough = 'line-through',
+	Delete = 'delete',
+	Add = 'add',
+	Close = 'close',
+	Copy = 'copy',
+	Back = 'back',
+	Search = 'search',
+	Eye = 'eye',
+	EyeSlash = 'eye-slash',
+}
+
+export enum Theme {
+	Light = '#fff',
+	Dark = '#151515',
+}
