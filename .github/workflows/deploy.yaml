@@ -1,8 +1,6 @@
 name: Deploy Github
 
 on:
-  pull_request:
-    branches: ['develop']
   push:
     branches: ['develop', 'deploy', 'gh-pages']
 
