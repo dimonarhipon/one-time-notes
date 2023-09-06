@@ -2,7 +2,7 @@ name: Deploy Github
 
 on:
   push:
-    branches: ['develop', 'deploy', 'gh-pages']
+    branches: ['develop', 'deploy']
 
 jobs:
   deploy:
@@ -20,4 +20,4 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           folder: ./dist
-          branch: gh-pages
+          branch: gh-pages2
