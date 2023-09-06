@@ -11,7 +11,7 @@
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
-	padding: 10px 16px;
+	padding: 8px 13px 7px 19px;
 	transition: background-color 0.1s linear;
 
 	&:hover {
@@ -66,7 +66,8 @@
 	outline: none;
 	background-color: transparent;
 	border: none;
-	font-size: 14px;
+	padding: 0;
+	font-size: 16px;
 	font-weight: 400;
 	color: $white;
 
@@ -89,12 +90,15 @@
 
 .searchButton {
 	width: 100%;
-	max-width: 30px;
+	width: 20px;
+	height: 20px;
+	padding: 0;
 	background-color: transparent;
 	cursor: pointer;
 	border: none;
 	border-radius: 4px;
 	transition: background-color 0.2s linear;
+	outline: none;
 
 	&:hover {
 		background-color: $white-hover;
@@ -102,10 +106,5 @@
 
 	&:focus {
 		background-color: $white-hover;
-		outline: none;
 	}
-}
-
-.searchIcon {
-	min-width: 20px;
 }
