@@ -3,20 +3,27 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" href="/favicon.ico" sizes="32x32" type="image/vnd.microsoft.icon">
-		<link rel="icon" href="/favicon/favicon-16.png" sizes="16x16" type="image/png">
-		<link rel="icon" href="/favicon/favicon-32.png" sizes="32x32" type="image/png">
-		<link rel="icon" href="/favicon/favicon-152.png" sizes="152x152" type="image/png">
-		<link rel="manifest" href="/manifest.json">
+		<link rel="icon" href="/one-time-notes/favicon.ico" sizes="32x32" type="image/vnd.microsoft.icon">
+		<link rel="icon" href="/one-time-notes/favicon/favicon-16.png" sizes="16x16" type="image/png">
+		<link rel="icon" href="/one-time-notes/favicon/favicon-32.png" sizes="32x32" type="image/png">
+		<link rel="icon" href="/one-time-notes/favicon/favicon-152.png" sizes="152x152" type="image/png">
+		<link rel="manifest" href="/one-time-notes/manifest.json">
 
 		<meta name="description" content="Приложение позволяет пользователям создавать заметки, которые автоматически удаляются после прочтения другим пользователем.">
 		<meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff">
 		<meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#151515">
 		<title>One time notes</title>
-		<link rel="preload" href="./src/shared/assets/fonts/Overpass/Overpass-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-		<script type="module" src="/src/index.tsx"></script>
+		<link rel="preload" href="/one-time-notes/assets/Overpass-Regular-884f7b06.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		
+		<script type="module" crossorigin src="/one-time-notes/assets/index-2f05c67f.js"></script>
+		<link rel="stylesheet" href="/one-time-notes/assets/index-3e5d57ac.css">
+		<script type="module">import.meta.url;import("_").catch(()=>1);async function* g(){};if(location.protocol!="file:"){window.__vite_is_modern_browser=true}</script>
+		<script type="module">!function(){if(window.__vite_is_modern_browser)return;console.warn("vite: loading legacy chunks, syntax error above and the same error below should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>
 	</head>
 	<body>
 		<div id="root"></div>
+		<script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
+		<script nomodule crossorigin id="vite-legacy-polyfill" src="/one-time-notes/assets/polyfills-legacy-1f6d826d.js"></script>
+		<script nomodule crossorigin id="vite-legacy-entry" data-src="/one-time-notes/assets/index-legacy-330d7dd5.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
 	</body>
 </html>
