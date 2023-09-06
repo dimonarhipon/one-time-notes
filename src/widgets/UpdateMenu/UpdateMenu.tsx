@@ -1,29 +1,27 @@
 import style from './updateMenu.module.scss';
-import iconBold from './icons/icon-text-bold.svg';
-import iconItalic from './icons/icon-text-italic.svg';
-import iconUnderline from './icons/icon-text-underline.svg';
-import iconStrikethrough from './icons/icon-text-strikethrough.svg';
+import { SvgIcon } from '@/shared';
+import { IconName } from '@/shared/contants';
 
-const BOLD = 'Bold';
-const ITALIC = 'Italic';
-const UNDERLINE = 'Underline';
-const STRIKETHROUGH = 'Strikethrough';
+const BOLD = 'Жирный текст';
+const ITALIC = 'Курсивынй текст';
+const UNDERLINE = 'Подчёркнутый текст';
+const STRIKETHROUGH = 'Зачёркнутый текст';
 
 export default function UpdateMenu() {
 	return (
 		<div className={style.layout}>
 			<div className={style.buttonsGroup}>
 				<button className={style.icon}>
-					<img src={iconBold} alt={BOLD} />
+					<SvgIcon name={IconName.Bold} ariaLabel={BOLD} />
 				</button>
 				<button className={style.icon}>
-					<img src={iconItalic} alt={ITALIC} />
+					<SvgIcon name={IconName.Italic} ariaLabel={ITALIC}  />
 				</button>
 				<button className={style.icon}>
-					<img src={iconUnderline} alt={UNDERLINE} />
+					<SvgIcon name={IconName.Underline} ariaLabel={UNDERLINE}  />
 				</button>
 				<button className={style.icon}>
-					<img src={iconStrikethrough} alt={STRIKETHROUGH} />
+					<SvgIcon name={IconName.LineThrough} ariaLabel={STRIKETHROUGH}  />
 				</button>
 			</div>
 			<button className={style.buttonSave}>Скопировать ссылку</button>

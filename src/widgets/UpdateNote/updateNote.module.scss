@@ -15,14 +15,24 @@
 }
 
 .deleteButton {
-	width: 31px;
-	height: 31px;
+	width: 24px;
+	height: 24px;
+	padding: 0;
 	position: absolute;
 	top: 30px;
 	right: 40px;
 	background-color: transparent;
+	border-radius: 4px;
 	border: none;
 	cursor: pointer;
+	outline: none;
+	transition: 0.3s ease;
+
+	&:hover,
+	&:focus {
+		transition: 0.3s ease;
+		background-color: $dark-4;
+	}
 }
 
 .textAreaSection {
