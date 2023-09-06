@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import styles from './Input.module.scss';
 import type { TInput } from '@/shared/Types/AuthTypes';
-import { IconEye, IconEyeSlash } from '@/shared/assets/icons';
+import { SvgIcon } from '@/shared/SvgIcon';
+import { IconName } from '@/shared/contants';
 
 const Input: React.FC<TInput> = ({
 	id,
@@ -48,7 +49,7 @@ const Input: React.FC<TInput> = ({
 
 			{type === 'password' && (
 				<div onClick={onHidePassword} className={styles.passwordHide}>
-					{typeInput === 'password' ? <IconEye /> : <IconEyeSlash />}
+					<SvgIcon width='24' height='24' name={typeInput === 'password' ? IconName.Eye : IconName.EyeSlash} />
 				</div>
 			)}
 		</div>
