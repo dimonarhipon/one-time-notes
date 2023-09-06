@@ -4,9 +4,6 @@ on:
   push:
     branches: ['develop', 'deploy']
 
-env:
-VITE_BACKEND_URL: ${{ secrets.VITE_BACKEND_URL }}
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -21,6 +18,7 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
+          env: ${{ secrets.VITE_BACKEND_URL }}
           token: ${{ secrets.GITHUB_TOKEN }}
           folder: ./dist
           branch: gh-pages2
