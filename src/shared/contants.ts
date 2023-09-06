@@ -14,7 +14,7 @@ export enum AuthorizationStatus {
 }
 
 export enum IconName {
-	Translate = 'trasnlate',
+	Translate = 'translate',
 	ThemeLight = 'theme-light',
 	ThemeDark = 'theme-dark',
 	Bold = 'bold',

@@ -22,7 +22,7 @@ const Header = ({ className }: THeaderProps) => {
 					<SvgIcon name={darkTheme ? IconName.ThemeLight : IconName.ThemeDark} width='31' height='31' />
 				</button>
 				<button className={styles.button} aria-label={LABEL_LANGUAGE}>
-					<SvgIcon name='translate' width='31' height='31' stroke={Theme.Light} />
+					<SvgIcon name={IconName.Translate} width='31' height='31' stroke={Theme.Light} />
 				</button>
 			</div>
 		</header>
