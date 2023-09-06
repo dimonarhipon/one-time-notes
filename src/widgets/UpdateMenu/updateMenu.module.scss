@@ -14,16 +14,27 @@
 .icon {
 	width: 24px;
 	height: 24px;
+	padding: 0;
 	background-color: transparent;
 	border: none;
+	border-radius: 4px;
 	cursor: pointer;
+	outline: none;
+	transition: 0.3s ease;
+
+	&:hover,
+	&:focus,
+	&:active {
+		background-color: $dark-4;
+		transition: 0.3s ease;
+	}
 }
 
 .buttonSave {
 	background-color: transparent;
 	border: none;
 	color: $main;
-	font-family: 'Overpass';
+	font-family: $overpass;
 	font-size: 20px;
 	line-height: 25px;
 	cursor: pointer;
