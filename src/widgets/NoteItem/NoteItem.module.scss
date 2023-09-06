@@ -104,28 +104,22 @@
 	background-color: transparent;
 	border: 0;
 	border-radius: 4px;
-	opacity: 0.6;
+	width: 20px;
+	height: 20px;
+	padding: 0;
 	transition:
-		margin 0.2s ease-in-out,
-		opacity 0.1s linear,
-		background-color 0.1s linear;
+		margin 0.3s ease-in-out,
+		opacity 0.3s linear,
+		background-color 0.3s linear;
 
 	&:hover {
-		opacity: 1;
 		background-color: $main-hover;
 	}
 
 	&:focus {
-		opacity: 1;
 		background-color: $main-hover;
 		outline: none;
 	}
-}
-
-.removeIcon {
-	min-width: 16px;
-	width: 16px;
-	fill: $white;
 }
 
 .title {
