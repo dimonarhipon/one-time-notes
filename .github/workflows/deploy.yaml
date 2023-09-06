@@ -4,6 +4,9 @@ on:
   push:
     branches: ['develop', 'deploy']
 
+env:
+VITE_BACKEND_URL: ${{ secrets.VITE_BACKEND_URL }}
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
