@@ -13,7 +13,7 @@
 </p>
 <p align="center">
 	<img src="https://img.shields.io/badge/node-18.16.1-green.svg">
-	<img src="https://img.shields.io/badge/vite-4.2.0-purple.svg">
+	<img src="https://img.shields.io/badge/vite-4.4.9-purple.svg">
 	<img src="https://img.shields.io/badge/eslint-8.38.0-purple.svg">
 	<img src="https://img.shields.io/badge/prettiert-3.0.0-purple.svg">
 </p>
