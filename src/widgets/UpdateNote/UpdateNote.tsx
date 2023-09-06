@@ -1,8 +1,9 @@
 import UpdateMenu from '../UpdateMenu/UpdateMenu';
 import style from './updateNote.module.scss';
-import iconDelete from './icons/icon-delete.svg';
+import { SvgIcon } from '@/shared';
+import { IconName } from '@/shared/contants';
 
-const DELETE = 'Delete note';
+const DELETE_TEXT = 'Delete note';
 const TEXTAREAHOLDER = 'Напиши свой секрет здесь...';
 
 type TUpdateProps = {
@@ -16,7 +17,7 @@ export default function UpdateNote({ className }: TUpdateProps) {
 				<h3 className={style.title}>Заметка 1</h3>
 				<div>
 					<button className={style.deleteButton}>
-						<img src={iconDelete} alt={DELETE} />
+						<SvgIcon name={IconName.Delete} width='24' height='24' ariaLabel={DELETE_TEXT} />
 					</button>
 				</div>
 				<UpdateMenu />
