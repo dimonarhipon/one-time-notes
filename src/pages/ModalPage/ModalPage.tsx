@@ -10,8 +10,9 @@ import { ErrorContent } from '@/widgets/ModuleError/ErrorContent';
 import { DeleteNote, FULL_PATH, ReadNote } from './utils';
 import { TGetNote } from '@/shared/lib/TGetNote';
 import styles from './ModalPage.module.scss';
-import { Loader } from '@/shared/Loader';
+import { Loader, SvgIcon } from '@/shared';
 import axios from 'axios';
+import { AppRoute, IconName } from '@/shared/contants';
 
 export const ModalPage = () => {
 	const [noteState, SetNote] = useState<modalMethods.Open | modalMethods.Get | modalMethods.Delete>(
@@ -51,9 +52,7 @@ export const ModalPage = () => {
 									DeleteNote();
 								}}
 							>
-								<svg className={styles.navigationImg} viewBox='0 0 1024 1024'>
-									<path d='M195.2 195.2a64 64 0 0 1 90.496 0L512 421.504 738.304 195.2a64 64 0 0 1 90.496 90.496L602.496 512 828.8 738.304a64 64 0 0 1-90.496 90.496L512 602.496 285.696 828.8a64 64 0 0 1-90.496-90.496L421.504 512 195.2 285.696a64 64 0 0 1 0-90.496z' />
-								</svg>
+								<SvgIcon name={IconName.Close} width='42' height='42' className={styles.navigationImg} />
 							</button>
 						)}
 					</div>
@@ -73,7 +72,7 @@ export const ModalPage = () => {
 				</ModalWrapper>
 			)}
 
-			{(openNote || deleteNote) && <ModalLink path='/one-time-notes/'>Написать заметку</ModalLink>}
+			{(openNote || deleteNote) && <ModalLink path={AppRoute.Root}>Написать заметку</ModalLink>}
 		</ModalTemplate>
 	);
 };
