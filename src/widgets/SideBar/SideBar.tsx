@@ -23,6 +23,8 @@ const fulfilledText = 'fulfilled';
 const loadingText = 'loading';
 
 const db_url = import.meta.env.VITE_BACKEND_URL;
+/* eslint-disable no-console */
+console.table(db_url);
 
 type TSidebarProps = {
 	className?: string;

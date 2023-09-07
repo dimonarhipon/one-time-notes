@@ -6,7 +6,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
-		"build": "tsc && vite build",
+		"build": "tsc && vite build --mode production --env.VITE_BACKEND_URL",
 		"lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --ext js,jsx,ts,tsx --color --ignore-pattern \"*.d.ts\" --report-unused-disable-directives && prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,json}\" --config ./.prettierrc --ignore-path ./.prettierignore",
 		"lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --ext js,jsx,ts,tsx --color --ignore-pattern \"*.d.ts\" --report-unused-disable-directives --fix && prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,json}\" --config ./.prettierrc --ignore-path ./.prettierignore",
 		"type-check": "tsc --pretty --noEmit",
