@@ -26,10 +26,9 @@ type TSidebarProps = {
 	className?: string;
 };
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 const SideBar = ({ className }: TSidebarProps) => {
-	const backendUrl = import.meta.env.VITE_BACKEND_URL;
-	/* eslint no-console:*/
-	console.log('SideBar', backendUrl);
 	const notes = useAppSelector((state) => state.notes.notes);
 	const { status } = useAppSelector((state) => state.notes);
 

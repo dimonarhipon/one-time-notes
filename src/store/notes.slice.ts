@@ -4,8 +4,6 @@ import axios from 'axios';
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 const NOTES_URL = `${backendUrl}api/notes`;
-/* eslint no-console:*/
-console.log('notes.slice', backendUrl);
 
 type initialStateType = {
 	notes: TNoteType[];
