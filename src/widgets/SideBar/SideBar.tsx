@@ -22,9 +22,7 @@ const noSearch = 'Поиск не дал результатов';
 const fulfilledText = 'fulfilled';
 const loadingText = 'loading';
 
-const db_url = import.meta.env.VITE_BACKEND_URL;
-/* eslint-disable no-console */
-console.table(db_url);
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 type TSidebarProps = {
 	className?: string;
@@ -104,7 +102,7 @@ const SideBar = ({ className }: TSidebarProps) => {
 									const id = note._id;
 									removeNote({
 										id,
-										db_url,
+										backendUrl,
 										notes,
 										setUserNotes,
 										assignNotesInRedux,
@@ -115,7 +113,7 @@ const SideBar = ({ className }: TSidebarProps) => {
 			</div>
 			<AddButton
 				addNote={() => {
-					addNote({ notes, db_url, setUserNotes, assignNotesInRedux });
+					addNote({ notes, backendUrl, setUserNotes, assignNotesInRedux });
 				}}
 			/>
 		</aside>

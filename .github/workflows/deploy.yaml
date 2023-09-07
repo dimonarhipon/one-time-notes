@@ -3,11 +3,11 @@ name: Deploy Github
 on:
   push:
     branches: ['develop', 'deploy']
-env:
-  VITE_BACKEND_URL: ${{ secrets.VITE_BACKEND_URL }}
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      VITE_BACKEND_URL: ${{ secrets.VITE_BACKEND_URL }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -19,7 +19,6 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          env: env.VITE_BACKEND_URL
           token: ${{ secrets.GITHUB_TOKEN }}
           folder: ./dist
           branch: gh-pages2

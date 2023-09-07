@@ -4,18 +4,18 @@ import axios from 'axios';
 
 type TAddNoteOptions = {
 	notes: TNoteType[];
-	db_url: string;
+	backendUrl: string;
 	setUserNotes: (array: TNoteType[]) => void;
 	assignNotesInRedux: (note: TNoteType[]) => void;
 };
 
 export const addNote = async ({
 	notes,
-	db_url,
+	backendUrl,
 	setUserNotes,
 	assignNotesInRedux,
 }: TAddNoteOptions) => {
-	const NOTES_URL = `${db_url}api/notes`;
+	const NOTES_URL = `${backendUrl}api/notes`;
 
 	// Проверка на контент последней заметки
 	const lastNote = notes.length - 1;
