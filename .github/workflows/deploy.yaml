@@ -1,6 +1,9 @@
 name: Deploy Github
 
 on:
+  pull_request:
+    types: [closed]
+
   push:
     branches: ['develop', 'deploy']
 jobs:
