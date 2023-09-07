@@ -12,10 +12,22 @@ jobs:
     env:
       VITE_BACKEND_URL: ${{ secrets.VITE_BACKEND_URL }}
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+        env:
+          VITE_BACKEND_URL: ${{ secrets.VITE_BACKEND_URL }}
+      - run: |
+          echo "VITE_BACKEND_URL is $VITE_BACKEND_URL"
+          git checkout ${{ github.ref }}
+
+      - name: Setup
+        env:
+          VITE_BACKEND_URL: ${{ secrets.VITE_BACKEND_URL }}
+        uses: actions/setup-node@v3
         with:
           node-version: 18.x
+      - run: |
+          echo "Right before deploy, VITE_BACKEND_URL is $VITE_BACKEND_URL"
       - run: npm ci
       - run: npm run build
 

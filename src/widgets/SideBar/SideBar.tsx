@@ -22,15 +22,14 @@ const noSearch = 'Поиск не дал результатов';
 const fulfilledText = 'fulfilled';
 const loadingText = 'loading';
 
-const backendUrl = import.meta.env.VITE_BACKEND_URL;
-/* eslint no-console:*/
-console.log('SideBar', backendUrl);
-
 type TSidebarProps = {
 	className?: string;
 };
 
 const SideBar = ({ className }: TSidebarProps) => {
+	const backendUrl = import.meta.env.VITE_BACKEND_URL;
+	/* eslint no-console:*/
+	console.log('SideBar', backendUrl);
 	const notes = useAppSelector((state) => state.notes.notes);
 	const { status } = useAppSelector((state) => state.notes);
 
