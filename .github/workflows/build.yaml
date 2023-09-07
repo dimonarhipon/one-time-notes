@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     env:
-      VITE_BACKEND_URL: ${{ secrets.VITE_BACKEND_URL }}
+      VITE_BACKEND_URL: ${{ vars.VITE_BACKEND_URL }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
