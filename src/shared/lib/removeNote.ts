@@ -3,7 +3,7 @@ import axios from 'axios';
 
 type TRemoveNoteOptions = {
 	id: string;
-	db_url: string;
+	backendUrl: string;
 	notes: TNoteType[];
 	setUserNotes: (array: TNoteType[]) => void;
 	assignNotesInRedux: (notes: TNoteType[]) => void;
@@ -11,12 +11,12 @@ type TRemoveNoteOptions = {
 
 export const removeNote = async ({
 	id,
-	db_url,
+	backendUrl,
 	notes,
 	setUserNotes,
 	assignNotesInRedux,
 }: TRemoveNoteOptions) => {
-	const NOTE_URL = `${db_url}api/notes/${id}`;
+	const NOTE_URL = `${backendUrl}api/notes/${id}`;
 
 	try {
 		await axios.delete(NOTE_URL);

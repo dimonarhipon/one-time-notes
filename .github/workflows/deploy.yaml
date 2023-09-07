@@ -3,10 +3,11 @@ name: Deploy Github
 on:
   push:
     branches: ['develop', 'deploy']
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      VITE_BACKEND_URL: ${{ secrets.VITE_BACKEND_URL }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3

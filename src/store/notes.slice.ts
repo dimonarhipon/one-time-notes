@@ -2,8 +2,8 @@ import TNoteType from '@/shared/lib/NoteType';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const db_url = import.meta.env.VITE_BACKEND_URL;
-const NOTES_URL = `${db_url}api/notes`;
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+const NOTES_URL = `${backendUrl}api/notes`;
 
 type initialStateType = {
 	notes: TNoteType[];
