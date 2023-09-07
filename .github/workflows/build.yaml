@@ -7,6 +7,8 @@ on:
 
 jobs:
   build:
+    env:
+      VITE_BACKEND_URL: ${{ secrets.VITE_BACKEND_URL }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -14,4 +16,8 @@ jobs:
         with:
           node-version: 18.x
       - run: npm ci
-      - run: npm run build
+      - run: |
+         echo "Before build, VITE_BACKEND_URL is $VITE_BACKEND_URL"
+         npm run build
+      - run: |
+         echo "After build, VITE_BACKEND_URL is $VITE_BACKEND_URL"
