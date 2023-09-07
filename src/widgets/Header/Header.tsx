@@ -19,10 +19,10 @@ const Header = ({ className }: THeaderProps) => {
 
 			<div className={styles.appControl}>
 				<button className={styles.button} aria-label={LABEL_THEME} onClick={() => setDarkTheme(!darkTheme)}>
-					<SvgIcon name={darkTheme ? IconName.ThemeLight : IconName.ThemeDark} width='31' height='31' />
+					<SvgIcon name={darkTheme ? IconName.ThemeLight : IconName.ThemeDark} width='24' height='24' />
 				</button>
 				<button className={styles.button} aria-label={LABEL_LANGUAGE}>
-					<SvgIcon name={IconName.Translate} width='31' height='31' stroke={Theme.Light} />
+					<SvgIcon name={IconName.Translate} width='24' height='24' stroke={Theme.Light} />
 				</button>
 			</div>
 		</header>

@@ -52,7 +52,7 @@ export const ModalPage = () => {
 									DeleteNote();
 								}}
 							>
-								<SvgIcon name={IconName.Close} width='42' height='42' className={styles.navigationImg} />
+								<SvgIcon name={IconName.Close} className={styles.navigationImg} />
 							</button>
 						)}
 					</div>

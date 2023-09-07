@@ -4,6 +4,16 @@ import type { TInput } from '@/shared/Types/AuthTypes';
 import { SvgIcon } from '@/shared/SvgIcon';
 import { IconName } from '@/shared/contants';
 
+const enum InputType {
+	Text = 'text',
+	Password = 'password'
+}
+
+const enum PasswordText {
+	Show = 'показать пароль',
+	Hidden = 'скрыть пароль'
+}
+
 const Input: React.FC<TInput> = ({
 	id,
 	label,
@@ -25,7 +35,7 @@ const Input: React.FC<TInput> = ({
 	};
 
 	const onHidePassword = () => {
-		setTypeInput((prevType) => (prevType === 'password' ? 'text' : 'password'));
+		setTypeInput((prevType) => (prevType === InputType.Password ? InputType.Text : InputType.Password));
 	};
 
 	const inputAttrs = {
@@ -47,10 +57,14 @@ const Input: React.FC<TInput> = ({
 				<p className={styles.error}>{errorMessage}</p>
 			</label>
 
-			{type === 'password' && (
-				<div onClick={onHidePassword} className={styles.passwordHide}>
-					<SvgIcon width='24' height='24' name={typeInput === 'password' ? IconName.Eye : IconName.EyeSlash} />
-				</div>
+			{type === InputType.Password && (
+				<button onClick={onHidePassword} className={styles.passwordHide}>
+					<SvgIcon
+						width='24'
+						height='24'
+						name={typeInput === InputType.Password ? IconName.Eye : IconName.EyeSlash}
+						ariaLabel={typeInput === InputType.Password ? PasswordText.Show : PasswordText.Hidden} />
+				</button>
 			)}
 		</div>
 	);
