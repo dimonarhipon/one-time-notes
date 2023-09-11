@@ -30,6 +30,7 @@
 	box-sizing: border-box;
 	box-shadow: 0px 4px 4px 0px $dark-6 inset;
 	animation: rotation 5.4s linear infinite;
+	background: var(--loader-gradient);
 
 	&::after {
 		position: absolute;
@@ -41,21 +42,14 @@
 		width: 84px;
 		height: 84px;
 		border-radius: 50%;
+		background: var(--background);
 	}
 }
 
 .loaderDark {
 	background: linear-gradient(0deg, $dark-5 15%, $dark-2 60%, $main 100%);
-
-	&::after {
-		background: $white;
-	}
 }
 
 .loaderWhite {
 	background: linear-gradient(0deg, $white-5 15%, $white-2 60%, $white 100%);
-
-	&::after {
-		background: $main;
-	}
 }

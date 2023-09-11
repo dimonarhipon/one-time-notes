@@ -21,6 +21,7 @@ html[data-theme='theme-light'] {
 	--add-button-border: #151515;
 	--shadow: 2px 4px 4px 0px;
 	--scroll-color: #151515 rgba(0, 0, 0, 0.2);
+	--loader-gradient: linear-gradient(0deg, rgba(20, 20, 20, 0.4) 15%, rgba(21, 21, 21, 0.8) 60%, #151515 100%)
 }
 
 html[data-theme='theme-dark'] {
@@ -33,4 +34,5 @@ html[data-theme='theme-dark'] {
 	--add-button-border: #ffffff;
 	--shadow: 2px 4px 4px 0px rgba(255, 255, 255, 0.2);
 	--scroll-color: #ffffff;
+	--loader-gradient: linear-gradient(0deg, rgba(255, 255, 255, 0.15) 15%, rgba(255, 255, 255, 0.9) 60%, #ffffff 100%)
 }
