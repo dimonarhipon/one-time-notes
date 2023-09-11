@@ -34,30 +34,6 @@ $shadow-button: 2px 4px 4px 0px rgba(182, 233, 101, 0.6);
 $shadow-white: 2px 4px 4px 0px rgba(255, 255, 255, 0.2);
 $shadow-dark: 2px 4px 4px 0px $dark-6;
 
-html[data-theme='theme-light'] {
-	--text-color: #151515;
-	--text-filter: rgba(21, 21, 21, 0.8);
-	--background: rgba(255, 255, 255, 0.9);
-	--input-border: #151515;
-	--input-text: #151515;
-	--add-button: transparent;
-	--add-button-border: #151515;
-	--shadow: 2px 4px 4px 0px;
-	--scroll-color: #151515 rgba(0, 0, 0, 0.2);
-}
-
-html[data-theme='theme-dark'] {
-	--text-color: #ffffff;
-	--text-filter: rgba(255, 255, 255, 0.8);
-	--background: #151515;
-	--input-border: #ffffff;
-	--input-text: #ffffff;
-	--add-button: #ffffff;
-	--add-button-border: #ffffff;
-	--shadow: 2px 4px 4px 0px rgba(255, 255, 255, 0.2);
-	--scroll-color: #ffffff;
-}
-
 $overpass: 'Overpass';
 $radius-modal: 26px;
 $radius-modal-2: 20px;
