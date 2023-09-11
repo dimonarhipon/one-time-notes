@@ -1,5 +1,3 @@
-@import '@/shared/styles/vars.scss';
-
 @keyframes closeAnimate {
 	0% {
 		transform: translateX(0);
@@ -19,7 +17,8 @@
 	padding: 20px;
 	justify-content: center;
 	align-items: center;
-	background-color: $main;
+	background-color: var(--background);
+	transition: all 0.5s linear;
 	z-index: 2;
 }
 

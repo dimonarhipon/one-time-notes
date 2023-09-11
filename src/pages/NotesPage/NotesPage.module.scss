@@ -6,10 +6,11 @@
 		'sidebar header'
 		'sidebar content';
 
-	background-color: $main;
+	background-color: var(--background);
 	width: 100vw;
 	height: 100dvh;
 	scrollbar-gutter: auto;
+	transition: all 0.2s linear;
 
 	@include respond-to($mobile) {
 		display: flex;

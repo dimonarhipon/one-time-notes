@@ -1,10 +1,9 @@
 import styles from './Header.module.scss';
 import { SvgIcon } from '@/shared/SvgIcon';
-import { useState } from 'react';
 import { IconName, Theme } from '@/shared/contants';
+import { SwitchTheme } from '../SwitchTheme/SwitchTheme';
 
 const H1_NAME = 'Одноразовые заметки';
-const LABEL_THEME = 'Переключить тему';
 const LABEL_LANGUAGE = 'Выбрать язык из списка';
 
 type THeaderProps = {
@@ -12,15 +11,12 @@ type THeaderProps = {
 };
 
 const Header = ({ className }: THeaderProps) => {
-	const [darkTheme, setDarkTheme] = useState<boolean>(true);
 	return (
 		<header className={`${styles.header} ${className}`} role='banner'>
 			<h1 className={styles.title}>{H1_NAME}</h1>
 
 			<div className={styles.appControl}>
-				<button className={styles.button} aria-label={LABEL_THEME} onClick={() => setDarkTheme(!darkTheme)}>
-					<SvgIcon name={darkTheme ? IconName.ThemeLight : IconName.ThemeDark} width='24' height='24' />
-				</button>
+				<SwitchTheme />
 				<button className={styles.button} aria-label={LABEL_LANGUAGE}>
 					<SvgIcon name={IconName.Translate} width='24' height='24' stroke={Theme.Light} />
 				</button>

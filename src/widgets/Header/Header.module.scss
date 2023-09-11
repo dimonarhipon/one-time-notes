@@ -22,7 +22,8 @@
 	line-height: 41px;
 	font-style: normal;
 	font-weight: 400;
-	color: $white;
+	color: var(--text-color);
+	transition: all 0.5s linear;
 
 	@include respond-to($tablet) {
 		font-size: 24px;

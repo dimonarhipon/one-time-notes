@@ -9,19 +9,19 @@
 	width: 45px;
 	height: 45px;
 	padding: 0;
-	border: 1px solid $white;
+	border: 1px solid var(--add-button-border);
 	border-radius: 12px;
-	background: $white;
+	background: var(--add-button);
 	transition: 0.3s ease;
 	box-shadow: none;
 
 	&:hover,
 	&:active {
-		box-shadow: $shadow-white;
+		box-shadow: var(--shadow);
 	}
 
 	&:focus {
-		box-shadow: $shadow-white;
+		box-shadow: var(--shadow);
 	}
 
 	&:disabled {
