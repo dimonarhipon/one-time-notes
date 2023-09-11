@@ -7,7 +7,7 @@ type TIcon = {
 	height?: string;
 	className?: string;
 	ariaLabel?: string;
-	name: string | undefined;
+	name: string;
 };
 
 export const SvgIcon: FC<TIcon> = ({
