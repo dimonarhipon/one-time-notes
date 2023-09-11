@@ -30,8 +30,13 @@ export enum IconName {
 	Eye = 'eye',
 	EyeSlash = 'eye-slash',
 }
-
+// ThemeColor
 export enum Theme {
 	Light = '#fff',
 	Dark = '#151515',
+}
+
+export enum ThemeName {
+	Light = 'theme-light',
+	Dark = 'theme-dark',
 }
