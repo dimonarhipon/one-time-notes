@@ -51,7 +51,7 @@ const Search = ({
 					type='button'
 					onClick={(event) => event.preventDefault()}
 				>
-					<SvgIcon name={IconName.Search} fill={Theme.Light} />
+					<SvgIcon name={IconName.Search} className={styles.searchIcon} />
 				</button>
 			</div>
 			<div className={styles.sorts}>

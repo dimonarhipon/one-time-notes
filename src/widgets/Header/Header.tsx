@@ -18,7 +18,7 @@ const Header = ({ className }: THeaderProps) => {
 			<div className={styles.appControl}>
 				<SwitchTheme />
 				<button className={styles.button} aria-label={LABEL_LANGUAGE}>
-					<SvgIcon name={IconName.Translate} width='24' height='24' stroke={Theme.Light} />
+					<SvgIcon name={IconName.Translate} width='24' height='24' className={styles.langIcon}  />
 				</button>
 			</div>
 		</header>

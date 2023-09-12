@@ -3,7 +3,8 @@
 	align-items: center;
 	justify-content: center;
 	height: 100vh;
-	background-color: $main;
+	background-color: var(--background-modal);
+	transition: all 0.5s linear;
 }
 
 .form {
@@ -30,7 +31,7 @@
 	border: none;
 	background-color: $green;
 
-	font-family: Overpass;
+	font-family: $overpass;
 	font-size: 20px;
 	font-weight: 400;
 

@@ -15,24 +15,28 @@ html[data-theme='theme-light'] {
 	--text-color: #151515;
 	--text-filter: rgba(21, 21, 21, 0.8);
 	--background: rgba(255, 255, 255, 0.9);
+	--background-modal: rgba(21, 21, 21, 0.06);
 	--input-border: #151515;
 	--input-text: #151515;
 	--add-button: transparent;
 	--add-button-border: #151515;
 	--shadow: 2px 4px 4px 0px;
 	--scroll-color: #151515 rgba(0, 0, 0, 0.2);
-	--loader-gradient: linear-gradient(0deg, rgba(20, 20, 20, 0.4) 15%, rgba(21, 21, 21, 0.8) 60%, #151515 100%)
+	--loader-gradient: linear-gradient(0deg, rgba(20, 20, 20, 0.4) 15%, rgba(21, 21, 21, 0.8) 60%, #151515 100%);
+	--theme-icon-error: #ff7a7a;
 }
 
 html[data-theme='theme-dark'] {
 	--text-color: #ffffff;
 	--text-filter: rgba(255, 255, 255, 0.8);
 	--background: #151515;
+	--background-modal: #151515;
 	--input-border: #ffffff;
 	--input-text: #ffffff;
 	--add-button: #ffffff;
 	--add-button-border: #ffffff;
 	--shadow: 2px 4px 4px 0px rgba(255, 255, 255, 0.2);
 	--scroll-color: #ffffff;
-	--loader-gradient: linear-gradient(0deg, rgba(255, 255, 255, 0.15) 15%, rgba(255, 255, 255, 0.9) 60%, #ffffff 100%)
+	--loader-gradient: linear-gradient(0deg, rgba(255, 255, 255, 0.15) 15%, rgba(255, 255, 255, 0.9) 60%, #ffffff 100%);
+	--theme-icon-error: #d4ff90;
 }

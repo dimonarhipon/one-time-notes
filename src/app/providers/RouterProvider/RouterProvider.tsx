@@ -4,6 +4,7 @@ import store from '@/store/store';
 import { HomePage, LoginPage, RegisterPage, ErrorPage, ModalPage } from '@/pages';
 import { PrivateRoute } from './PrivatRouter';
 import { AppRoute } from '@/shared/contants';
+import { useTheme } from '@/widgets/SwitchTheme/utils';
 
 const router = createBrowserRouter([
 	{
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
 ]);
 
 export const RouterProvider = () => {
+	useTheme();
 	return (
 		<Provider store={store}>
 			<ReactRouterProvider router={router} />
