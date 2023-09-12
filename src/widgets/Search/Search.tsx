@@ -3,7 +3,7 @@ import { ChangeEvent } from 'react';
 import { SortByDate } from '@/shared/lib/sortByDate';
 import { SortByCompleted } from '@/shared/lib/sortByCompleted';
 import { SvgIcon } from '@/shared/SvgIcon';
-import { IconName, Theme } from '@/shared/contants';
+import { IconName } from '@/shared/contants';
 
 type TSearchProps = {
 	searchForNotes: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -51,7 +51,7 @@ const Search = ({
 					type='button'
 					onClick={(event) => event.preventDefault()}
 				>
-					<SvgIcon name={IconName.Search} fill={Theme.Light} />
+					<SvgIcon name={IconName.Search} className={styles.searchIcon} />
 				</button>
 			</div>
 			<div className={styles.sorts}>

@@ -1,6 +1,6 @@
 import styles from './Header.module.scss';
 import { SvgIcon } from '@/shared/SvgIcon';
-import { IconName, Theme } from '@/shared/contants';
+import { IconName } from '@/shared/contants';
 import { SwitchTheme } from '../SwitchTheme/SwitchTheme';
 
 const H1_NAME = 'Одноразовые заметки';
@@ -18,7 +18,7 @@ const Header = ({ className }: THeaderProps) => {
 			<div className={styles.appControl}>
 				<SwitchTheme />
 				<button className={styles.button} aria-label={LABEL_LANGUAGE}>
-					<SvgIcon name={IconName.Translate} width='24' height='24' stroke={Theme.Light} />
+					<SvgIcon name={IconName.Translate} width='24' height='24' className={styles.langIcon}  />
 				</button>
 			</div>
 		</header>

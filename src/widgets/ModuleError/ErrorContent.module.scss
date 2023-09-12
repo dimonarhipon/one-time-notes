@@ -12,7 +12,7 @@
 .errorMessege {
 	margin-top: 20px;
 
-	color: $green-3;
+	color: var(--theme-icon-error);
 	text-decoration: none;
 	border: none;
 	font-size: 24px;
@@ -25,7 +25,7 @@
 }
 
 .errorSvg {
-	color: $green-3;
+	color: var(--theme-icon-error);
 	width: 480px;
 	@include respond-to($tablet) {
 		width: 380px;
@@ -36,5 +36,5 @@
 }
 
 .line {
-	stroke: $green-3;
+	stroke: var(--theme-icon-error);
 }

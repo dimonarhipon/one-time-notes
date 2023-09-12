@@ -108,3 +108,8 @@
 		background-color: $white-hover;
 	}
 }
+
+.searchIcon {
+	transition: 0.2s linear;
+	fill: var(--text-color);
+}
