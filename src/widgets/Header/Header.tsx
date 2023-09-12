@@ -1,6 +1,6 @@
 import styles from './Header.module.scss';
 import { SvgIcon } from '@/shared/SvgIcon';
-import { IconName, Theme } from '@/shared/contants';
+import { IconName } from '@/shared/contants';
 import { SwitchTheme } from '../SwitchTheme/SwitchTheme';
 
 const H1_NAME = 'Одноразовые заметки';
