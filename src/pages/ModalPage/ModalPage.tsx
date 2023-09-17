@@ -24,6 +24,12 @@ export const ModalPage = () => {
             switch (res.status) {
                 case 200:
                     res.json().then(note => {
+                        if (note === null){
+                            SetFetch({
+                                content: 'Страница удалена',
+                                fetchStatus: 400,
+                            });
+                        }
                         SetFetch({
                             content: note.content,
                             title: note.title,
