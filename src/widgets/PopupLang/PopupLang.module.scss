@@ -1,0 +1,60 @@
+.popup {
+	position: absolute;
+	top: 41px;
+	right: 0;
+	left: auto;
+
+	width: 195px;
+	height: auto;
+	padding: 10px 20px 20px;
+	border: none;
+	border-radius: $radius-modal-2;
+	background-color: var(--background-popup);
+
+	transition: 0.3s ease;
+	z-index: $zIndexModal;
+}
+
+.list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.listItem {
+	margin-top: 20px;
+
+	&.active {
+		text-decoration: underline;
+	}
+}
+
+.title {
+	font-family: $overpass;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 18px;
+	color: var(--text-popup);
+
+	text-align: center;
+}
+
+.text {
+	font-family: $overpass;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 18px;
+}
+
+.button {
+	padding: 0;
+	border: 0;
+	background-color: transparent;
+	text-decoration: inherit;
+	color: var(--text-popup);
+	transition: 0.3s ease;
+
+	cursor: pointer;
+}

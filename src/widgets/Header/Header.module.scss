@@ -54,4 +54,13 @@
 		margin-right: 0;
 		margin-top: 0;
 	}
+
+	@include respond-to($mobile) {
+		position: absolute;
+		flex-direction: column;
+    top: -4px;
+    margin-right: 3px;
+    gap: 5px;
+    z-index: $zIndexBase;
+	}
 }

@@ -47,6 +47,9 @@ $tablet: 'tablet';
 $desktop: 'desktop';
 $large: 'large';
 
+$zIndexBase: 1;
+$zIndexModal: 2;
+
 $breakpoints: (
 	small: (
 		max-width: 320px,
