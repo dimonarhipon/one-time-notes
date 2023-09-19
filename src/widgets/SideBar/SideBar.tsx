@@ -14,10 +14,7 @@ import { getNotesFromDB, assignNotes } from '@/store/notes.slice';
 import TNoteType from '@/shared/lib/NoteType';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { Navigate } from 'react-router-dom';
-
-const myNotes = 'Мои заметки';
-const noNotes = 'Заметок пока нет';
-const noSearch = 'Поиск не дал результатов';
+import { useTranslation } from 'react-i18next';
 
 const fulfilledText = 'fulfilled';
 const loadingText = 'loading';
@@ -29,6 +26,7 @@ type TSidebarProps = {
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const SideBar = ({ className }: TSidebarProps) => {
+	const { t } = useTranslation();
 	const notes = useAppSelector((state) => state.notes.notes);
 	const { status } = useAppSelector((state) => state.notes);
 
@@ -78,12 +76,12 @@ const SideBar = ({ className }: TSidebarProps) => {
 					stateDate={sortByDate}
 					stateCompleted={sortByCompleted}
 				/>
-				<h2 className={styles.title}>{myNotes}</h2>
+				<h2 className={styles.title}>{t('h2')}</h2>
 				{isLoading && <Loader />}
 			</div>
 			<div className={styles.notes}>
-				{isNoNotes && <p className={styles.empty}>{noNotes}</p>}
-				{isNoSearch && <p className={styles.empty}>{noSearch}</p>}
+				{isNoNotes && <p className={styles.empty}>{t('noNotes')}</p>}
+				{isNoSearch && <p className={styles.empty}>{t('noSearch')}</p>}
 
 				{notes.length > 0 &&
 					userNotes

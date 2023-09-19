@@ -17,6 +17,7 @@ html[data-theme='theme-light'] {
 	--text-filter: rgba(21, 21, 21, 0.8);
 	--background: rgba(255, 255, 255, 0.9);
 	--background-modal: rgba(21, 21, 21, 0.06);
+	--background-active: rgba(20, 20, 20, 0.4);
 	--background-popup: #151515;
 	--input-border: #151515;
 	--input-text: #151515;
@@ -34,6 +35,7 @@ html[data-theme='theme-dark'] {
 	--text-filter: rgba(255, 255, 255, 0.8);
 	--background: #151515;
 	--background-modal: #151515;
+	--background-active: rgba(255, 255, 255, 0.6);
 	--background-popup: #ffffff;
 	--input-border: #ffffff;
 	--input-text: #ffffff;

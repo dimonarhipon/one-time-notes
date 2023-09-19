@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
 import ButtonCreate from '@/widgets/ButtonCreate/ButtonCreate';
-
+import { useTranslation } from 'react-i18next';
 import styles from './NewNoteForm.module.scss';
 
 const newTitlePlaceholder = 'Новая заметка';
-const newTextareaPlaceholder = 'Напиши свой секрет здесь...';
 
 const NewNoteForm = () => {
+	const { t } = useTranslation();
 	const [noteTitle, setNoteTitle] = useState('');
 	const [noteBody, setNoteBody] = useState('');
 
@@ -23,7 +23,7 @@ const NewNoteForm = () => {
 				value={noteBody}
 				onChange={(event) => setNoteBody(event.target.value)}
 				className={styles.textarea}
-				placeholder={newTextareaPlaceholder}
+				placeholder={t('placeholderTextarea')}
 			/>
 
 			<ButtonCreate text='Создать' />
