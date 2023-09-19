@@ -7,7 +7,7 @@ import { PopupLang } from '../PopupLang/PopupLang';
 const LABEL_LANGUAGE = 'Выбрать язык из списка';
 
 export const SelectLang = () => {
-	const [popupStatus , setStatusPopup] = useState(false);
+	const [popupStatus , setStatusPopup] = useState<boolean>(false);
 
 	return (
 		<div className={styles.wrap}>
