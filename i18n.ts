@@ -18,12 +18,28 @@ i18n
     resources: {
       en: {
         translation: {
-          'h1': 'One time notes'
+          'h1': 'One time notes',
+					'h2': 'My notes',
+					'сhooseLang': 'Choose language',
+					'placeholderSearch': 'Find note...',
+					'noNotes': 'No notes yet',
+					'noSearch': 'The search has not given any results',
+					'filterDate': 'Date',
+					'filterColor': 'Color',
+					'placeholderTextarea': 'Write your secret here...'
         }
       },
 			ru: {
 				translation: {
-					'h1': 'Одноразовые заметки'
+					'h1': 'Одноразовые заметки',
+					'h2': 'Мои заметки',
+					'сhooseLang': 'Выберите язык',
+					'placeholderSearch': 'Найти заметку...',
+					'noNotes': 'Заметок пока нет',
+					'noSearch': 'Поиск не дал результатов',
+					'filterDate': 'По дате',
+					'filterColor': 'По цвету',
+					'placeholderTextarea': 'Напиши свой секрет здесь...'
 				}
 			}
     }

@@ -11,7 +11,7 @@ enum Lang {
 }
 
 export const PopupLang = ({ open }: TPopupLang) => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
 	const onSwitchLangClick = (language: string) => {
     i18n.changeLanguage(language);
@@ -19,7 +19,7 @@ export const PopupLang = ({ open }: TPopupLang) => {
 	return (
 		<dialog className={styles.popup} open={open}>
 			<div className={styles.title}>
-				Выберите язык
+				{t('сhooseLang')}
 			</div>
 			<ul className={styles.list}>
 				<li className={`${styles.listItem}`}>
