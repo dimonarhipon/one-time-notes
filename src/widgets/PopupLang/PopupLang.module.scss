@@ -23,10 +23,6 @@
 
 .listItem {
 	margin-top: 20px;
-
-	&.active {
-		text-decoration: underline;
-	}
 }
 
 .title {
@@ -60,6 +56,10 @@
 	&:hover,
 	&:focus {
 		transition: 0.3s ease;
+		text-decoration: underline;
+	}
+
+	&.active {
 		text-decoration: underline;
 	}
 
